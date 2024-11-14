@@ -1,9 +1,9 @@
-package library;
+package com.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
-import narration.Narrator;
+import com.narration.Narrator;
 
 /**
  * @author Madeleine McBride and Lea Frost
