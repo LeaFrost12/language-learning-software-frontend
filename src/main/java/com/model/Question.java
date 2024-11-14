@@ -1,4 +1,4 @@
-package library;
+package com.model;
 
 /**
  * Question class that is over WordBank.java, Matching.java, etc.
