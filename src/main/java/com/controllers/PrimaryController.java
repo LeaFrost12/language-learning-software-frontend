@@ -1,6 +1,11 @@
-package com.language;
+package com.controllers;
+
+import com.language.App;
 
 import java.io.IOException;
+
+import com.language.App;
+
 import javafx.fxml.FXML;
 
 public class PrimaryController {
