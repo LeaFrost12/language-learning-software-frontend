@@ -15,5 +15,8 @@ module com.language {
 
     opens com.language to javafx.fxml;
     exports com.language;
+
+    opens com.narration to javafx.fxml;
+    exports com.narration;
     
 }
