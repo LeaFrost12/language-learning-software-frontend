@@ -1,10 +1,6 @@
-package com.controllers;
-
-import com.language.App;
+package com.language;
 
 import java.io.IOException;
-
-import com.language.App;
 
 import javafx.fxml.FXML;
 
