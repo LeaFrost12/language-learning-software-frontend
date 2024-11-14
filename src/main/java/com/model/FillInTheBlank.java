@@ -1,10 +1,10 @@
-package library;
+package com.model;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import narration.Narrator;
+import com.narration.Narrator;
 
 /**
  * FillInTheBlank class is a type of question where the user will be given a

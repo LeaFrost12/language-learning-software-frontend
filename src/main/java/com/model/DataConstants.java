@@ -1,4 +1,4 @@
-package library;
+package com.model;
 
 public abstract class DataConstants {
 
