@@ -1,4 +1,4 @@
-package library;
+package com.model;
 /**
  * Enumeration for QuestionTypes, used by the Question.java class
  * @author Cody Miller

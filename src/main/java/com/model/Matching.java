@@ -1,4 +1,4 @@
-package library;
+package com.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
-import narration.Narrator;
+import com.narration.Narrator;
 
 /**
  * Matching class is a type of question where the user will be given English

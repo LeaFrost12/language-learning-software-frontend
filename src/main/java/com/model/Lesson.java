@@ -1,10 +1,10 @@
-package library;
+package com.model;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
-import narration.Narrator;
+import com.narration.Narrator;
 
 import java.util.Scanner;
 
