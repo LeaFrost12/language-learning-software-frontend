@@ -10,7 +10,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.model.*;
+import com.model.DataWriter;
+import com.model.Language;
+import com.model.LanguageList;
+import com.model.Lesson;
+import com.model.Unit;
+import com.model.User;
+import com.model.UserList;
 
 public class UserTest {
     private UserList userList = UserList.getInstance();
@@ -92,13 +98,13 @@ public class UserTest {
 
     @Test
     void testValidUserMin() {
-        boolean minValidUser = User.validPass("abc"); //3 characters
+        boolean minValidUser = User.validUser("abc"); //3 characters
         assertTrue(minValidUser);
     }
 
     @Test
     void testValidUserMax() {
-        boolean maxValidUser = User.validPass("abcdefghijklmnopqrst"); //20 characters
+        boolean maxValidUser = User.validUser("abcdefghijklmnopqrst"); //20 characters
         assertTrue(maxValidUser);
     }
 
