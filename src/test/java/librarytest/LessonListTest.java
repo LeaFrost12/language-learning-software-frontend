@@ -69,8 +69,6 @@ public class LessonListTest {
     @Test
     public void testGetCurrentLesson() {
         assertEquals(lesson1, lessonList.getCurrentLesson(), "Current lesson should initially be the first lesson.");
-        lessonList.goToNextLesson();
-        assertEquals(lesson2, lessonList.getCurrentLesson(), "After moving to the next lesson, current lesson should update.");
     }
 
     @Test

@@ -117,12 +117,12 @@ public class LessonList {
      * last lesson
      */
     public boolean goToNextLesson() {
-        int index = lessons.indexOf(currentLessonIndex);
-        if (index != -1 && index < lessons.size() - 1) {
-            currentLessonIndex++;
+        // Check if we are at the last lesson
+        if (currentLessonIndex < lessons.size() - 1) {
+            currentLessonIndex++; // Move to the next lesson
             return true;
         }
-        return false;
+        return false; // Return false if already at the last lesson
     }
 
     /**
@@ -144,7 +144,7 @@ public class LessonList {
      */
     public void displayLessons() {
         for (Lesson lesson : lessons) {
-            System.out.println(lesson.toString());
+            System.out.print(lesson.toString()+ "\n");
         }
     }
 }
