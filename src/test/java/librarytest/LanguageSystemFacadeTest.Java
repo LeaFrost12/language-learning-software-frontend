@@ -14,7 +14,7 @@ public class LanguageSystemFacadeTest {
     private User testUser;
     private Language testLanguage;
 
-    @BeforeEach
+    @BeforeEach 
     public void setup() {
         userList = UserList.getInstance();
         languageList = LanguageList.getInstance();

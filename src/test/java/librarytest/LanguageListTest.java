@@ -93,12 +93,12 @@ public class LanguageListTest {
 
     @Test
     public void testContainsLanguageInvalid() {
-        assertFalse(languageList.contains("Mandarin"), "Should return false for non-existent language 'Mandarin'");
+        assertFalse(languageList.contains("Mandarin"));
     }
 
     @Test
     public void testContainsLanguageEmpty() {
-        assertFalse(languageList.contains(""), "Should return false for empty language");
+        assertFalse(languageList.contains(""));
     }
 
 }

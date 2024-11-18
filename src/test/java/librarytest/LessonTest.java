@@ -1,13 +1,20 @@
 package librarytest;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
-import com.model.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.model.LanguageList;
+import com.model.LanguagesEnum;
+import com.model.Lesson;
+import com.model.User;
+import com.model.Word;
+import com.model.WordList;
 
 public class LessonTest {
 
@@ -37,7 +44,7 @@ public class LessonTest {
 
     @Test
     public void canMoveToNextLesson_ShouldReturnTrue_WhenSufficientCorrectAnswers() {
-        for (int i = 0; i < Lesson.REQUIRED_CORRECT_ANSWERS; i++) {
+        for (int i = 0; i < Lesson.getREQUIRED_CORRECT_ANSWERS(); i++) {
             lesson.runRandomQuestion(mockUser);
         }
         assertTrue(lesson.canMoveToNextLesson(), "User should be able to move to the next lesson after sufficient correct answers.");
@@ -45,7 +52,7 @@ public class LessonTest {
 
     @Test
     public void shouldFailCurrentLesson_ShouldReturnTrue_WhenExceededMaxWrongAnswers() {
-        for (int i = 0; i < Lesson.MAX_WRONG_ANSWERS + 1; i++) {
+        for (int i = 0; i < Lesson.getMAX_WRONG_ANSWERS() + 1; i++) {
             lesson.runRandomQuestion(mockUser);
         }
         assertTrue(lesson.shouldFailCurrentLesson(), "User should fail the lesson after exceeding maximum wrong answers.");
