@@ -28,21 +28,44 @@ public class MultipleChoice implements Question {
      * @param words ArrayList of the lesson's quizzable words
      */
     public MultipleChoice(ArrayList<Word> words) {
-        this.choices = new ArrayList<>();
 
-        Collections.shuffle(words);
+        if(words.size() == 0) {
 
-        this.word = words.get(0);
-        this.answer = words.get(0).getForeignWord();
-        this.question = words.get(0).getExampleSentence();
-        this.choices.add(answer);
-
-        for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
-            choices.add(words.get(i).getForeignWord());
         }
+        else if(words.size() <= 4) {
+            this.choices = new ArrayList();
 
-        Collections.shuffle(this.choices);
-        correctIndex = choices.indexOf(answer);
+            Collections.shuffle(words);
+
+            this.word = words.get(0);
+            this.answer = words.get(0).getForeignWord();
+            this.question = words.get(0).getExampleSentence();
+            this.choices.add(answer);
+
+            for(int i = 1; i<words.size(); i++) {
+                choices.add(words.get(i).getForeignWord());
+            }
+
+            Collections.shuffle(this.choices);
+            correctIndex = choices.indexOf(answer);
+        }
+        else {
+            this.choices = new ArrayList<>();
+
+            Collections.shuffle(words);
+
+            this.word = words.get(0);
+            this.answer = words.get(0).getForeignWord();
+            this.question = words.get(0).getExampleSentence();
+            this.choices.add(answer);
+
+            for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
+                choices.add(words.get(i).getForeignWord());
+            }
+
+            Collections.shuffle(this.choices);
+            correctIndex = choices.indexOf(answer);
+        }
     }
 
     /**
@@ -52,23 +75,52 @@ public class MultipleChoice implements Question {
      * @param seed random seed
      */
     public MultipleChoice(ArrayList<Word> words, int seed) {
-        Random rand = new Random(seed);
+        
+        if(words.size() == 0) {
 
-        this.choices = new ArrayList<>();
-
-        Collections.shuffle(words,rand);
-
-        this.word = words.get(0);
-        this.answer = words.get(0).getForeignWord();
-        this.question = words.get(0).getExampleSentence();
-        this.choices.add(answer);
-
-        for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
-            choices.add(words.get(i).getForeignWord());
         }
+        else if(words.size() <= 4) {
+            Random rand = new Random(seed);
 
-        Collections.shuffle(this.choices,rand);
-        correctIndex = choices.indexOf(answer);
+            this.choices = new ArrayList<>();
+
+            Collections.shuffle(words,rand);
+
+            if(words.get(0) != null) {
+                this.word = words.get(0);
+                this.answer = words.get(0).getForeignWord();
+                this.question = words.get(0).getExampleSentence();
+                this.choices.add(answer);
+
+                for (int i = 1; i < words.size(); i++) { //Populating the answers, english, and foreign word lists/maps
+                    choices.add(words.get(i).getForeignWord());
+                }
+
+                Collections.shuffle(this.choices,rand);
+                correctIndex = choices.indexOf(answer);
+            }
+        }
+        else {
+            Random rand = new Random(seed);
+
+            this.choices = new ArrayList<>();
+
+            Collections.shuffle(words,rand);
+
+            if(words.get(0) != null) {
+                this.word = words.get(0);
+                this.answer = words.get(0).getForeignWord();
+                this.question = words.get(0).getExampleSentence();
+                this.choices.add(answer);
+
+                for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
+                    choices.add(words.get(i).getForeignWord());
+                }
+
+                Collections.shuffle(this.choices,rand);
+                correctIndex = choices.indexOf(answer);
+            }
+        }
     }
 
     /**
@@ -78,7 +130,17 @@ public class MultipleChoice implements Question {
      * @return returns true if the answer is correct, false otherwise
      */
     public boolean checkAnswer(String answer) {
-        return (this.answer.equalsIgnoreCase(answer) || this.correctIndex == (Integer.parseInt(answer)-1));
+        if(this.answer.equalsIgnoreCase(answer)) {
+            return true;
+        }
+        else {
+            try {
+                return (this.correctIndex == (Integer.parseInt(answer)-1));
+            } 
+            catch (Exception e) {
+                return false;
+            }
+        }
     }
 
     /**
