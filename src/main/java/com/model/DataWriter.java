@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
  * The DataWriter class is responsible for writing the data to JSON files. Its
  * methods are used to save a list of users to a JSON file, save a list of
  * languages, units and lessons to a JSON file and save the users progress. It
- * uses the org.json.simple library to create the JSON objects used for the
+ * uses the org.json.simple com.model to create the JSON objects used for the
  * files.
  *
  * @author Sofia Bacha

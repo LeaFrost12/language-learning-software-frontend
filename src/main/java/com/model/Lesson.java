@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import com.narration.Narrator;
 
+import java.util.Scanner;
+
 /**
  * Represents a language lesson, containing questions, words, and progress
  * tracking.
