@@ -1,5 +1,4 @@
 package com.model;
-package com.model;
 
 import java.util.ArrayList;
 import java.util.Random;
