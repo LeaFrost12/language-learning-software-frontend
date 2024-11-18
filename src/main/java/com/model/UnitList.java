@@ -54,7 +54,7 @@ public class UnitList {
         if (index != -1 && index < units.size() - 1) {
             return units.get(index + 1);
         }
-        return null;
+        return null; // Return null if the current unit is the last one or not found
     }
 
     /**

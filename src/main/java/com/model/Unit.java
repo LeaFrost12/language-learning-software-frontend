@@ -76,7 +76,10 @@ public class Unit {
      * @return the next unit or null if there are no more units
      */
     public Unit nextUnit() {
-        return unitList.nextUnit(this);
+        if (unitList.goToNextUnit()) {
+            return unitList.getCurrentUnit();
+        }
+        return null; // No more units to move to
     }
 
     /**

@@ -38,20 +38,31 @@ public class UserDriver {
             displayMainMenu();
             int choice = getChoice();
             switch (choice) {
-                case 1 -> loginUser();
-                case 2 -> registerUser();
-                case 3 -> {
+                case 1:
+                    loginUser();
+                    break;
+                case 2:
+                    registerUser();
+                    break;
+                case 3:
                     if (currentUser != null) {
                         chooseLanguage();
                     } else {
                         System.out.println("Please log in first.");
                     }
-                }
-                case 4 -> viewProblemWords();
-                case 5 -> logoutUser();
-                case 6 -> exit = true;
-                
-                default -> System.out.println("Invalid choice. Please try again.");
+                    break;
+                case 4:
+                    viewProblemWords();
+                    break;
+                case 5:
+                    logoutUser();
+                    break;
+                case 6:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
             }
             DataWriter.saveUsers();
         }

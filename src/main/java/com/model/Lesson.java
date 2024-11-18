@@ -1,7 +1,9 @@
 package com.model;
+package com.model;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.UUID;
 
 import com.narration.Narrator;
@@ -102,16 +104,19 @@ public class Lesson {
         Random rand = new Random();
         Question question;
 
-        question = switch (rand.nextInt(4)) {
-            case 0 ->
-                new FillInTheBlank(wordList.getWords());
-            case 1 ->
-                new Matching(wordList.getWords());
-            case 2 ->
-                new MultipleChoice(wordList.getWords());
-            default ->
-                new WordBank(wordList.getWords());
-        };
+        switch(rand.nextInt(4)) {
+            case 0:
+                question = new FillInTheBlank(wordList.getWords());
+                break;
+            case 1:
+                question = new Matching(wordList.getWords());
+                break;
+            case 2:
+                question = new MultipleChoice(wordList.getWords());
+                break;
+            default:
+                question = new WordBank(wordList.getWords());
+        }
 
         return question.run(user);
     }

@@ -2,7 +2,7 @@ package com.model;
 
 public abstract class DataConstants {
 
-    protected static final String USERS_FILE_NAME = "src/main/java/data/user.json";
+    protected static final String USERS_FILE_NAME = "src/main/java/com/data/user.json";
     protected static final String USERS_FILE_NAME_JUNIT = "/data/user.json";
     protected static final String USERS = "users";
     protected static final String USERS_FIRST_NAME = "firstName";
@@ -25,7 +25,7 @@ public abstract class DataConstants {
     protected static final String USERS_WORD_PART_OF_SPEECH = "partOfSpeech";
     protected static final String USERS_WORD_EXAMPLE_SENTENCE = "exampleSentence";
 
-    protected static final String LANGUAGE_FILE_NAME = "src/main/java/data/language.json";
+    protected static final String LANGUAGE_FILE_NAME = "src/main/java/com/data/language.json";
     protected static final String LANGUAGE_FILE_NAME_JUNIT = "/data/language.json";
     protected static final String LANGUAGE_ENUM = "languageEnum";
     protected static final String LANGUAGE_NAME = "languageName";
