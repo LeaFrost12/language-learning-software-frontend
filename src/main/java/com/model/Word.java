@@ -44,6 +44,21 @@ public class Word {
     }
 
     /**
+     * Constructs a Word with the specified text and translation only.
+     *
+     * @param text            the text of the word in the foreign language
+     * @param translation     the translation of the word in the user's native language
+     * @param partOfSpeech    the part of speech of the word (e.g., noun, verb, adjective)
+     * @param exampleSentence an example sentence using the word
+     */
+    public Word(String text, String translation, String partOfSpeech, String exampleSentence) {
+        this.text = text;
+        this.translation = translation;
+        this.partOfSpeech = null;
+        this.exampleSentence = null;
+    }
+
+    /**
      * Returns the UUID of the word.
      *
      * @return the UUID of the word

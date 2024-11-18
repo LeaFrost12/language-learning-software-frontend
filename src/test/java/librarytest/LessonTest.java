@@ -14,6 +14,7 @@ public class LessonTest {
     private Lesson lesson;
     private User mockUser;
     private WordList wordList;
+    private static LanguageList languageList;
 
     @BeforeEach
     public void setup() {
@@ -23,7 +24,9 @@ public class LessonTest {
 
         lesson = new Lesson("Sample Lesson", 1, wordList);
 
-        mockUser = new User("Test", "User", "test@example.com", "1234567890", "testUser", "Password123!", LanguagesEnum.SPANISH, UUID.randomUUID(), UUID.randomUUID());
+        languageList = LanguageList.getInstance();
+
+        mockUser = new User("Test", "User", "test@example.com", "1234567890", "testUser", "Password123!", languageList.getLanguageByEnum(LanguagesEnum.SPANISH), UUID.randomUUID(), UUID.randomUUID());
     }
 
     @Test

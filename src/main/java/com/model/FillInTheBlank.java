@@ -27,10 +27,17 @@ public class FillInTheBlank implements Question {
      */
     public FillInTheBlank(ArrayList<Word> words) {
 
-        Random rand = new Random();
-        this.answerWord = words.get(rand.nextInt(words.size()));
+        if(words.isEmpty()) {
+            System.out.println("Hint: hello");
 
-        if(answerWord != null) {
+            this.answerWord = new Word("hola","hello");
+            this.answer = "hola";
+            this.question = "____, mi nombre es Lea.";
+        }
+        else {
+            Random rand = new Random();
+            this.answerWord = words.get(rand.nextInt(words.size()));
+
             System.out.println("Hint: " + answerWord.getTranslatedWord());
             
             this.answer = answerWord.getForeignWord();
@@ -45,14 +52,24 @@ public class FillInTheBlank implements Question {
      * @param seed random seed
      */
     public FillInTheBlank(ArrayList<Word> words, int seed) {
-        Random rand = new Random(seed);
-        this.answerWord = words.get(rand.nextInt(words.size()));
 
-        if(answerWord != null) {
-            System.out.println("Hint: " + answerWord.getTranslatedWord());
+        if(words.isEmpty()) {
+            System.out.println("Hint: hello");
 
-            this.answer = answerWord.getForeignWord();
-            this.question = answerWord.getExampleSentence();
+            this.answerWord = new Word("hola","hello");
+            this.answer = "hola";
+            this.question = "____, mi nombre es Lea.";
+        }
+        else {
+            Random rand = new Random(seed);
+            this.answerWord = words.get(rand.nextInt(words.size()));
+
+            if(this.answerWord != null) {
+                System.out.println("Hint: " + answerWord.getTranslatedWord());
+
+                this.answer = answerWord.getForeignWord();
+                this.question = answerWord.getExampleSentence();
+            }
         }
     }
 
