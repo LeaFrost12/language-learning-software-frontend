@@ -55,29 +55,44 @@ public class Matching implements Question {
      * @param seed random seed
      */
     public Matching(ArrayList<Word> words, int seed) {
-        Random rand = new Random(seed);
 
-        englishWords = new ArrayList<>();
-        foreignWords = new ArrayList<>();
-        answers = new HashMap<>();
-        originalWords = new ArrayList<>();
-
-        Collections.shuffle(words,rand);
-
-        for (int i = 3; i >= 0; i--) { //Populating the answers, english, and foreign word lists/maps
-            Word word = words.get(i);
-            englishWords.add(word.getTranslatedWord());
-            foreignWords.add(word.getForeignWord());
-            answers.put(word.getTranslatedWord(), word.getForeignWord());
-            originalWords.add(word);
+        if(words.size() < 2) {
+            System.out.println("Words input doesn't have enough words in it");
         }
+        else {
+            Random rand = new Random(seed);
 
-        Collections.shuffle(englishWords,rand);
-        Collections.shuffle(foreignWords,rand);
+            englishWords = new ArrayList<>();
+            foreignWords = new ArrayList<>();
+            answers = new HashMap<>();
+            originalWords = new ArrayList<>();
 
-        System.out.println("Correct Answers::: ");
-        for(int i = 0; i<4; i++) {
-            System.out.println(englishWords.get(i));
+            Collections.shuffle(words,rand);
+
+            int otherWords = 0;
+
+            if(words.size() < 4) {
+                otherWords = words.size() - 1;
+            }
+            else {
+                otherWords = 3;
+            }
+
+            for (int i = otherWords; i >= 0; i--) { //Populating the answers, english, and foreign word lists/maps
+                Word word = words.get(i);
+                englishWords.add(word.getTranslatedWord());
+                foreignWords.add(word.getForeignWord());
+                answers.put(word.getTranslatedWord(), word.getForeignWord());
+                originalWords.add(word);
+            }
+
+            Collections.shuffle(englishWords,rand);
+            Collections.shuffle(foreignWords,rand);
+
+            System.out.println("Correct Answers::: ");
+            for(int i = 0; i<4; i++) {
+                System.out.println(englishWords.get(i));
+            }
         }
     }
 

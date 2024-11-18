@@ -29,22 +29,33 @@ public class WordBank implements Question {
     public WordBank(ArrayList<Word> words) {
         Random rand = new Random();
 
-        Collections.shuffle(words);
+        if(words.isEmpty()) {
+            this.wordBank = new ArrayList<Word>();
 
-        Word answerWord = words.get(0);
-        this.answer = answerWord.getForeignWord();
-        this.question = answerWord.getExampleSentence();
-        this.wordBank = words;
+            this.wordBank.add(new Word("hola","hello"));
+            this.answer = "hola";
+            this.question = "____, mi nombre es Lea.";
+        }
+        else {
+            Collections.shuffle(words,rand);
 
-        for (int i = wordBank.size() - 1; i >= 0; i--) {
-            if (answerWord.getPartofSpeech().equalsIgnoreCase(wordBank.get(i).getPartofSpeech())) {
-                wordBank.remove(i);
+            if(words.get(0) != null) {
+                Word answerWord = words.get(0);
+                this.answer = answerWord.getForeignWord();
+                this.question = answerWord.getExampleSentence();
+                this.wordBank = words;
+
+                for (int i = wordBank.size() - 1; i >= 0; i--) {
+                    if (answerWord.getPartofSpeech().equalsIgnoreCase(wordBank.get(i).getPartofSpeech())) {
+                        wordBank.remove(i);
+                    }
+                }
+
+                wordBank.add(answerWord);
+
+                Collections.shuffle(this.wordBank,rand);
             }
         }
-
-        wordBank.add(answerWord);
-
-        Collections.shuffle(this.wordBank);
     }
 
     /**
@@ -55,22 +66,33 @@ public class WordBank implements Question {
     public WordBank(ArrayList<Word> words, int seed) {
         Random rand = new Random(seed);
 
-        Collections.shuffle(words,rand);
+        if(words.isEmpty()) {
+            this.wordBank = new ArrayList<Word>();
 
-        Word answerWord = words.get(0);
-        this.answer = answerWord.getForeignWord();
-        this.question = answerWord.getExampleSentence();
-        this.wordBank = words;
+            this.wordBank.add(new Word("hola","hello"));
+            this.answer = "hola";
+            this.question = "____, mi nombre es Lea.";
+        }
+        else {
+            Collections.shuffle(words,rand);
 
-        for (int i = wordBank.size() - 1; i >= 0; i--) {
-            if (answerWord.getPartofSpeech().equalsIgnoreCase(wordBank.get(i).getPartofSpeech())) {
-                wordBank.remove(i);
+            if(words.get(0) != null) {
+                Word answerWord = words.get(0);
+                this.answer = answerWord.getForeignWord();
+                this.question = answerWord.getExampleSentence();
+                this.wordBank = words;
+
+                for (int i = wordBank.size() - 1; i >= 0; i--) {
+                    if (answerWord.getPartofSpeech().equalsIgnoreCase(wordBank.get(i).getPartofSpeech())) {
+                        wordBank.remove(i);
+                    }
+                }
+
+                wordBank.add(answerWord);
+
+                Collections.shuffle(this.wordBank,rand);
             }
         }
-
-        wordBank.add(answerWord);
-
-        Collections.shuffle(this.wordBank,rand);
     }
 
     /**

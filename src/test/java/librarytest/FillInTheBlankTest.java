@@ -10,7 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.model.*;
+import com.model.FillInTheBlank;
+import com.model.Language;
+import com.model.LanguageList;
+import com.model.LanguagesEnum;
+import com.model.Lesson;
+import com.model.Unit;
+import com.model.User;
+import com.model.Word;
 
 public class FillInTheBlankTest {
     
@@ -99,7 +106,8 @@ public class FillInTheBlankTest {
 	@Test
 	void testNoWords() {
 		try {
-			ArrayList<Word> words = new ArrayList<>();
+			ArrayList<Word> words = new ArrayList<Word>();
+			words.clear();
 			question = new FillInTheBlank(words,100);
 
 			assertTrue(true);

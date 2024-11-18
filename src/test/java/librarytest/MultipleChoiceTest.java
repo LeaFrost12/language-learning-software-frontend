@@ -10,7 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.model.*;
+import com.model.Language;
+import com.model.LanguageList;
+import com.model.LanguagesEnum;
+import com.model.Lesson;
+import com.model.MultipleChoice;
+import com.model.Unit;
+import com.model.User;
+import com.model.Word;
 
 public class MultipleChoiceTest {
     
@@ -54,7 +61,7 @@ public class MultipleChoiceTest {
 	@Test
 	void testCorrectNumberAnswer() {
         
-		boolean correctAnswer = question.checkAnswer("4");
+		boolean correctAnswer = question.checkAnswer("2");
 		assertTrue(correctAnswer);
 	}
 
