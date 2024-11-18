@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import static org.junit.Assert.assertFalse;
-import org.junit.Before;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,17 +23,6 @@ public class MultipleChoiceTest {
     private User user;
     private MultipleChoice question;
 
-	@Before
-	public void setupUser() {
-		Language language = LanguageList.getInstance().getLanguageByEnum(LanguagesEnum.SPANISH);
-		Unit unit = language.getUnitList().getUnit(0);
-        UUID unitId = unit.getId();
-
-        Lesson lesson = unit.getLessonList().getLesson(0);
-        UUID lessonId = lesson.getId();
-		user = new User("Sofia", "Bacha", "sbacha@email.com", "1234567890", "sbacha", "Password#1", language , unitId, lessonId);
-	}
-
 	@BeforeEach
 	public void setup() {
 		ArrayList<Word> words = new ArrayList<>();
@@ -43,6 +31,14 @@ public class MultipleChoiceTest {
 		words.add(new Word(new UUID(10,5),"bola","bi","interjection","_____, my llamo Cody"));
 		words.add(new Word(new UUID(10,5),"cola","ci","interjection","_____, my llamo Cody"));
         question = new MultipleChoice(words, 100);
+
+		Language language = LanguageList.getInstance().getLanguageByEnum(LanguagesEnum.SPANISH);
+		Unit unit = language.getUnitList().getUnit(0);
+        UUID unitId = unit.getId();
+
+        Lesson lesson = unit.getLessonList().getLesson(0);
+        UUID lessonId = lesson.getId();
+		user = new User("Sofia", "Bacha", "sbacha@email.com", "1234567890", "sbacha", "Password#1", language , unitId, lessonId);
 	}
 	
 	@AfterEach
