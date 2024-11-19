@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="15.0">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.BadgeController" styleClass="badge-container">
     <children>
-        <Label text="User Badges" />
+        <Label text="User Badges" styleClass="header-label" />
+
+        <!-- Scrollable container for badges -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="badge-scroll-pane">
+            <VBox fx:id="badgeContainer" spacing="10.0" styleClass="badge-list">
+                <!-- Dynamic badge entries will be added here by the controller -->
+            </VBox>
+        </ScrollPane>
     </children>
 </VBox>
