@@ -37,7 +37,7 @@ public class LessonTest {
 
     @Test
     public void canMoveToNextLesson_ShouldReturnTrue_WhenSufficientCorrectAnswers() {
-        for (int i = 0; i < Lesson.REQUIRED_CORRECT_ANSWERS; i++) {
+        for (int i = 0; i < 4; i++) {
             lesson.runRandomQuestion(mockUser);
         }
         assertTrue(lesson.canMoveToNextLesson(), "User should be able to move to the next lesson after sufficient correct answers.");
@@ -45,7 +45,7 @@ public class LessonTest {
 
     @Test
     public void shouldFailCurrentLesson_ShouldReturnTrue_WhenExceededMaxWrongAnswers() {
-        for (int i = 0; i < Lesson.MAX_WRONG_ANSWERS + 1; i++) {
+        for (int i = 0; i < 1 + 1; i++) {
             lesson.runRandomQuestion(mockUser);
         }
         assertTrue(lesson.shouldFailCurrentLesson(), "User should fail the lesson after exceeding maximum wrong answers.");
