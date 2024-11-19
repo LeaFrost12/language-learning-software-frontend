@@ -6,8 +6,14 @@ import com.language.App;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 import com.narration.*;
+
+/**
+ * The Welcome page 
+ * Options to sign up or login
+ */
 
 public class HomeController {
 
