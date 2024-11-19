@@ -1,0 +1,16 @@
+.root{
+    -fx-font-size: 16pt;
+    -fx-font-family: "Nunito";
+    -fx-base: #87C7D1;
+    -fx-background: #CAE8EB;
+}
+
+.button{
+    -fx-background-color: #134349;
+    -fx-text-fill: #EFEFEF;
+}
+
+.label{
+    -fx-background-color: white;
+    -fx-text-fill: #134349;
+}
