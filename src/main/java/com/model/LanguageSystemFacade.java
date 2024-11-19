@@ -9,6 +9,7 @@ public class LanguageSystemFacade {
     private LanguageList languageList;
     private UnitList unitList;
     private LessonList lessonList;
+    private static LanguageSystemFacade facade;
 
     /**
      * Initializes the facade by retrieving instances of system components like
@@ -19,6 +20,18 @@ public class LanguageSystemFacade {
     public LanguageSystemFacade() {
         userList = UserList.getInstance();
         languageList = LanguageList.getInstance();
+    }
+
+    /**
+     * Creates instance of the facade
+     * 
+     * @return Language System Facade
+     */
+    public static LanguageSystemFacade getInstance(){
+        if(facade == null){
+            facade = new LanguageSystemFacade();
+        }
+        return facade;
     }
 
     /**
@@ -264,5 +277,9 @@ public class LanguageSystemFacade {
         } else {
             return null;
         }
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }
