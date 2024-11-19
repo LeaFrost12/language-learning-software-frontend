@@ -1,13 +1,16 @@
 package librarytest;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.model.Lesson;
 import com.model.LessonList;
@@ -15,7 +18,7 @@ import com.model.WordList;
 
 public class LessonListTest {
 
-    private LessonList lessonList;
+    private LessonList lessonList; 
     private WordList wordList;
     private Lesson lesson1;
     private Lesson lesson2;
