@@ -17,13 +17,15 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            // Load the login page as the initial scene
+            // Load the initial login page
             scene = new Scene(loadFXML("login"), 640, 480);
-            
+
+            // Add the stylesheet to the scene
             scene.getStylesheets().add(App.class.getResource("/com/language/styles.css").toExternalForm());
-            
+
+            // Set the scene to the stage
             stage.setScene(scene);
-            stage.setTitle("Language Learning App - Login");
+            stage.setTitle("Language Learning App");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,6 +33,11 @@ public class App extends Application {
         }
     }
 
+    /**
+     * Sets the root of the scene to the specified FXML file.
+     *
+     * @param fxml the name of the FXML file to load (without the .fxml extension)
+     */
     public static void setRoot(String fxml) {
         try {
             scene.setRoot(loadFXML(fxml));
@@ -40,6 +47,13 @@ public class App extends Application {
         }
     }
 
+    /**
+     * Loads an FXML file and returns it as a Parent object.
+     *
+     * @param fxml the name of the FXML file to load (without the .fxml extension)
+     * @return the loaded Parent object
+     * @throws IOException if the FXML file cannot be loaded
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         if (fxmlLoader.getLocation() == null) {
@@ -47,7 +61,6 @@ public class App extends Application {
         }
         return fxmlLoader.load();
     }
-    
 
     public static void main(String[] args) {
         launch();
