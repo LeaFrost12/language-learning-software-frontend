@@ -30,7 +30,7 @@ public class LoginController {
         String username = txt_username.getText();
         String password = txt_password.getText();
 
-        LanguageSystemFacade facade = new LanguageSystemFacade();
+        LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
 
         if (facade.login(username, password)!=null) {
             lbl_error.setText("Invalid login credentials.");
