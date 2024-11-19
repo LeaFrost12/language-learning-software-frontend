@@ -7,5 +7,10 @@
 
 .button{
     -fx-background-color: #134349;
-    -fx-text-fill: EFEFEF;
+    -fx-text-fill: #EFEFEF;
+}
+
+.label{
+    -fx-background-color: white;
+    -fx-text-fill: #134349;
 }
