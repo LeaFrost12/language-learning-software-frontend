@@ -1,7 +1,6 @@
 package com.language;
 
 import java.io.IOException;
-import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,9 +17,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            scene = new Scene(loadFXML("home"), 640, 480);
+            // Load the login page as the initial scene
+            scene = new Scene(loadFXML("login"), 640, 480);
+            
+            scene.getStylesheets().add(App.class.getResource("/com/language/styles.css").toExternalForm());
+            
             stage.setScene(scene);
-            stage.setTitle("Language Learning App");
+            stage.setTitle("Language Learning App - Login");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,13 +41,13 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        URL resource = App.class.getResource(fxml + ".fxml");
-        if (resource == null) {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        if (fxmlLoader.getLocation() == null) {
             throw new IOException("FXML file not found: " + fxml);
         }
-        FXMLLoader fxmlLoader = new FXMLLoader(resource);
         return fxmlLoader.load();
     }
+    
 
     public static void main(String[] args) {
         launch();
