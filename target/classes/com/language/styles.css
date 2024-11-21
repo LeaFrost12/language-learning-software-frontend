@@ -11,6 +11,7 @@
 }
 
 .label{
-    -fx-background-color: white;
+    -fx-font-family: "Nunito";
+    -fx-background-color: #CAE8EB;
     -fx-text-fill: #134349;
 }
