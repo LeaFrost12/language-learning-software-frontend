@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import java.net.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+      <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
+         <children>
+            <Label text="🌍 Language Learner" styleClass="title-label"/>
+            <Button text="Profile" styleClass="nav-button" onAction="#onProfileClicked"/>
+         </children>
+         <padding>
+            <Insets top="10.0" left="20.0" right="20.0" bottom="10.0"/>
+         </padding>
+      </HBox>
