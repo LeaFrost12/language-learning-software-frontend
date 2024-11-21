@@ -9,24 +9,12 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.*?>
 
-<<<<<<< HEAD
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
-   <children>
-      <Label text="Welcome!" />
-      <Button fx:id="primaryButton" text="Login" onAction="#onLoginClicked"/>
-      <Button fx:id="Button1" text="Sign Up" onAction="#onSignUpClicked"/>
-   </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-=======
 <AnchorPane id="AnchorPane" prefHeight="400" prefWidth="600" fx:id="library_pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
       <children>
          <Button fx:id="button" layoutX="72.0" layoutY="21.0" onAction="#onLoginClicked" text="Login" />
          <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="button1" layoutX="164.0" layoutY="21.0" onAction="#onSignupClicked" text="Signup" />
       </children>
->>>>>>> ca3cd63d37edf512270fee12cb307ebc2b5cc664
    <stylesheets>
       <URL value="@styles.css" />
    </stylesheets>
