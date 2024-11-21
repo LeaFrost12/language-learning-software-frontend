@@ -21,14 +21,9 @@
     -fx-text-fill: #EFEFEF;
 }
 
-<<<<<<< HEAD
 .label{
     -fx-font-family: "Nunito";
     -fx-background-color: #CAE8EB;
-=======
-.welcome-label {
-    -fx-font-size: 18pt;
->>>>>>> ca3cd63d37edf512270fee12cb307ebc2b5cc664
     -fx-text-fill: #134349;
 }
 
@@ -330,4 +325,44 @@
     -fx-border-width: 2;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.3, 0, 3); /* Light shadow for depth */
 }
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Add shadow to the image */
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+.anchor-pane {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e3f2fd, #b3e5fc);
+}
+
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #01579b;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.3, 0, 1);
+}
+
+.primary-button {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #01579b;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.secondary-button {
+    -fx-background-color: #81d4fa;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #0288d1;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
 
