@@ -21,8 +21,14 @@
     -fx-text-fill: #EFEFEF;
 }
 
+<<<<<<< HEAD
+.label{
+    -fx-font-family: "Nunito";
+    -fx-background-color: #CAE8EB;
+=======
 .welcome-label {
     -fx-font-size: 18pt;
+>>>>>>> ca3cd63d37edf512270fee12cb307ebc2b5cc664
     -fx-text-fill: #134349;
 }
 
