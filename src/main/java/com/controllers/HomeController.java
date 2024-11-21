@@ -1,20 +1,14 @@
 package com.controllers;
 
 import java.io.IOException;
-
 import com.language.App;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-
-import com.narration.*;
 
 /**
  * The Welcome page 
- * Options to sign up or login
+ * Options to sign up, login, and navigate to other features
  */
-
 public class HomeController {
 
     @FXML
@@ -26,4 +20,5 @@ public class HomeController {
     private void onSignupClicked(ActionEvent event) throws IOException {
         App.setRoot("signup");
     }
+
 }

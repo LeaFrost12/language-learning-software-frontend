@@ -1,23 +1,18 @@
 package com.controllers;
 
 import java.io.IOException;
-
 import com.language.App;
-
+import com.model.UserList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import com.model.*;
+import javafx.event.ActionEvent;
 
+/**
+ * Controller for the Login page
+ */
 public class LoginController {
+
     @FXML
     private TextField txt_username;
     @FXML
@@ -25,18 +20,25 @@ public class LoginController {
     @FXML
     private Label lbl_error;
 
+    private UserList userList;
+
+    public LoginController() {
+        // Initialize the UserList singleton
+        this.userList = UserList.getInstance();
+    }
+
     @FXML
-    private void btnLoginClicked(MouseEvent event) throws IOException {
+    private void btnLoginClicked(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
 
-        LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
-
-        if (facade.login(username, password)!=null) {
-            lbl_error.setText("Invalid login credentials.");
-            return;
+        // Check if the username and password are valid
+        if (userList.validPass(username, password)) {
+            // Navigate to the home page upon successful login
+            App.setRoot("user_home");
+        } else {
+            // Display an error message if the credentials are invalid
+            lbl_error.setText("Invalid username or password. Please try again.");
         }
-
-        App.setRoot("user_home");
     }
 }

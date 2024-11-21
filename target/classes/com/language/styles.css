@@ -1,17 +1,149 @@
-.root{
+.root {
     -fx-font-size: 16pt;
     -fx-font-family: "Nunito";
     -fx-base: #87C7D1;
-    -fx-background: #CAE8EB;
+    -fx-background-color: #E6F7FA;
 }
 
-.button{
+.top-bar {
     -fx-background-color: #134349;
+    -fx-padding: 10px;
+}
+
+.bottom-bar {
+    -fx-background-color: #134349;
+    -fx-padding: 10px;
+    -fx-spacing: 15px;
+}
+
+.title-label {
+    -fx-font-size: 20pt;
     -fx-text-fill: #EFEFEF;
 }
 
+<<<<<<< HEAD
 .label{
     -fx-font-family: "Nunito";
     -fx-background-color: #CAE8EB;
+=======
+.welcome-label {
+    -fx-font-size: 18pt;
+>>>>>>> ca3cd63d37edf512270fee12cb307ebc2b5cc664
     -fx-text-fill: #134349;
+}
+
+.progress-bar {
+    -fx-accent: #4CAF50;
+    -fx-pref-width: 300px;
+}
+
+.start-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14pt;
+}
+
+.nav-button {
+    -fx-background-color: #134349;
+    -fx-text-fill: #EFEFEF;
+    -fx-padding: 5px 15px;
+    -fx-font-size: 12pt;
+}
+.login-container {
+    -fx-padding: 30;
+    -fx-background-color: #f5f7fa;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.input-field {
+    -fx-pref-width: 300;
+    -fx-padding: 8 10;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #ccc;
+}
+
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+    -fx-padding: 5 0;
+}
+
+.login-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.login-button:hover {
+    -fx-background-color: #45a049;
+}
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+#badgeContainer {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 10;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+.badge-container {
+    -fx-padding: 30;
+    -fx-background-color: #f5f7fa;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+
+.header-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.badge-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.badge-list {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+}
+
+.badge-item {
+    -fx-padding: 10;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-background-color: #f0f4f8;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.badge-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.badge-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
 }
