@@ -35,7 +35,7 @@ public class LoginController {
         // Check if the username and password are valid
         if (userList.validPass(username, password)) {
             // Navigate to the home page upon successful login
-            App.setRoot("home");
+            App.setRoot("user_home");
         } else {
             // Display an error message if the credentials are invalid
             lbl_error.setText("Invalid username or password. Please try again.");

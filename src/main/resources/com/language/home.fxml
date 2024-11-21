@@ -9,40 +9,13 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.*?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
-   <children>
-      <!-- Top Navigation Bar -->
-      <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
-         <children>
-            <Label text="🌍 Language Learner" styleClass="title-label"/>
-            <Button text="Profile" styleClass="nav-button" onAction="#onProfileClicked"/>
-         </children>
-         <padding>
-            <Insets top="10.0" left="20.0" right="20.0" bottom="10.0"/>
-         </padding>
-      </HBox>
-
-      <!-- Main Content -->
-      <VBox alignment="CENTER" spacing="15.0">
-         <Label text="Welcome back, [User]!" styleClass="welcome-label"/>
-         <ProgressBar fx:id="progressBar" progress="0.6" styleClass="progress-bar"/>
-         <Button fx:id="startLessonButton" text="Start Lesson" styleClass="start-button" onAction="#onStartLessonClicked"/>
-      </VBox>
-
-      <!-- Bottom Navigation -->
-      <HBox alignment="CENTER" spacing="15.0" styleClass="bottom-bar">
-         <children>
-            <Button text="Home" styleClass="nav-button" onAction="#onHomeClicked"/>
-            <Button text="Lessons" styleClass="nav-button" onAction="#onLessonsClicked"/>
-            <Button text="Badges" styleClass="nav-button" onAction="#onBadgesClicked"/>
-            <Button text="Settings" styleClass="nav-button" onAction="#onSettingsClicked"/>
-         </children>
-      </HBox>
-   </children>
-   <padding>
-      <Insets top="20.0" left="20.0" right="20.0" bottom="20.0"/>
-   </padding>
+<AnchorPane id="AnchorPane" prefHeight="400" prefWidth="600" fx:id="library_pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
+      <children>
+         <Button fx:id="button" layoutX="72.0" layoutY="21.0" onAction="#onLoginClicked" text="Login" />
+         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Button fx:id="button1" layoutX="164.0" layoutY="21.0" onAction="#onSignupClicked" text="Signup" />
+      </children>
    <stylesheets>
-      <URL value="@styles.css"/>
+      <URL value="@styles.css" />
    </stylesheets>
-</VBox>
+</AnchorPane>

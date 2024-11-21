@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import com.model.*;
+import javafx.scene.layout.AnchorPane;
 
 public class SignUpController {
     

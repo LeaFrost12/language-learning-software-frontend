@@ -18,7 +18,7 @@ public class App extends Application {
     public void start(Stage stage) {
         try {
             // Load the initial login page
-            scene = new Scene(loadFXML("login"), 640, 480);
+            scene = new Scene(loadFXML("user_home"), 640, 480);
 
             // Add the stylesheet to the scene
             scene.getStylesheets().add(App.class.getResource("/com/language/styles.css").toExternalForm());

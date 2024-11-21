@@ -27,6 +27,11 @@ public class DataLoader extends DataConstants {
         ArrayList<User> users = new ArrayList<User>();
         BufferedReader reader = getReaderFromFile(USERS_FILE_NAME, USERS_FILE_NAME_JUNIT);
 
+        if (reader == null) {
+            System.err.println("Error: Reader could not be initialized. Check user file paths.");
+            return null;
+        }
+
         try {
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
