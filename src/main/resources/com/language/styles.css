@@ -242,3 +242,27 @@
 .secondary-button:hover {
     -fx-background-color: #b3e5fc; /* Lightest blue */
 }
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.info-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #555;
+}
+
+.back-button {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.back-button:hover {
+    -fx-background-color: #03a9f4;
+}

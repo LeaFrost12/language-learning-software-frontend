@@ -56,6 +56,7 @@ public class UserHomeController implements Initializable {
 
     @FXML
     private void onProfileClicked(ActionEvent event) throws IOException {
+        // Navigate to the profile page
         App.setRoot("profile");
     }
 
