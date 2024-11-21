@@ -21,10 +21,12 @@
     -fx-text-fill: #EFEFEF;
 }
 
-.label{
+.label {
     -fx-font-family: "Nunito";
-    -fx-background-color: #CAE8EB;
     -fx-text-fill: #134349;
+    -fx-background-color: transparent; /* Remove any background color */
+    -fx-padding: 0; /* Ensure no extra spacing */
+    -fx-effect: none; /* Remove effects */
 }
 
 .progress-bar {
@@ -54,10 +56,15 @@
 }
 
 .header-label {
-    -fx-font-size: 24px;
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
+    -fx-text-fill: #01579b; /* Deep sea blue */
+    -fx-alignment: center;
+    -fx-background-color: transparent; /* Ensure no background color */
+    -fx-effect: none; /* Remove any shadow or highlight effects */
+    -fx-padding: 0; /* Ensure no extra spacing around the label */
 }
+
 
 .input-field {
     -fx-pref-width: 300;
@@ -364,5 +371,3 @@
     -fx-border-width: 2;
     -fx-border-radius: 10;
 }
-
-
