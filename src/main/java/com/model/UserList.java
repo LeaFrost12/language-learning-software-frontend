@@ -209,4 +209,14 @@ public class UserList {
     public void saveUsers() {
         DataWriter.saveUsers();
     }
+
+    private User currentUser; // Add this field to track the current user
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
 }

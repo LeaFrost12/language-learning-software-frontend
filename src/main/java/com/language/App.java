@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
+    private static String currentUser; // Stores the currently logged-in user's username
 
     @Override
     public void start(Stage stage) {
@@ -60,6 +61,24 @@ public class App extends Application {
             throw new IOException("FXML file not found: " + fxml);
         }
         return fxmlLoader.load();
+    }
+
+    /**
+     * Sets the current user globally.
+     *
+     * @param username the username of the currently logged-in user
+     */
+    public static void setCurrentUser(String username) {
+        currentUser = username;
+    }
+
+    /**
+     * Gets the current user's username.
+     *
+     * @return the username of the currently logged-in user
+     */
+    public static String getCurrentUser() {
+        return currentUser;
     }
 
     public static void main(String[] args) {

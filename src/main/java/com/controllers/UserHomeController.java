@@ -1,32 +1,38 @@
 package com.controllers;
 
 import java.io.IOException;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import com.language.App;
+import com.model.LanguageSystemFacade;
+import com.model.User;
+import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import com.model.*;
 
 public class UserHomeController implements Initializable {
     private LanguageSystemFacade facade;
     private User user;
 
+    @FXML
+    private Label welcomeLabel; // Reference to the welcome label in FXML
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        facade = LanguageSystemFacade.getInstance();
-        user = facade.getCurrentUser();
-    }   
+        // Retrieve the current user from UserList
+        UserList userList = UserList.getInstance();
+        User currentUser = userList.getCurrentUser();
+
+        // Set the welcome message
+        if (currentUser != null) {
+            welcomeLabel.setText("Welcome back, " + currentUser.getFirstName() + "!");
+        } else {
+            welcomeLabel.setText("Welcome back!");
+        }
+    }
 
     @FXML
     private void onHomeClicked(ActionEvent event) throws IOException {
@@ -58,5 +64,5 @@ public class UserHomeController implements Initializable {
         // Code to handle starting a lesson
         App.setRoot("lesson");
     }
-    
 }
+
