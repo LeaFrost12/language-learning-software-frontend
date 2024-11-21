@@ -4,11 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
+<VBox alignment="CENTER" spacing="20.0" styleClass="vbox-container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProfileController">
     <children>
         <Label text="Profile Information" styleClass="header-label"/>
         
-        <!-- Display User Info -->
+        <!-- User Info Labels -->
         <Label fx:id="firstNameLabel" text="First Name: " styleClass="info-label"/>
         <Label fx:id="lastNameLabel" text="Last Name: " styleClass="info-label"/>
         <Label fx:id="usernameLabel" text="Username: " styleClass="info-label"/>
@@ -19,3 +19,4 @@
         <Button text="Back to Home" onAction="#onBackToHomeClicked" styleClass="back-button"/>
     </children>
 </VBox>
+
