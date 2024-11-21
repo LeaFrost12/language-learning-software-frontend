@@ -24,7 +24,7 @@
 
       <!-- Main Content -->
       <VBox alignment="CENTER" spacing="15.0">
-         <Label text="Welcome back, [User]!" styleClass="welcome-label"/>
+         <Label fx:id="welcomeLabel" text="Welcome back!" styleClass="welcome-label"/>
          <ProgressBar fx:id="progressBar" progress="0.6" styleClass="progress-bar"/>
          <Button fx:id="startLessonButton" text="Start Lesson" styleClass="start-button" onAction="#onStartLessonClicked"/>
       </VBox>
