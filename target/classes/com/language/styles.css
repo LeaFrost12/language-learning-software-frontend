@@ -147,3 +147,98 @@
     -fx-font-size: 14px;
     -fx-text-fill: #7f8c8d;
 }
+/* Background for the AnchorPane */
+.anchor-pane {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc);
+}
+
+/* Header Label Styling */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #01579b; /* Deep sea blue */
+    -fx-alignment: center;
+}
+
+/* Primary Button Styling */
+.primary-button {
+    -fx-background-color: #0288d1; /* Ocean blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #01579b; /* Deep sea blue */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+/* Hover effect for Primary Button */
+.primary-button:hover {
+    -fx-background-color: #03a9f4; /* Lighter blue */
+}
+
+/* Secondary Button Styling */
+.secondary-button {
+    -fx-background-color: #81d4fa; /* Sky blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #0288d1; /* Ocean blue */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+/* Hover effect for Secondary Button */
+.secondary-button:hover {
+    -fx-background-color: #b3e5fc; /* Lightest blue */
+}
+.anchor-pane {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc);
+}
+
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #01579b; /* Deep sea blue */
+    -fx-alignment: center;
+}
+
+.button-container {
+    -fx-alignment: center;
+    -fx-padding: 20;
+}
+
+.primary-button {
+    -fx-background-color: #0288d1; /* Ocean blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #01579b; /* Deep sea blue */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.primary-button:hover {
+    -fx-background-color: #03a9f4; /* Lighter blue */
+}
+
+.secondary-button {
+    -fx-background-color: #81d4fa; /* Sky blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #0288d1; /* Ocean blue */
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #b3e5fc; /* Lightest blue */
+}
