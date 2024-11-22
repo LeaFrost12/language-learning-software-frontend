@@ -6,7 +6,7 @@
 }
 
 .top-bar {
-    -fx-background-color: #134349;
+    -fx-background-color: #134349; /* Dark teal */
     -fx-padding: 10px;
 }
 
@@ -17,8 +17,10 @@
 }
 
 .title-label {
-    -fx-font-size: 20pt;
-    -fx-text-fill: #EFEFEF;
+    -fx-font-size: 24px; /* Adjust size as needed */
+    -fx-font-weight: bold; /* Emphasize the text */
+    -fx-text-fill: #FFFFFF; /* White color for contrast */
+    -fx-alignment: center; /* Center the text */
 }
 
 .label {

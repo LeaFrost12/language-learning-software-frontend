@@ -14,7 +14,7 @@
       <!-- Top Navigation Bar -->
       <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
          <children>
-            <Label text="🌍 Language Learner" styleClass="title-label"/>
+            <Label text="🌍 Language Learner" style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px; -fx-font-weight: bold;"/>
             <Button text="Profile" styleClass="nav-button" onAction="#onProfileClicked"/>
          </children>
          <padding>
