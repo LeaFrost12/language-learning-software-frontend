@@ -12,5 +12,6 @@
         <TextField fx:id="txt_password" promptText="Password" styleClass="input-field" />
         <Label fx:id="lbl_error" text="" styleClass="error-label" />
         <Button fx:id="btnLogin" text="Login" onAction="#btnLoginClicked" styleClass="login-button" />
+        <Button fx:id="backHomeButton" text="Back" onAction="#back" styleClass="nav-button"/>
     </children>
 </VBox>

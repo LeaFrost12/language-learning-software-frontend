@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.User;
 import com.model.UserList;
@@ -35,16 +36,20 @@ public class SettingsController implements Initializable {
         currentUser = userList.getCurrentUser();
     }
 
+    @FXML
     private void onChangePassClicked(ActionEvent event) throws IOException {
-        // App.setRoot("changePass");
+        App.setRoot("changePass");
     }
 
+    @FXML
     private void onAccountDetailsClicked(ActionEvent event) throws IOException {
-        // App.setRoot("accountDetails");
+        App.setRoot("accountDetails");
     }
 
+    @FXML
     private void onLogoutClicked(ActionEvent event) throws IOException {
         userList.logout(currentUser);
+        App.setRoot("home");
     }
 
 }

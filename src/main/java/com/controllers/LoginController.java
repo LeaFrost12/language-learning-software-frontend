@@ -43,4 +43,10 @@ public class LoginController {
             lbl_error.setText("Invalid username or password. Please try again.");
         }
     }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+        App.setRoot("home");
+    }
+
 }
