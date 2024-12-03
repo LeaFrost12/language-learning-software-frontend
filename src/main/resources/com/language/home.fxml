@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="library_pane" prefHeight="600" prefWidth="400" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
     <children>
-        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0">
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" spacing="30.0">
             <!-- Header -->
             <Label fx:id="label" styleClass="header-label" text="Welcome to Language Learning App!" textAlignment="CENTER" wrapText="true" />
 
@@ -16,9 +16,9 @@
             <ImageView fx:id="whaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
 
             <!-- Buttons -->
-            <VBox alignment="CENTER" spacing="10.0">
-                <Button fx:id="button" onAction="#onLoginClicked" styleClass="primary-button" text="Login" />
-                <Button fx:id="button1" onAction="#onSignupClicked" styleClass="secondary-button" text="Signup" />
+            <VBox alignment="CENTER" spacing="15.0" prefWidth="300.0">
+                <Button fx:id="button" onAction="#onLoginClicked" styleClass="primary-button" text="Login" prefWidth="300.0" prefHeight="50.0" />
+                <Button fx:id="button1" onAction="#onSignupClicked" styleClass="secondary-button" text="Signup" prefWidth="300.0" prefHeight="50.0" />
             </VBox>
         </VBox>
     </children>
