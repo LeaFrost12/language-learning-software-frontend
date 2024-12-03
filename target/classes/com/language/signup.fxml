@@ -28,7 +28,7 @@
       <TextField fx:id="txt_phone_number" layoutX="283.0" layoutY="331.0" />
       <Button layoutX="283.0" layoutY="378.0" mnemonicParsing="false" onMouseClicked="#btnSignupClicked" prefHeight="24.0" prefWidth="174.0" text="Signup" />
       <Label fx:id="lbl_error" layoutX="127.0" layoutY="416.0" prefHeight="16.0" prefWidth="452.0" textFill="#e80404" />
-      <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
+      <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
       
    </children>
    <stylesheets>

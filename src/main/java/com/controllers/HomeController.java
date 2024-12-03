@@ -26,6 +26,7 @@ public class HomeController {
         // Load the whale image
         Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
         whaleImage.setImage(whale);
+        label.setWrapText(true);
     }
 
     @FXML

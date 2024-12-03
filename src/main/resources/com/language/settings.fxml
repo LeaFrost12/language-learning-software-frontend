@@ -31,13 +31,12 @@
       <!-- Bottom Navigation -->
       <HBox alignment="CENTER" spacing="15.0" styleClass="bottom-bar">
          <children>
-            <Button text="Logout" styleClass="nav-button" onAction="#onHomeClicked"/>
-            <Button text="Lessons" styleClass="nav-button" onAction="#onLessonsClicked"/>
-            <Button text="Badges" styleClass="nav-button" onAction="#onBadgesClicked"/>
-            <Button text="Settings" styleClass="nav-button" onAction="#onSettingsClicked"/>
+            <Button fx:id="ChangePassButton" text="Change Password" styleClass="nac-button" onAction="#onChangePassClicked"/> 
+            <Button fx:id="AccountDetailsButton" text="Account Details" styleClass="start-button" onAction="#onAccountDetailsClicked"/>
+            <Button fx:id="LogoutButton" text="Logout" styleClass="start-button" onAction="#onLogoutClicked"/>
          </children>
-      </HBox>
-   </children>
+      </VBox>
+   </children> 
    <padding>
       <Insets top="20.0" left="20.0" right="20.0" bottom="20.0"/>
    </padding>
