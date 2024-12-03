@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.User;
 import com.model.UserList;
@@ -13,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import com.language.App;
 
 public class SettingsController implements Initializable {
     private LanguageSystemFacade facade;
@@ -49,6 +49,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void onLogoutClicked(ActionEvent event) throws IOException {
         userList.logout(currentUser);
+        App.setRoot("home");
     }
 
 }

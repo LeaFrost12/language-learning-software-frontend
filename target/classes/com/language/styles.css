@@ -83,16 +83,17 @@
 }
 
 .login-button {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
+    -fx-background-color: #134349;
+    -fx-text-fill: EFEFEF;
     -fx-font-size: 14px;
+    -fx-font-family: "Nunito";
     -fx-padding: 10 20;
     -fx-background-radius: 5;
     -fx-border-radius: 5;
 }
 
 .login-button:hover {
-    -fx-background-color: #45a049;
+    -fx-background-color: #0C282C;
 }
 .header-label {
     -fx-font-size: 24px;
