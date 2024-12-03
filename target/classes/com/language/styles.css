@@ -54,7 +54,7 @@
     -fx-text-fill: #134349;
     -fx-border-color: #87C7D1;
     -fx-font-size: 14px;
-    -fx-padding: 10px;
+    -fx-padding: 8px;
     -fx-font-size: 12pt;
     -fx-background-radius: 15;   
     -fx-border-width: 2px;   
@@ -106,10 +106,26 @@
 .login-button:hover {
     -fx-background-color: #0C282C;
 }
+
+.signup-container {
+    -fx-background-color: #FFFFFF; /* White background */
+    -fx-padding: 20px;
+}
+
+.signup-button {
+    -fx-background-color: #134349; /* Dark teal */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 16px;
+    -fx-font-family: 'Concert One';
+    -fx-padding: 10px;
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-border-radius: 15;
+}
+
 .header-label {
-    -fx-font-size: 24px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333;
+    -fx-text-fill: #134349;
 }
 
 #badgeContainer {
@@ -180,7 +196,7 @@
 .primary-button {
     -fx-background-color: #134349; /* Ocean blue */
     -fx-text-fill: #EFEFEF;
-    -fx-font-size: 18px;
+    -fx-font-size: 30px;
     -fx-font-family: 'Alegreya Sans SC';
     -fx-font-weight: bold;
     -fx-padding: 10px;
@@ -199,7 +215,7 @@
 .secondary-button {
     -fx-background-color: #EFEFEF; /* Sky blue */
     -fx-text-fill: #134349;
-    -fx-font-size: 18px;
+    -fx-font-size: 30px;
     -fx-font-family: 'Concert One';
     -fx-font-weight: bold;
     -fx-padding: 10px;
