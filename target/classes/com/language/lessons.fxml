@@ -33,7 +33,7 @@
             <!-- For Other Question Types -->
             <VBox fx:id="standardQuestionContainer" spacing="10" alignment="CENTER">
                 <!-- Answer Input -->
-                <TextField fx:id="answerField" promptText="Enter your answer here" styleClass="answer-field"/>
+                <TextField fx:id="answerField" promptText="Enter your answer here" styleClass="answer-field" />
             </VBox>
 
             <!-- Feedback Label -->

@@ -88,27 +88,34 @@ public class LessonController {
         nextButton.setDisable(true);
     
         if (question instanceof Matching) {
+            // Handle Matching Questions
             matchingContainer.setVisible(true);
             matchingContainer.setManaged(true);
             questionContainer.setVisible(false);
             questionContainer.setManaged(false);
             displayMatchingQuestion((Matching) question);
         } else {
+            // Handle Standard Questions
             matchingContainer.setVisible(false);
             matchingContainer.setManaged(false);
             questionContainer.setVisible(true);
             questionContainer.setManaged(true);
+    
             questionLabel.setText(question.getQuestionText());
     
             if (question instanceof FillInTheBlank) {
-                answerField.setPromptText("Type your answer here.");
+                // Display Fill in the Blank
+                displayFillInTheBlankQuestion((FillInTheBlank) question);
             } else if (question instanceof MultipleChoice) {
+                // Display Multiple Choice
                 displayMultipleChoiceQuestion((MultipleChoice) question);
             } else if (question instanceof WordBank) {
+                // Display Word Bank
                 displayWordBankQuestion((WordBank) question);
             }
         }
     }
+    
 
     private void resetContainers() {
         matchingGrid.getChildren().clear();
@@ -138,11 +145,23 @@ public class LessonController {
     }
 
     private void displayFillInTheBlankQuestion(FillInTheBlank question) {
-        questionLabel.setText(question.getQuestionText());
+        // Clear existing content in questionContainer
+        questionContainer.getChildren().clear();
+    
+        // Add question text
+        Label questionTextLabel = new Label(question.getQuestionText());
+        questionContainer.getChildren().add(questionTextLabel);
+    
+        // Add answer field dynamically
+        answerField = new TextField();
         answerField.setPromptText("Type your answer here.");
-        answerField.setVisible(true);
         questionContainer.getChildren().add(answerField);
+    
+        // Ensure container is visible
+        questionContainer.setVisible(true);
+        questionContainer.setManaged(true);
     }
+    
 
     private void displayMultipleChoiceQuestion(MultipleChoice question) {
         questionLabel.setText(question.getQuestionText());
