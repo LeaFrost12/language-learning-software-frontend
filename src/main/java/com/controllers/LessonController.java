@@ -83,7 +83,7 @@ public class LessonController {
 
     private void displayQuestion() {
         Question question = questions.get(currentQuestionIndex);
-        resetContainers(); // Clear and reset all containers
+        resetContainers(); // Clear/reset all containers
         feedbackLabel.setText(""); // Clear feedback
         nextButton.setDisable(true); // Disable the Next button initially
     
@@ -95,13 +95,13 @@ public class LessonController {
             questionContainer.setManaged(false);
             displayMatchingQuestion((Matching) question);
         } else {
-            // Handle Standard Questions
+            // Handle Non-Matching Questions
             matchingContainer.setVisible(false);
             matchingContainer.setManaged(false);
             questionContainer.setVisible(true);
             questionContainer.setManaged(true);
     
-            // Delegate rendering to specific question methods
+            // Render the specific question type
             if (question instanceof FillInTheBlank) {
                 displayFillInTheBlankQuestion((FillInTheBlank) question);
             } else if (question instanceof MultipleChoice) {
@@ -112,39 +112,35 @@ public class LessonController {
         }
     }
     
-    
-    
 
     private void resetContainers() {
-        matchingGrid.getChildren().clear();
-        questionContainer.getChildren().clear();
-        answerField.clear();
+        matchingGrid.getChildren().clear(); // Clear matching grid
+        questionContainer.getChildren().clear(); // Clear question container
+        answerField.clear(); // Ensure answerField is cleared
     }
+       
     
 
     private void displayMatchingQuestion(Matching matchingQuestion) {
-        matchingGrid.getChildren().clear(); // Clear previous content
-        matchingInputs = new HashMap<>(); // Reset matching inputs
+        matchingGrid.getChildren().clear(); // Clear any previous content
+        matchingInputs = new HashMap<>(); // Reset inputs for the matching question
     
         List<String> englishWords = matchingQuestion.getEnglishWords();
-        List<String> foreignWords = matchingQuestion.getForeignWords(); // Assuming you want to display foreign words for user input validation
-    
         for (int i = 0; i < englishWords.size(); i++) {
             // Add English word label
             Label englishWordLabel = new Label(englishWords.get(i));
             matchingGrid.add(englishWordLabel, 0, i);
     
-            // Add input field for the user to type the matching word
+            // Add input field for user response
             TextField inputField = new TextField();
             matchingGrid.add(inputField, 1, i);
             matchingInputs.put(englishWords.get(i), inputField);
         }
     }
     
+    
 
     private void displayFillInTheBlankQuestion(FillInTheBlank question) {
-        questionContainer.getChildren().clear(); // Clear previous content
-    
         // Add question text
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
@@ -153,22 +149,22 @@ public class LessonController {
         answerField.clear();
         questionContainer.getChildren().add(answerField);
     }
+        
     
 
     private void displayMultipleChoiceQuestion(MultipleChoice question) {
-        questionContainer.getChildren().clear(); // Clear previous content
-    
         // Add question text
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
     
-        // Add choices dynamically
+        // Add choices dynamically as buttons
         for (String choice : question.getChoices()) {
             Button choiceButton = new Button(choice);
             choiceButton.setOnAction(e -> handleMultipleChoiceSelection(question, choice));
             questionContainer.getChildren().add(choiceButton);
         }
     }
+    
     
 
     private void handleMultipleChoiceSelection(MultipleChoice question, String selectedChoice) {
@@ -183,19 +179,18 @@ public class LessonController {
     }
 
     private void displayWordBankQuestion(WordBank question) {
-        questionContainer.getChildren().clear(); // Clear previous content
-    
         // Add question text
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
     
-        // Add word bank options dynamically
+        // Add word bank options dynamically as buttons
         for (String word : question.getWordBankText()) {
             Button wordButton = new Button(word);
             wordButton.setOnAction(e -> handleWordBankSelection(question, word));
             questionContainer.getChildren().add(wordButton);
         }
     }
+    
     
 
     private void handleWordBankSelection(WordBank question, String selectedWord) {
