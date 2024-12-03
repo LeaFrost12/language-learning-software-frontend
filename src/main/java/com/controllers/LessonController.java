@@ -95,13 +95,13 @@ public class LessonController {
             questionContainer.setManaged(false);
             displayMatchingQuestion((Matching) question);
         } else {
-            // Handle Non-Matching Questions
+            // Handle Standard Questions
             matchingContainer.setVisible(false);
             matchingContainer.setManaged(false);
             questionContainer.setVisible(true);
             questionContainer.setManaged(true);
     
-            // Render the specific question type
+            // Delegate rendering to specific question methods
             if (question instanceof FillInTheBlank) {
                 displayFillInTheBlankQuestion((FillInTheBlank) question);
             } else if (question instanceof MultipleChoice) {
@@ -111,6 +111,7 @@ public class LessonController {
             }
         }
     }
+    
     
 
     private void resetContainers() {
@@ -179,6 +180,8 @@ public class LessonController {
     }
 
     private void displayWordBankQuestion(WordBank question) {
+        questionContainer.getChildren().clear(); // Clear previous content
+    
         // Add question text
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
@@ -190,6 +193,7 @@ public class LessonController {
             questionContainer.getChildren().add(wordButton);
         }
     }
+    
     
     
 
