@@ -9,6 +9,7 @@ import com.model.Question;
 import com.model.User;
 import com.model.UserList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -103,6 +104,12 @@ public class LessonController {
             answerField.setDisable(true);
             nextButton.setDisable(true);
         }
+    }
+
+    @FXML
+    private void onBackHomeClicked(ActionEvent event) throws IOException {
+        // Navigate back to the User Home page
+        App.setRoot("user_home");
     }
 }
 
