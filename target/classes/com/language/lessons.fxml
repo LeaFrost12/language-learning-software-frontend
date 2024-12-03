@@ -21,7 +21,7 @@
             </VBox>
 
             <!-- Question Text -->
-            <Label fx:id="questionLabel" text="Question will appear here." styleClass="question-label"/>
+            <Label fx:id="questionLabel" styleClass="question-label" />
 
             <!-- For Matching Questions -->
             <VBox fx:id="matchingContainer" visible="false" managed="false">

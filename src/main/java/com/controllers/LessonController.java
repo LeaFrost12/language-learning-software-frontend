@@ -83,9 +83,9 @@ public class LessonController {
 
     private void displayQuestion() {
         Question question = questions.get(currentQuestionIndex);
-        resetContainers(); // Ensure all containers are cleared/reset
-        feedbackLabel.setText("");
-        nextButton.setDisable(true);
+        resetContainers(); // Clear and reset all containers
+        feedbackLabel.setText(""); // Clear feedback
+        nextButton.setDisable(true); // Disable the Next button initially
     
         if (question instanceof Matching) {
             // Handle Matching Questions
@@ -101,33 +101,26 @@ public class LessonController {
             questionContainer.setVisible(true);
             questionContainer.setManaged(true);
     
-            questionLabel.setText(question.getQuestionText());
-    
+            // Delegate rendering to specific question methods
             if (question instanceof FillInTheBlank) {
-                // Display Fill in the Blank
                 displayFillInTheBlankQuestion((FillInTheBlank) question);
             } else if (question instanceof MultipleChoice) {
-                // Display Multiple Choice
                 displayMultipleChoiceQuestion((MultipleChoice) question);
             } else if (question instanceof WordBank) {
-                // Display Word Bank
                 displayWordBankQuestion((WordBank) question);
             }
         }
     }
+    
+    
     
 
     private void resetContainers() {
         matchingGrid.getChildren().clear();
         questionContainer.getChildren().clear();
         answerField.clear();
-        feedbackLabel.setText("");
-        matchingContainer.setVisible(false);
-        matchingContainer.setManaged(false);
-        standardQuestionContainer.setVisible(false);
-        standardQuestionContainer.setManaged(false);
-        answerField.setVisible(false);
     }
+    
 
     private void displayMatchingQuestion(Matching matchingQuestion) {
         matchingGrid.setVisible(true);
@@ -145,32 +138,33 @@ public class LessonController {
     }
 
     private void displayFillInTheBlankQuestion(FillInTheBlank question) {
-        // Clear existing content in questionContainer
-        questionContainer.getChildren().clear();
+        questionContainer.getChildren().clear(); // Clear previous content
     
         // Add question text
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
     
-        // Add answer field dynamically
-        answerField = new TextField();
-        answerField.setPromptText("Type your answer here.");
+        // Add answer input field
+        answerField.clear();
         questionContainer.getChildren().add(answerField);
-    
-        // Ensure container is visible
-        questionContainer.setVisible(true);
-        questionContainer.setManaged(true);
     }
     
 
     private void displayMultipleChoiceQuestion(MultipleChoice question) {
-        questionLabel.setText(question.getQuestionText());
+        questionContainer.getChildren().clear(); // Clear previous content
+    
+        // Add question text
+        Label questionTextLabel = new Label(question.getQuestionText());
+        questionContainer.getChildren().add(questionTextLabel);
+    
+        // Add choices dynamically
         for (String choice : question.getChoices()) {
             Button choiceButton = new Button(choice);
             choiceButton.setOnAction(e -> handleMultipleChoiceSelection(question, choice));
             questionContainer.getChildren().add(choiceButton);
         }
     }
+    
 
     private void handleMultipleChoiceSelection(MultipleChoice question, String selectedChoice) {
         if (question.checkAnswer(selectedChoice)) {
@@ -184,13 +178,20 @@ public class LessonController {
     }
 
     private void displayWordBankQuestion(WordBank question) {
-        questionLabel.setText(question.getQuestionText());
+        questionContainer.getChildren().clear(); // Clear previous content
+    
+        // Add question text
+        Label questionTextLabel = new Label(question.getQuestionText());
+        questionContainer.getChildren().add(questionTextLabel);
+    
+        // Add word bank options dynamically
         for (String word : question.getWordBankText()) {
             Button wordButton = new Button(word);
             wordButton.setOnAction(e -> handleWordBankSelection(question, word));
             questionContainer.getChildren().add(wordButton);
         }
     }
+    
 
     private void handleWordBankSelection(WordBank question, String selectedWord) {
         if (question.checkAnswer(selectedWord)) {
