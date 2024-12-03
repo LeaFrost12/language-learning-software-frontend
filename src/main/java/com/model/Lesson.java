@@ -1,6 +1,8 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
@@ -243,5 +245,25 @@ public class Lesson {
 
     public static int getMAX_WRONG_ANSWERS() {
         return MAX_WRONG_ANSWERS;
+    }
+    
+    public ArrayList<Question> getQuestions() {
+        ArrayList<Question> questions = new ArrayList<>();
+        ArrayList<Word> words = wordList.getWords();
+
+        if (words.isEmpty()) {
+            return questions; // Return empty list if no words
+        }
+
+        // Generate a mix of question types
+        questions.add(new FillInTheBlank(words));
+        questions.add(new MultipleChoice(words));
+        questions.add(new Matching(words));
+        questions.add(new WordBank(words));
+
+        // Shuffle the questions to randomize the order
+        Collections.shuffle(questions);
+
+        return questions;
     }
 }

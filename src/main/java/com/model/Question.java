@@ -12,4 +12,10 @@ public interface Question {
     public QuestionType getQuestionType();
 
     public boolean run(User user);
+    
+    String getQuestionText(); // Returns the question text
+
+    boolean checkAnswer(String userAnswer);
+
+    String getCorrectAnswer();
 }
