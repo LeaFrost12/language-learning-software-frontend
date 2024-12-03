@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.User;
 import com.model.UserList;
@@ -17,6 +16,7 @@ import javafx.scene.control.Label;
 
 public class SettingsController implements Initializable {
     private LanguageSystemFacade facade;
+    private UserList userList;
     private User currentUser;
 
     @FXML
@@ -31,8 +31,8 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Retrieve the current user from UserList
-        UserList userList = UserList.getInstance();
-        User currentUser = userList.getCurrentUser();
+        userList = UserList.getInstance();
+        currentUser = userList.getCurrentUser();
     }
 
     private void onChangePassClicked(ActionEvent event) throws IOException {
@@ -46,6 +46,5 @@ public class SettingsController implements Initializable {
     private void onLogoutClicked(ActionEvent event) throws IOException {
         userList.logout(currentUser);
     }
-
 
 }
