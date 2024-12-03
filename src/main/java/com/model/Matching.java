@@ -20,18 +20,14 @@ public class Matching implements Question {
         answers = new HashMap<>();
         originalWords = new ArrayList<>();
 
+        // Shuffle words once and then populate the lists
         Collections.shuffle(words);
-
-        for (int i = 3; i >= 0; i--) { // Populate answers, english, and foreign word lists/maps
+        for (int i = 0; i < Math.min(4, words.size()); i++) {
             Word word = words.get(i);
             englishWords.add(word.getTranslatedWord());
             foreignWords.add(word.getForeignWord());
             answers.put(word.getTranslatedWord(), word.getForeignWord());
-            originalWords.add(word);
         }
-
-        Collections.shuffle(englishWords);
-        Collections.shuffle(foreignWords);
     }
 
     public Matching(ArrayList<Word> words, int seed) {
@@ -85,15 +81,13 @@ public class Matching implements Question {
 
     @Override
     public String toString() {
-        String returnString = "";
-        for (String word : foreignWords) {
-            returnString += "," + word;
+        StringBuilder sb = new StringBuilder("Match the following pairs:\n");
+        for (String english : answers.keySet()) {
+            sb.append(english).append(" -> ???\n");
         }
-        for (String word : englishWords) {
-            returnString += "," + word;
-        }
-        return returnString;
+        return sb.toString();
     }
+
 
     @Override
     public QuestionType getQuestionType() {
@@ -102,22 +96,35 @@ public class Matching implements Question {
 
     @Override
     public boolean run(User user) {
+        Scanner scan = new Scanner(System.in);
+    
+        System.out.println("Match the following:");
         for (int i = 0; i < englishWords.size(); i++) {
-            System.out.println(englishWords.get(i) + "\t\t\t" + foreignWords.get(i));
-            Narrator.playSound(foreignWords.get(i));
+            System.out.println((i + 1) + ". " + englishWords.get(i) + " -> " + foreignWords.get(i));
         }
-
+    
+        System.out.println("\nEnter your matches in the format '1 -> 3', one per line:");
+        HashMap<String, String> userAnswers = new HashMap<>();
         for (int i = 0; i < englishWords.size(); i++) {
-            boolean correct = answerPart(i, user);
-            if (!correct) {
-                System.out.println("\nYou got that match wrong! The right answer was " + answers.get(englishWords.get(i)) + "\n");
-                return false;
+            System.out.print("Match for " + englishWords.get(i) + ": ");
+            String userInput = scan.nextLine();
+            String[] parts = userInput.split("->");
+            if (parts.length == 2) {
+                String english = englishWords.get(Integer.parseInt(parts[0].trim()) - 1);
+                String foreign = foreignWords.get(Integer.parseInt(parts[1].trim()) - 1);
+                userAnswers.put(english, foreign);
             }
         }
-
-        System.out.println("\nYou got these matches correct!!!!! You're amazing!\n");
-        return true;
+    
+        boolean correct = checkAnswer(userAnswers);
+        if (correct) {
+            System.out.println("All matches are correct!");
+        } else {
+            System.out.println("Some matches are incorrect.");
+        }
+        return correct;
     }
+    
 
     private boolean answerPart(int cycle, User user) {
         System.out.print(englishWords.get(cycle) + " -> ");
