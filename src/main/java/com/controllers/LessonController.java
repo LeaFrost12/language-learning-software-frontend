@@ -72,21 +72,25 @@ public class LessonController {
     private void onSubmitClicked() {
         String userAnswer = answerField.getText().trim();
         Question question = questions.get(currentQuestionIndex);
-
+    
         if (userAnswer.isEmpty()) {
             feedbackLabel.setText("Please enter an answer.");
+            feedbackLabel.setStyle("-fx-text-fill: orange;"); // Use orange for neutral feedback
             return;
         }
-
+    
         boolean isCorrect = question.checkAnswer(userAnswer);
         if (isCorrect) {
             feedbackLabel.setText("Correct!");
+            feedbackLabel.setStyle("-fx-text-fill: green;"); // Set feedback text to green
         } else {
             feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
+            feedbackLabel.setStyle("-fx-text-fill: red;"); // Set feedback text to red
         }
-
-        nextButton.setDisable(false);
+    
+        nextButton.setDisable(false); // Enable the next button
     }
+    
 
     @FXML
     private void onNextQuestionClicked() {
