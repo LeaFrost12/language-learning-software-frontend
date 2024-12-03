@@ -123,19 +123,24 @@ public class LessonController {
     
 
     private void displayMatchingQuestion(Matching matchingQuestion) {
-        matchingGrid.setVisible(true);
-        matchingInputs = new HashMap<>();
-
+        matchingGrid.getChildren().clear(); // Clear previous content
+        matchingInputs = new HashMap<>(); // Reset matching inputs
+    
         List<String> englishWords = matchingQuestion.getEnglishWords();
+        List<String> foreignWords = matchingQuestion.getForeignWords(); // Assuming you want to display foreign words for user input validation
+    
         for (int i = 0; i < englishWords.size(); i++) {
+            // Add English word label
             Label englishWordLabel = new Label(englishWords.get(i));
             matchingGrid.add(englishWordLabel, 0, i);
-
+    
+            // Add input field for the user to type the matching word
             TextField inputField = new TextField();
             matchingGrid.add(inputField, 1, i);
             matchingInputs.put(englishWords.get(i), inputField);
         }
     }
+    
 
     private void displayFillInTheBlankQuestion(FillInTheBlank question) {
         questionContainer.getChildren().clear(); // Clear previous content
