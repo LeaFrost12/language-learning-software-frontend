@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import com.language.App;
 
 public class SettingsController implements Initializable {
     private LanguageSystemFacade facade;
@@ -35,14 +36,17 @@ public class SettingsController implements Initializable {
         currentUser = userList.getCurrentUser();
     }
 
+    @FXML
     private void onChangePassClicked(ActionEvent event) throws IOException {
-        // App.setRoot("changePass");
+        App.setRoot("changePass");
     }
 
+    @FXML
     private void onAccountDetailsClicked(ActionEvent event) throws IOException {
-        // App.setRoot("accountDetails");
+        App.setRoot("accountDetails");
     }
 
+    @FXML
     private void onLogoutClicked(ActionEvent event) throws IOException {
         userList.logout(currentUser);
     }

@@ -23,10 +23,10 @@
       <!-- Main Content -->
       <VBox alignment="CENTER" spacing="15.0">
          <children>
-            <Button text="Change Password" styleClass="nac-button" onAction="#onChangePassClicked"/> //fx:id="ChangePassButton" text="Change Password" styleClass="start-button" onAction="#onChangePassClicked"
+            <Button fx:id="ChangePassButton" text="Change Password" styleClass="nac-button" onAction="#onChangePassClicked"/> 
             <Button fx:id="AccountDetailsButton" text="Account Details" styleClass="start-button" onAction="#onAccountDetailsClicked"/>
             <Button fx:id="LogoutButton" text="Logout" styleClass="start-button" onAction="#onLogoutClicked"/>
-         <children>
+         </children>
       </VBox>
    </children> 
    <padding>
