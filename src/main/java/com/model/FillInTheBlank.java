@@ -9,7 +9,7 @@ import com.narration.Narrator;
 /**
  * FillInTheBlank class is a type of question where the user will be given a
  * sentence with an empty space, and has to fill in the blank with the correct
- * answer
+ * answer.
  *
  * @author Cody Miller
  */
@@ -21,50 +21,47 @@ public class FillInTheBlank implements Question {
 
     /**
      * Constructor for the FillInTheBlank class, creates a random question based
-     * off of list of testable words
+     * off of a list of testable words.
      *
-     * @param words ArrayList of the lesson's quizzable words
+     * @param words ArrayList of the lesson's quizzable words.
      */
     public FillInTheBlank(ArrayList<Word> words) {
-
-        if(words.isEmpty()) {
+        if (words.isEmpty()) {
             System.out.println("Hint: hello");
 
-            this.answerWord = new Word("hola","hello");
+            this.answerWord = new Word("hola", "hello");
             this.answer = "hola";
             this.question = "____, mi nombre es Lea.";
-        }
-        else {
+        } else {
             Random rand = new Random();
             this.answerWord = words.get(rand.nextInt(words.size()));
 
             System.out.println("Hint: " + answerWord.getTranslatedWord());
-            
+
             this.answer = answerWord.getForeignWord();
             this.question = answerWord.getExampleSentence();
         }
     }
 
     /**
-     * Constructor for the FillInTheBlank class, creates a random question based on the seed
+     * Constructor for the FillInTheBlank class, creates a random question based
+     * on the seed.
      *
-     * @param words ArrayList of the lesson's quizzable words
-     * @param seed random seed
+     * @param words ArrayList of the lesson's quizzable words.
+     * @param seed  Random seed.
      */
     public FillInTheBlank(ArrayList<Word> words, int seed) {
-
-        if(words.isEmpty()) {
+        if (words.isEmpty()) {
             System.out.println("Hint: hello");
 
-            this.answerWord = new Word("hola","hello");
+            this.answerWord = new Word("hola", "hello");
             this.answer = "hola";
             this.question = "____, mi nombre es Lea.";
-        }
-        else {
+        } else {
             Random rand = new Random(seed);
             this.answerWord = words.get(rand.nextInt(words.size()));
 
-            if(this.answerWord != null) {
+            if (this.answerWord != null) {
                 System.out.println("Hint: " + answerWord.getTranslatedWord());
 
                 this.answer = answerWord.getForeignWord();
@@ -74,48 +71,9 @@ public class FillInTheBlank implements Question {
     }
 
     /**
-     * Checks if the user's answer was correct or not
+     * Returns the type of the question.
      *
-     * @param answer the user's answer
-     * @return returns true if the answer is correct, false otherwise
-     */
-    public boolean checkAnswer(String answer) {
-        return this.answer.equalsIgnoreCase(answer);
-    }
-
-    /**
-     * Get method for the question's answer
-     *
-     * @return the answer string
-     */
-    public String getAnswer() {
-        return answer;
-    }
-
-    /**
-     * Get method for the question
-     *
-     * @return the question string
-     */
-    public String getQuestion() {
-        return question;
-    }
-
-    /**
-     * toString method for WordBank
-     *
-     * @return toString for the question, seperated by commas, for example...
-     * "perro,Yo _____ un perro"
-     */
-    @Override
-    public String toString() {
-        return answer + "," + question;
-    }
-
-    /**
-     * Returns the enumeration of the question type
-     *
-     * @return question type
+     * @return QuestionType.FILL_IN_THE_BLANK.
      */
     @Override
     public QuestionType getQuestionType() {
@@ -123,20 +81,51 @@ public class FillInTheBlank implements Question {
     }
 
     /**
-     * Runs the question in the terminal to ask the user for their answer
+     * Returns the question text for display.
      *
-     * @return true if they get the question right, false if they get the
-     * question wrong
+     * @return The question text with a blank to fill.
+     */
+    @Override
+    public String getQuestionText() {
+        return question;
+    }
+
+    /**
+     * Checks if the user's answer is correct.
+     *
+     * @param userAnswer The user's input answer.
+     * @return true if the answer matches the correct answer, false otherwise.
+     */
+    @Override
+    public boolean checkAnswer(String userAnswer) {
+        return this.answer.equalsIgnoreCase(userAnswer.trim());
+    }
+
+    /**
+     * Returns the correct answer for the question.
+     *
+     * @return The correct answer.
+     */
+    @Override
+    public String getCorrectAnswer() {
+        return answer;
+    }
+
+    /**
+     * Runs the question in the terminal to ask the user for their answer.
+     *
+     * @param user The user answering the question.
+     * @return true if the user answers correctly, false otherwise.
      */
     @Override
     public boolean run(User user) {
         // Display and narrate question
-        System.out.println(question);
-        Narrator.playSound(question);
+        System.out.println(getQuestionText());
+        Narrator.playSound(getQuestionText());
 
         System.out.print("Enter your answer:\n>");
 
-        // Get user asnwer and check
+        // Get user answer and check
         Scanner scan = new Scanner(System.in);
         String userAnswer = scan.nextLine();
         boolean correct = checkAnswer(userAnswer);
@@ -145,7 +134,7 @@ public class FillInTheBlank implements Question {
         if (correct) {
             System.out.println("\nYou're right!!! Nice job!!\n");
         } else {
-            System.out.println("\nYou're wrong... the right answer was " + answer + "\n");
+            System.out.println("\nYou're wrong... the right answer was " + getCorrectAnswer() + "\n");
             user.addProblemWord(answerWord);
         }
 
@@ -153,30 +142,29 @@ public class FillInTheBlank implements Question {
     }
 
     /**
-     * Runs the question, except without asking for user input here
-     * There is also no narrator for test time purposes
+     * Runs the question without asking for user input (used for testing purposes).
      *
-     * @return true if they get the question right, false if they get the
-     * question wrong
+     * @param user       The user answering the question.
+     * @param userAnswer The answer provided for testing.
+     * @return true if the answer is correct, false otherwise.
      */
     public boolean run(User user, String userAnswer) {
-        // Display question
-        System.out.println(question);
+        System.out.println(getQuestionText());
 
-        System.out.print("Enter your answer:\n>");
-
-        // Get user asnwer and check
         boolean correct = checkAnswer(userAnswer);
 
-        // Tell user whether they got it right
         if (correct) {
             System.out.println("\nYou're right!!! Nice job!!\n");
         } else {
-            System.out.println("\nYou're wrong... the right answer was " + answer + "\n");
+            System.out.println("\nYou're wrong... the right answer was " + getCorrectAnswer() + "\n");
             user.addProblemWord(answerWord);
         }
 
         return correct;
     }
 
+    @Override
+    public String toString() {
+        return "Fill in the blank: " + getQuestionText();
+    }
 }

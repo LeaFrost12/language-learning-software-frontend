@@ -9,7 +9,7 @@ import com.narration.Narrator;
 
 /**
  * MultipleChoice class is a type of question where the user will be given a
- * question and four to five possible answers to choose from for that question
+ * question and four to five possible answers to choose from for that question.
  *
  * @author Cody Miller
  */
@@ -23,209 +23,124 @@ public class MultipleChoice implements Question {
 
     /**
      * Constructor for the MultipleChoice class, creates a random question based
-     * off of list of testable words
+     * off a list of testable words.
      *
-     * @param words ArrayList of the lesson's quizzable words
+     * @param words ArrayList of the lesson's quizzable words.
      */
     public MultipleChoice(ArrayList<Word> words) {
+        this.choices = new ArrayList<>();
 
-        if(words.size() == 0) {
-
+        if (words.isEmpty()) {
+            return;
         }
-        else if(words.size() <= 4) {
-            this.choices = new ArrayList();
 
-            Collections.shuffle(words);
+        Collections.shuffle(words);
 
-            this.word = words.get(0);
-            this.answer = words.get(0).getForeignWord();
-            this.question = words.get(0).getExampleSentence();
-            this.choices.add(answer);
+        this.word = words.get(0);
+        this.answer = words.get(0).getForeignWord();
+        this.question = words.get(0).getExampleSentence();
+        this.choices.add(answer);
 
-            for(int i = 1; i<words.size(); i++) {
-                choices.add(words.get(i).getForeignWord());
-            }
-
-            Collections.shuffle(this.choices);
-            correctIndex = choices.indexOf(answer);
+        for (int i = 1; i < Math.min(words.size(), 4); i++) {
+            choices.add(words.get(i).getForeignWord());
         }
-        else {
-            this.choices = new ArrayList<>();
 
-            Collections.shuffle(words);
-
-            this.word = words.get(0);
-            this.answer = words.get(0).getForeignWord();
-            this.question = words.get(0).getExampleSentence();
-            this.choices.add(answer);
-
-            for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
-                choices.add(words.get(i).getForeignWord());
-            }
-
-            Collections.shuffle(this.choices);
-            correctIndex = choices.indexOf(answer);
-        }
+        Collections.shuffle(this.choices);
+        correctIndex = choices.indexOf(answer);
     }
 
     /**
-     * Constructor for the MultipleChoice class, creates a random question based on the seed
+     * Constructor for the MultipleChoice class, creates a random question based
+     * on the seed.
      *
-     * @param words ArrayList of the lesson's quizzable words
-     * @param seed random seed
+     * @param words ArrayList of the lesson's quizzable words.
+     * @param seed  Random seed.
      */
     public MultipleChoice(ArrayList<Word> words, int seed) {
-        
-        if(words.size() == 0) {
+        this.choices = new ArrayList<>();
 
+        if (words.isEmpty()) {
+            return;
         }
-        else if(words.size() <= 4) {
-            Random rand = new Random(seed);
 
-            this.choices = new ArrayList<>();
+        Random rand = new Random(seed);
+        Collections.shuffle(words, rand);
 
-            Collections.shuffle(words,rand);
+        this.word = words.get(0);
+        this.answer = words.get(0).getForeignWord();
+        this.question = words.get(0).getExampleSentence();
+        this.choices.add(answer);
 
-            if(words.get(0) != null) {
-                this.word = words.get(0);
-                this.answer = words.get(0).getForeignWord();
-                this.question = words.get(0).getExampleSentence();
-                this.choices.add(answer);
-
-                for (int i = 1; i < words.size(); i++) { //Populating the answers, english, and foreign word lists/maps
-                    choices.add(words.get(i).getForeignWord());
-                }
-
-                Collections.shuffle(this.choices,rand);
-                correctIndex = choices.indexOf(answer);
-            }
+        for (int i = 1; i < Math.min(words.size(), 4); i++) {
+            choices.add(words.get(i).getForeignWord());
         }
-        else {
-            Random rand = new Random(seed);
 
-            this.choices = new ArrayList<>();
-
-            Collections.shuffle(words,rand);
-
-            if(words.get(0) != null) {
-                this.word = words.get(0);
-                this.answer = words.get(0).getForeignWord();
-                this.question = words.get(0).getExampleSentence();
-                this.choices.add(answer);
-
-                for (int i = 1; i < 4; i++) { //Populating the answers, english, and foreign word lists/maps
-                    choices.add(words.get(i).getForeignWord());
-                }
-
-                Collections.shuffle(this.choices,rand);
-                correctIndex = choices.indexOf(answer);
-            }
-        }
+        Collections.shuffle(this.choices, rand);
+        correctIndex = choices.indexOf(answer);
     }
 
     /**
-     * Checks if the user's answer was correct or not
+     * Checks if the user's answer is correct.
      *
-     * @param answer the user's answer
-     * @return returns true if the answer is correct, false otherwise
+     * @param userAnswer The user's answer.
+     * @return true if the answer is correct, false otherwise.
      */
-    public boolean checkAnswer(String answer) {
-        if(this.answer.equalsIgnoreCase(answer)) {
+    @Override
+    public boolean checkAnswer(String userAnswer) {
+        if (answer.equalsIgnoreCase(userAnswer.trim())) {
             return true;
         }
-        else {
-            try {
-                return (this.correctIndex == (Integer.parseInt(answer)-1));
-            } 
-            catch (Exception e) {
-                return false;
-            }
+        try {
+            return correctIndex == Integer.parseInt(userAnswer) - 1;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
     /**
-     * Get method for the question's answer
+     * Returns the correct answer for the question.
      *
-     * @return the answer string
+     * @return The correct answer.
      */
-    public String getAnswer() {
+    @Override
+    public String getCorrectAnswer() {
         return answer;
     }
 
     /**
-     * Get method for the question
+     * Returns the question text.
      *
-     * @return the question string
-     */
-    public String getQuestion() {
-        return question;
-    }
-
-    /**
-     * Get method for the answer choices
-     *
-     * @return the answer choice arraylist
-     */
-    public ArrayList<String> getChoices() {
-        return choices;
-    }
-
-    /**
-     * toString method for WordBank
-     *
-     * @return toString for the question, seperated by commas, for example...
-     * "Dog,Which is a valid pet?,perro,enchilada,dinero,futbol"
+     * @return The question text.
      */
     @Override
-    public String toString() {
-        String returnString = answer + "," + question;
-        for (String word : choices) {
-            returnString += "," + word;
+    public String getQuestionText() {
+        StringBuilder questionText = new StringBuilder(question).append("\nChoices:\n");
+        for (int i = 0; i < choices.size(); i++) {
+            questionText.append(i + 1).append(". ").append(choices.get(i)).append("\n");
         }
-        return returnString;
+        return questionText.toString();
     }
 
     /**
-     * Returns the enumeration of the question type
-     *
-     * @return question type
-     */
-    @Override
-    public QuestionType getQuestionType() {
-        return QuestionType.MATCHING;
-    }
-
-    /**
-     * Runs the question in the terminal to ask the user for their answer
+     * Runs the question in the terminal to ask the user for their answer.
      *
      * @return true if they get the question right, false if they get the
-     * question wrong
+     * question wrong.
      */
     @Override
     public boolean run(User user) {
-        System.out.println(question + "\n");
+        System.out.println(getQuestionText());
         Narrator.playSound(question);
 
-        // Display and narrate choices
-        System.out.println("Choices:");
-        for (int i = 0; i < choices.size(); i++) {
-            System.out.println(i + 1 + ". " + choices.get(i));
-            Narrator.playSound(choices.get(i));
-        }
-
-        System.out.println();
-
-        // Get user answer and check
         Scanner scan = new Scanner(System.in);
-        System.out.print("Enter you answer:\n>");
+        System.out.print("Enter your answer:\n> ");
         String userAnswer = scan.nextLine();
         boolean correct = checkAnswer(userAnswer);
 
-        // Tell user whether they got it right
         if (correct) {
             System.out.println("\nYou're right!!! Nice job!!\n");
         } else {
-            System.out.println("\nYou're wrong... the right answer was " + answer + "\n");
+            System.out.println("\nYou're wrong... the right answer was " + getCorrectAnswer() + "\n");
             user.addProblemWord(word);
         }
 
@@ -233,34 +148,43 @@ public class MultipleChoice implements Question {
     }
 
     /**
-     * Variation of run method, but without collecting user input, used for testing purposes.
-     * Also removed narrator so that it doesn't take so long for testing
+     * Runs the question without user input (for testing).
      *
-     * @return true if they get the question right, false if they get the
-     * question wrong
+     * @param user       The user answering the question.
+     * @param userAnswer The user's answer for testing.
+     * @return true if the answer is correct, false otherwise.
      */
-    public boolean run(User user,String userAnswer) {
-        System.out.println(question + "\n");
-
-        // Display and narrate choices
-        System.out.println("Choices:");
-        for (int i = 0; i < choices.size(); i++) {
-            System.out.println(i + 1 + ". " + choices.get(i));
-        }
-
-        System.out.println();
-
+    public boolean run(User user, String userAnswer) {
+        System.out.println(getQuestionText());
         boolean correct = checkAnswer(userAnswer);
 
-        // Tell user whether they got it right
         if (correct) {
             System.out.println("\nYou're right!!! Nice job!!\n");
         } else {
-            System.out.println("\nYou're wrong... the right answer was " + answer + "\n");
+            System.out.println("\nYou're wrong... the right answer was " + getCorrectAnswer() + "\n");
             user.addProblemWord(word);
         }
 
         return correct;
     }
 
+    /**
+     * Returns the enumeration of the question type.
+     *
+     * @return QuestionType.MULTIPLE_CHOICE.
+     */
+    @Override
+    public QuestionType getQuestionType() {
+        return QuestionType.MULTIPLE_CHOICE;
+    }
+
+    /**
+     * Returns a string representation of the question and choices.
+     *
+     * @return The question and choices as a string.
+     */
+    @Override
+    public String toString() {
+        return getQuestionText();
+    }
 }

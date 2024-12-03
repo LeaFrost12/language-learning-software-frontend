@@ -62,7 +62,7 @@ public class UserHomeController implements Initializable {
 
     @FXML
     private void onStartLessonClicked(ActionEvent event) throws IOException {
-        // Code to handle starting a lesson
+        // Navigate to the lesson page
         App.setRoot("lesson");
     }
 }

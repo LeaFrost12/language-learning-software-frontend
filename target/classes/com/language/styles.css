@@ -373,3 +373,44 @@
     -fx-border-width: 2;
     -fx-border-radius: 10;
 }
+.lesson-container {
+    -fx-padding: 30;
+    -fx-background-color: #e3f2fd; /* Light blue background */
+    -fx-alignment: center;
+    -fx-spacing: 20;
+}
+
+.lesson-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #01579b;
+}
+
+.question-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #004d73;
+}
+
+.answer-field {
+    -fx-pref-width: 300px;
+    -fx-padding: 10;
+    -fx-font-size: 16px;
+}
+
+.feedback-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #d32f2f; /* Red for incorrect, change dynamically if needed */
+}
+
+.submit-button, .next-button {
+    -fx-background-color: #0288d1;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.submit-button:hover, .next-button:hover {
+    -fx-background-color: #03a9f4;
+}
