@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -183,5 +184,13 @@ public class WordBank implements Question {
     @Override
     public String toString() {
         return getQuestionText();
+    }
+    @Override
+    public List<String> getWordBankText() {
+        List<String> wordBankTexts = new ArrayList<>();
+        for (Word word : wordBank) {
+            wordBankTexts.add(word.getForeignWord());
+        }
+        return wordBankTexts;
     }
 }

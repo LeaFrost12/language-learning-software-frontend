@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -186,5 +187,10 @@ public class MultipleChoice implements Question {
     @Override
     public String toString() {
         return getQuestionText();
+    }
+
+    @Override
+    public List<String> getChoices() {
+        return choices;
     }
 }

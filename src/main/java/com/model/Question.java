@@ -1,21 +1,38 @@
 package com.model;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
- * Question class that is over WordBank.java, Matching.java, etc.
+ * Question interface for various types of questions in lessons.
  *
- * @author Cody Miller
+ * @author Cody Miller and madeleine McBride
  */
 public interface Question {
 
-    public String toString();
+    String toString();
 
-    public QuestionType getQuestionType();
+    QuestionType getQuestionType();
 
-    public boolean run(User user);
-    
-    String getQuestionText(); // Returns the question text
+    boolean run(User user);
 
-    boolean checkAnswer(String userAnswer);
+    default String getQuestionText() {
+        return "No question text available.";
+    }
 
-    String getCorrectAnswer();
+    default String getCorrectAnswer() {
+        return "No correct answer available.";
+    }
+
+    default List<String> getChoices() {
+        return Collections.emptyList(); // Empty list for non-choice-based questions
+    }
+
+    default List<String> getWordBankText() {
+        return Collections.emptyList(); // Empty list for non-word-bank-based questions
+    }
+
+    default boolean checkAnswer(String userAnswer) {
+        return false; // Default implementation to ensure compatibility
+    }
 }
