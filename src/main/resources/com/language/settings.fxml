@@ -10,7 +10,7 @@
 
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SettingsController">
    <children>
-      <!-- Top Navigation Bar -->
+      <!-- Top Bar -->
       <HBox alignment="CENTER" spacing="10.0" styleClass="top-bar">
          <children>
             <Label text="Settings" styleClass="title-label"/>
@@ -22,11 +22,13 @@
 
       <!-- Main Content -->
       <VBox alignment="CENTER" spacing="15.0">
-         <Button fx:id="ChangePassButton" text="Change Password" styleClass="start-button" onAction="#onChangePassClicked"/>
-         <Button fx:id="AccountDetailsButton" text="Account Details" styleClass="start-button" onAction="#onAccountDetailsClicked"/>
-         <Button fx:id="LogoutButton" text="Logout" styleClass="start-button" onAction="#onLogoutClicked"/>
+         <children>
+            <Button text="Change Password" styleClass="nac-button" onAction="#onChangePassClicked"/> //fx:id="ChangePassButton" text="Change Password" styleClass="start-button" onAction="#onChangePassClicked"/>
+            <Button fx:id="AccountDetailsButton" text="Account Details" styleClass="start-button" onAction="#onAccountDetailsClicked"/>
+            <Button fx:id="LogoutButton" text="Logout" styleClass="start-button" onAction="#onLogoutClicked"/>
+         <children>
       </VBox>
-   </children>
+   </children> 
    <padding>
       <Insets top="20.0" left="20.0" right="20.0" bottom="20.0"/>
    </padding>
