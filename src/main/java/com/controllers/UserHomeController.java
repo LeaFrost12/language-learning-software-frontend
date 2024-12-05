@@ -13,6 +13,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class UserHomeController implements Initializable {
     private LanguageSystemFacade facade;
@@ -21,8 +23,14 @@ public class UserHomeController implements Initializable {
     @FXML
     private Label welcomeLabel; // Reference to the welcome label in FXML
 
+    @FXML
+    private ImageView whaleImage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Load the whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whaleImage.setImage(whale);
         // Retrieve the current user from UserList
         UserList userList = UserList.getInstance();
         User currentUser = userList.getCurrentUser();
