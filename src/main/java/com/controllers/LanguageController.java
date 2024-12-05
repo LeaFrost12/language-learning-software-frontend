@@ -23,26 +23,27 @@ public class LanguageController {
         for (LanguagesEnum language : LanguagesEnum.values()) {
             Button languageButton = new Button(language.name());
             languageButton.setStyle("-fx-font-size: 14pt; -fx-padding: 10px;");
-            languageButton.setOnAction(e -> selectLanguage(language));
+            languageButton.setOnAction(e -> handleLanguageSelection(language));
             languageButtonsContainer.getChildren().add(languageButton);
         }
     }
 
-    private void selectLanguage(LanguagesEnum language) {
+    private void handleLanguageSelection(LanguagesEnum language) {
         boolean success = facade.loadLanguage(language.name());
         if (success) {
             System.out.println("Language selected: " + language.name());
-            // Navigate to user home or next appropriate page
-            App.setRoot("user_home");
         } else {
             System.out.println("Failed to load language: " + language.name());
         }
+        navigateToUserHome();
+    }
+
+    private void navigateToUserHome() {
+        App.setRoot("user_home");
     }
 
     @FXML
-    private void onBackHomeClicked(ActionEvent event) throws IOException {
-        // Navigate back to the User Home page
-        App.setRoot("user_home");
+    private void onBackHomeClicked(ActionEvent event) {
+        navigateToUserHome();
     }
 }
-
