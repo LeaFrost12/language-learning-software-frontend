@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LanguageController" alignment="CENTER" spacing="20" styleClass="language-container">
+    <!-- Page Title -->
+    <Label text="Choose Your Language" styleClass="title-label"/>
+
+    <!-- Language Buttons -->
+    <VBox fx:id="languageButtonsContainer" spacing="10" alignment="CENTER">
+        <!-- Buttons will be dynamically added here -->
+    </VBox>
+
+    <!-- Back Home Button -->
+    <Button text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button"/>
+</VBox>
