@@ -1,13 +1,15 @@
 package com.controllers;
 
 import java.io.IOException;
+
 import com.language.App;
 import com.model.User;
 import com.model.UserList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
+
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * Controller for the Login page
