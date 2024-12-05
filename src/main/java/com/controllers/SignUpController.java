@@ -1,19 +1,18 @@
 package com.controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.language.App;
+import com.model.LanguageSystemFacade;
+import com.model.TempUser;
+
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-import com.language.App;
-import com.model.*;
-import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
 
-public class SignUpController implements Initializable{
+public class SignUpController {
+
     @FXML
     private TextField txt_username;
     @FXML
@@ -29,50 +28,35 @@ public class SignUpController implements Initializable{
     @FXML
     private Label lbl_error;
 
+    private final LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
+
     @FXML
     private void btnSignupClicked(MouseEvent event) throws IOException {
-        String username = txt_username.getText();
-        String password = txt_password.getText();
-        String firstName = txt_first_name.getText();
-        String lastName = txt_last_name.getText();
-        String phoneNumber = txt_phone_number.getText();
-        String email = txt_email.getText();
-        LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
-        LanguageList languageList = LanguageList.getInstance();
+        String username = txt_username.getText().trim();
+        String password = txt_password.getText().trim();
+        String firstName = txt_first_name.getText().trim();
+        String lastName = txt_last_name.getText().trim();
+        String phoneNumber = txt_phone_number.getText().trim();
+        String email = txt_email.getText().trim();
 
         // Check for empty fields
-        if (username.equals("") || password.equals("") || firstName.equals("") || lastName.equals("")
-                || phoneNumber.equals("")) {
-            lbl_error.setText("Sorry, You cannot leave blank fields");
+        if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty()) {
+            lbl_error.setText("Sorry, you cannot leave blank fields.");
             return;
         }
 
-        // Default to Spanish if no language is explicitly selected
-        Language language = languageList.getLanguage("SPANISH");
-        if (language == null) {
-            lbl_error.setText("Failed to load default language: Spanish.");
-            return;
-        }
+        // Store user details temporarily until language selection
+        TempUser tempUser = new TempUser(firstName, lastName, email, phoneNumber, username, password);
 
-        // Attempt to create the user
-        if (!facade.createUser(firstName, lastName, email, phoneNumber, username, password, language)) {
-            lbl_error.setText("Sorry, this user couldn't be created.");
-            return;
-        }
+        // Pass the temporary user to the language selection controller
+        facade.setTempUser(tempUser);
 
-        // Login and navigate to user home
-        facade.login(username, password);
-        App.setRoot("user_home");
+        // Navigate to language selection page
+        App.setRoot("languages");
     }
-
 
     @FXML
     private void back(MouseEvent event) throws IOException {
         App.setRoot("home");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 }
