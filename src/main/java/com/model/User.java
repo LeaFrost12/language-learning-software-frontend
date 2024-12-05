@@ -391,4 +391,14 @@ public class User {
             this.password = password;
         }
     }
+
+    /**
+     * Used to update/change information for user. User needs to enter correct
+     * password to update any information.
+     */
+    public void changePassword(String password, String currentPassword) {
+        if (checkPassword(currentPassword)) {
+            this.password = password;
+        }
+    }
 }
