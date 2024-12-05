@@ -252,6 +252,11 @@ public class LanguageSystemFacade {
             System.out.println("Username is invalid, make sure that it is between 3 and 20 characters, and does not have any invalid characters\n");
             return false;
         }
+        if (language == null) { //Language not found
+            language = languageList.getLanguage("SPANISH");
+            System.out.println("Language unselected, defaulting to Spanish\n");
+        }
+
         Unit unit = language.getUnitList().getUnit(0);
         UUID unitId = unit.getId();
 
