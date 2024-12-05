@@ -23,7 +23,9 @@
       <TextField fx:id="txt_phone_number" promptText="Phone Number" styleClass="input-field" />
       <TextField fx:id="txt_username" promptText="Username" styleClass="input-field" />
       <TextField fx:id="txt_password" promptText="Password" styleClass="input-field" />
-
+      
+      <!-- Error Label -->
+      <Label fx:id="lbl_error" text="" styleClass="error-label" />
 
       <Button fx:id="btnSignup" text="Sign up" onMouseClicked="#btnSignupClicked" styleClass="signup-button" />
       <Button fx:id="backButton" text="Back" onMouseClicked="#back" styleClass="nav-button" />
