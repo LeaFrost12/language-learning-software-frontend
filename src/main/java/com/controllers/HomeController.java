@@ -30,11 +30,17 @@ public class HomeController {
         label.setWrapText(true);
     }
 
+    /** 
+     * Goes to login page
+     */
     @FXML
     private void onLoginClicked(ActionEvent event) throws Exception {
         App.setRoot("login");
     }
 
+    /**
+     * Goes to signup page
+     */
     @FXML
     private void onSignupClicked(ActionEvent event) throws Exception {
         App.setRoot("signup");
