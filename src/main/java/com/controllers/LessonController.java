@@ -12,6 +12,7 @@ import com.model.Question;
 import com.model.FillInTheBlank;
 import com.model.MultipleChoice;
 import com.model.WordBank;
+import com.narration.Narrator;
 import com.model.User;
 import com.model.UserList;
 
@@ -277,5 +278,15 @@ public class LessonController {
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
         App.setRoot("user_home");
+    }
+    @FXML
+    private void onNarrateClicked() {
+        Question currentQuestion = questions.get(currentQuestionIndex);
+        if (currentQuestion != null) {
+            String questionText = currentQuestion.getQuestionText();
+            Narrator.playSound(questionText); // Narrates the question text
+        } else {
+            System.out.println("No question available to narrate.");
+        }
     }
 }
