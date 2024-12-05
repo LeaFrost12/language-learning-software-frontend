@@ -44,7 +44,7 @@ public class SettingsController implements Initializable {
 
     @FXML
     private void onAccountDetailsClicked(ActionEvent event) throws IOException {
-        App.setRoot("accountDetails");
+        App.setRoot("profile");
     }
 
     @FXML
