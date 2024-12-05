@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public class SettingsController implements Initializable {
     private LanguageSystemFacade facade;
@@ -50,6 +51,11 @@ public class SettingsController implements Initializable {
     private void onLogoutClicked(ActionEvent event) throws IOException {
         userList.logout(currentUser);
         App.setRoot("home");
+    }
+
+    @FXML
+    private void back(MouseEvent event) throws IOException {
+        App.setRoot("user_home");
     }
 
 }
