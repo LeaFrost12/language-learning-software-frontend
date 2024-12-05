@@ -34,6 +34,7 @@ public class ChangePassController {
         // Initialize the UserList singleton
         this.userList = UserList.getInstance();
     }
+    
     @FXML
     private void btnChangeClicked(ActionEvent event) throws IOException {
         String username = txt_username.getText();
