@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
 
-<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="400" fx:id="library_pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController" styleClass="anchor-pane">
+<AnchorPane id="AnchorPane" fx:id="library_pane" prefHeight="600" prefWidth="400" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.HomeController">
     <children>
-        <VBox alignment="CENTER" spacing="20.0" prefWidth="400.0" prefHeight="600.0">
+        <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" spacing="30.0">
             <!-- Header -->
-            <Label fx:id="label" text="Welcome to Language Learning App!" styleClass="header-label"/>
+            <Label fx:id="label" styleClass="header-label" text="Welcome to Language Learning App!" textAlignment="CENTER" wrapText="true" />
 
             <!-- Whale Image -->
-            <ImageView fx:id="whaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true"/>
+            <ImageView fx:id="whaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
 
             <!-- Buttons -->
-            <VBox alignment="CENTER" spacing="10.0">
-                <Button fx:id="button" text="Login" onAction="#onLoginClicked" styleClass="primary-button"/>
-                <Button fx:id="button1" text="Signup" onAction="#onSignupClicked" styleClass="secondary-button"/>
+            <VBox alignment="CENTER" spacing="15.0" prefWidth="300.0">
+                <Button fx:id="button" onAction="#onLoginClicked" styleClass="primary-button" text="Login" prefWidth="300.0" prefHeight="50.0" />
+                <Button fx:id="button1" onAction="#onSignupClicked" styleClass="secondary-button" text="Signup" prefWidth="300.0" prefHeight="50.0" />
             </VBox>
         </VBox>
     </children>

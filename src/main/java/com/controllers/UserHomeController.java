@@ -36,12 +36,7 @@ public class UserHomeController implements Initializable {
     }
 
     @FXML
-    private void onHomeClicked(ActionEvent event) throws IOException {
-        App.setRoot("home");
-    }
-
-    @FXML
-    private void onLessonsClicked(ActionEvent event) throws IOException {
+    private void onContinueUnitClicked(ActionEvent event) throws IOException {
         App.setRoot("lessons");
     }
 
@@ -62,9 +57,15 @@ public class UserHomeController implements Initializable {
     }
 
     @FXML
-    private void onStartLessonClicked(ActionEvent event) throws IOException {
-        // Navigate to the lesson page
-        App.setRoot("lessons");
+    private void onLanguagesClicked(ActionEvent event) throws IOException {
+        // Navigate to the languages page
+        App.setRoot("languages");
+    }
+
+    @FXML
+    private void onProblemWordsClicked(ActionEvent event) throws IOException {
+        // Navigate to the problem words page
+        App.setRoot("problemWords");
     }
 }
 
