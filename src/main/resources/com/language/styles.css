@@ -423,6 +423,10 @@
     -fx-pref-width: 250px; /* Fixed width */
 }
 
+.rounded-button1:hover {
+    -fx-text-fill: rgb(24, 136, 158); 
+}
+
 .rounded-button2 { /* opposite colorway */
     -fx-background-color: #EFEFEF;
     -fx-text-fill: #1DBADD; 
@@ -433,6 +437,10 @@
     -fx-border-radius: 15;
     -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
     -fx-pref-width: 250px; /* Fixed width */
+}
+
+.rounded-button2:hover {
+    -fx-text-fill: #b6b3b3; 
 }
 
 .speech-bubble {
