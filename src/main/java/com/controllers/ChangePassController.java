@@ -33,7 +33,7 @@ public class ChangePassController {
         this.userList = UserList.getInstance();
     }
     @FXML
-    private void btnLoginClicked(ActionEvent event) throws IOException {
+    private void btnChangePassClicked(ActionEvent event) throws IOException {
         String oldPassword = txt_oldPassword.getText();
         String newPassword = txt_newPassword.getText();
 
