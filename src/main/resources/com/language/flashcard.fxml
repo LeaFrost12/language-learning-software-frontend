@@ -22,7 +22,7 @@
     </VBox>
 
     <!-- Flashcard Container -->
-    <StackPane styleClass="flashcard-container" prefWidth="300.0" prefHeight="200.0">
+    <StackPane styleClass="flashcard-container" prefWidth="300.0" prefHeight="200.0" onMouseClicked="#flipCard">
         <children>
             <!-- Flashcard Content -->
             <VBox alignment="CENTER" spacing="10.0">
