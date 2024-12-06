@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.TempUser;
-import com.model.UserList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,7 +36,6 @@ public class SignUpController implements Initializable{
     private ImageView whaleImage;
 
     private final LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
-    private final UserList userList = UserList.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

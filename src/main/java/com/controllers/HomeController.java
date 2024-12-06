@@ -1,6 +1,7 @@
 package com.controllers;
 
 import com.language.App;
+import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 
 public class HomeController {
 
@@ -24,6 +24,8 @@ public class HomeController {
     @FXML
     private ImageView whaleImage;
 
+    private final UserList userList = UserList.getInstance();
+    
     public void initialize() {
         // Load the whale image
         Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
