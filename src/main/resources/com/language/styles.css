@@ -95,6 +95,9 @@
     -fx-padding: 10 20;
     -fx-background-radius: 15;      
     -fx-border-radius: 15;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
+
 }
 
 .login-button:hover {
@@ -113,6 +116,7 @@
     -fx-padding: 10px;
     -fx-background-radius: 15; /* Rounded corners */
     -fx-border-radius: 15;
+    -fx-font-weight: bold;
 }
 
 .header-label {
@@ -409,6 +413,23 @@
 .user-home-container {
     -fx-background-color: #FFFFFF; /* White background */
     -fx-padding: 20px;
+}
+
+.progress-container {
+    -fx-background-color: #FFFFFF; /* White background */
+    -fx-padding: 20px;
+}
+
+.progress-button {
+    -fx-background-color: #134349; /* Dark teal */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-border-radius: 15;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
+
 }
 
 .rounded-button1 {

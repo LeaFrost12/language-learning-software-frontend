@@ -10,19 +10,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProgressController" styleClass="progress-container">
-    <children>
-        <Label fx:id="unitTitleLabel" text="Unit Title" styleClass="unit-title"/>
-
-        <ImageView fx:id="progressWhaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
-
-        <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>
-
-        <HBox spacing="10.0" alignment="CENTER">
-            <Button fx:id="backButton" text="Back" onAction="#back" styleClass="nav-button" />
-            <Button fx:id="flashcardButton" text="Flashcards" onAction="#onFlashcardsClicked" styleClass="nav-button" />
-            <Button fx:id="lessonButton" text="Next Lesson" onAction="#onNextLessonClicked" styleClass="nav-button" />
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProgressController" styleClass="progress-container">
+    <top>
+        <HBox alignment="CENTER" spacing="10.0" styleClass="top-bar">
+            <children>
+                <Label fx:id="unitTitleLabel" text="Unit Title" style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+            </children>
         </HBox>
+    </top>
+
+    <center>
         
-    </children>
-</VBox>
+    </center>
+
+    <bottom>
+        <!-- VBox for ImageView and Label at the bottom -->
+        <VBox alignment="CENTER" spacing="12.0">
+            <ImageView fx:id="progressWhaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.3, 0, 3);"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>
+            </HBox>
+
+            <!-- HBox for buttons at the very bottom -->
+            <HBox spacing="12.0" alignment="CENTER">
+                <Button fx:id="backButton" text="Back" onAction="#back" styleClass="nav-button" />
+                <Button fx:id="flashcardButton" text="Flashcards" onAction="#onFlashcardsClicked" styleClass="progress-button" />
+                <Button fx:id="lessonButton" text="Next Lesson" onAction="#onNextLessonClicked" styleClass="progress-button" />
+            </HBox>
+        </VBox>
+
+        
+    </bottom>
+</BorderPane>
