@@ -10,19 +10,19 @@ import javafx.scene.image.ImageView;
 public class AccountDetailsController {
 
     @FXML
-    private Label txt_first_name;
+    private Label lbl_first_name;
 
     @FXML
-    private Label txt_last_name;
+    private Label lbl_last_name;
 
     @FXML
-    private Label txt_username;
+    private Label lbl_username;
 
     @FXML
-    private Label txt_phone_number;
+    private Label lbl_phone_number;
 
     @FXML
-    private Label txt_email;
+    private Label lbl_email;
 
     @FXML
     private ImageView whaleImage;
@@ -34,11 +34,11 @@ public class AccountDetailsController {
         User currentUser = userList.getCurrentUser();
 
         // Setting each label field to user's info
-        txt_first_name.setText(currentUser.getFirstName());
-        txt_last_name.setText(currentUser.getLastName());
-        txt_username.setText(currentUser.getUsername());
-        txt_phone_number.setText(currentUser.getPhoneNumber());
-        txt_email.setText(currentUser.getEmail());
+        lbl_first_name.setText(currentUser.getFirstName());
+        lbl_last_name.setText(currentUser.getLastName());
+        lbl_username.setText(currentUser.getUsername());
+        lbl_phone_number.setText(currentUser.getPhoneNumber());
+        lbl_email.setText(currentUser.getEmail());
     }
 
 }
