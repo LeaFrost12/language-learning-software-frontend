@@ -45,7 +45,7 @@ public class UserHomeController implements Initializable {
 
     @FXML
     private void onContinueUnitClicked(ActionEvent event) throws IOException {
-        App.setRoot("lessons");
+        App.setRoot("progress");
     }
 
     @FXML
