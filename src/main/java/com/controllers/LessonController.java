@@ -61,6 +61,8 @@ public class LessonController {
     private Map<String, TextField> matchingInputs;
     private int correctAnswersCount = 0;
 
+    private int correctAnswersCount = 0;  // Counter for correct answers
+
     public void initialize() {
         userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
@@ -289,13 +291,31 @@ public class LessonController {
     private void onNextQuestionClicked() {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.size()) {
+            // Display the next question if there are more questions left
             displayQuestion();
         } else {
             // User has completed all the questions in the current lesson
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
 
-            // Save problem words
+            // Check if the user qualifies to proceed to the next unit
+            double score = ((double) correctAnswersCount / questions.size()) * 100;
+            if (score >= 75) {
+                feedbackLabel.setText("Congratulations! You passed the lesson. You can proceed to the next unit.");
+                feedbackLabel.setStyle("-fx-text-fill: green;");
+                
+                // Attempt to advance to the next unit if available
+                if (currentUser.moveToNextUnit()) {
+                    feedbackLabel.setText("You have been advanced to the next unit.");
+                } else {
+                    feedbackLabel.setText("You passed the lesson, but there are no more units available at the moment.");
+                }
+            } else {
+                feedbackLabel.setText("You did not pass the lesson. Please try again.");
+                feedbackLabel.setStyle("-fx-text-fill: red;");
+            }
+
+            // Save progress
             UserList.getInstance().saveUsers();
             UserList.getInstance().saveUserProgress(currentUser);
         }
