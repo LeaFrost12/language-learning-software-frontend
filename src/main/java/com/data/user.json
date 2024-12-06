@@ -139,5 +139,23 @@
         "email": "ttom@gmail.com",
         "username": "ttom",
         "currentUnitID": "9b6e7eab-f214-4a2a-8437-1bef6b77b785"
+    },
+    {
+        "badges": [],
+        "firstName": "Madeleine",
+        "lastName": "McBride",
+        "password": "#K3v1n5042!",
+        "phoneNumber": "8544449269",
+        "languages": [
+            {
+                "languageEnum": "SPANISH"
+            }
+        ],
+        "currentLessonID": "d9803a1b-97db-4518-afd0-20562be10c0e",
+        "problemWords": [],
+        "uuid": "47857e2c-98a5-4023-be66-0685afbe84c8",
+        "email": "mcmad1325@gmail.com",
+        "username": "mcmad1325",
+        "currentUnitID": "9b6e7eab-f214-4a2a-8437-1bef6b77b785"
     }
 ]
