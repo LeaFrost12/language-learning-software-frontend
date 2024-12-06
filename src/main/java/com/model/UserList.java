@@ -12,7 +12,7 @@ import java.util.UUID;
 public class UserList {
 
     private static UserList userList;
-    private ArrayList<User> users;
+    private ArrayList<User> users = new ArrayList<>();
 
     /**
      * Private constructor to start the user list. Users can be loaded from an
