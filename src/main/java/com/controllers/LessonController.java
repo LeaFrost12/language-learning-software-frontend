@@ -54,10 +54,12 @@ public class LessonController {
     private TextField answerField;
 
     private List<Question> questions;
+    private UserList userList;
     private int currentQuestionIndex = 0;
     private User currentUser;
     private Lesson currentLesson;
     private Map<String, TextField> matchingInputs;
+    private int correctAnswersCount = 0;
 
     public void initialize() {
         userList = UserList.getInstance();

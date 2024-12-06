@@ -84,58 +84,79 @@
                         "lessonNumber": "1",
                         "wordList": [
                             {
-                                "wordID": "fdf7d8a1-5274-42b7-a621-5fa30b8d91c6",
-                                "wordText": "rojo",
-                                "wordTranslation": "red",
-                                "wordPartOfSpeech": "adjective",
-                                "wordExampleSentence": "Las flores son _____."
-                            },
-                            {
-                                "wordID": "9e6721e4-aea2-41c9-b8c9-8ec3d411d502",
-                                "wordText": "azul",
-                                "wordTranslation": "blue",
-                                "wordPartOfSpeech": "adjective",
-                                "wordExampleSentence": "Mi casa es _____."
-                            },
-                            {
-                                "wordID": "e53c82ad-3181-4e8a-a2c6-df2d08515d87",
-                                "wordText": "amarillo",
-                                "wordTranslation": "yellow",
-                                "wordPartOfSpeech": "adjective",
-                                "wordExampleSentence": "El pájaro es _____."
-                            },
-                            {
-                                "wordID": "5b7ae7f8-6a8b-4115-a0c6-0e5ed5f2c7dd",
-                                "wordText": "naranja",
-                                "wordTranslation": "orange",
-                                "wordPartOfSpeech": "adjective",
-                                "wordExampleSentence": "La puerta es de color _____."
-                            },
-                            {
-                                "wordID": "f374283d-caf2-4311-a274-9c6f55f67d55",
-                                "wordText": "morado",
-                                "wordTranslation": "purple",
-                                "wordPartOfSpeech": "adjective",
-                                "wordExampleSentence": "Las flores son _____."
-                            },
-                            {
-                                "wordID": "d34ac5a4-b5b1-4e52-bf3f-43e8b4e03667",
-                                "wordText": "pintar",
-                                "wordTranslation": "to paint",
-                                "wordPartOfSpeech": "verb",
-                                "wordExampleSentence": "Voy a _____ la pared de color azul."
-                            },
-                            {
-                                "wordID": "2a2dbfe9-55bf-47b9-9646-2b5e6b4a0f1e",
-                                "wordText": "color",
-                                "wordTranslation": "color",
+                                "wordID": "1c34e890-5674-43d6-8e4f-9f23248707a2",
+                                "wordText": "mesa",
+                                "wordTranslation": "table",
                                 "wordPartOfSpeech": "noun",
-                                "wordExampleSentence": "Me gusta el _____ de las flores."
+                                "wordExampleSentence": "La comida está sobre la _____."
+                            },
+                            {
+                                "wordID": "5e6d4f9a-b8bb-4a54-b1f7-a738345fbcd9",
+                                "wordText": "silla",
+                                "wordTranslation": "chair",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Me siento en la _____."
+                            },
+                            {
+                                "wordID": "df4e8b32-788a-408c-89d1-60e3f5f21e9e",
+                                "wordText": "ventana",
+                                "wordTranslation": "window",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Abro la _____ para ver afuera."
+                            },
+                            {
+                                "wordID": "c8b93e8c-c33e-4f5e-b12f-b99c4a9d8efb",
+                                "wordText": "puerta",
+                                "wordTranslation": "door",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Cierra la _____, por favor."
+                            },
+                            {
+                                "wordID": "bb3d9e5c-8a7e-4321-9d13-ef6f012a12ad",
+                                "wordText": "lámpara",
+                                "wordTranslation": "lamp",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Enciendo la _____ cuando está oscuro."
+                            },
+                            {
+                                "wordID": "a8b22f84-5f4a-4c6e-9e3a-7b9ef1bb19f4",
+                                "wordText": "libro",
+                                "wordTranslation": "book",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Leo un _____ antes de dormir."
+                            },
+                            {
+                                "wordID": "12b7a6b7-4a5e-4ea2-9d25-1e7d0f8e34d7",
+                                "wordText": "cama",
+                                "wordTranslation": "bed",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Voy a dormir en mi _____."
+                            },
+                            {
+                                "wordID": "24d6b5d2-fd62-4e6e-8997-bb8b54fd6214",
+                                "wordText": "cocina",
+                                "wordTranslation": "kitchen",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "La comida se prepara en la _____."
+                            },
+                            {
+                                "wordID": "0e3a8f8f-726e-467f-b65a-c013bbed95a7",
+                                "wordText": "plato",
+                                "wordTranslation": "plate",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Pongo la comida en el _____."
+                            },
+                            {
+                                "wordID": "b5d3e1e4-7f1e-4713-928c-7b281c975b89",
+                                "wordText": "reloj",
+                                "wordTranslation": "clock",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Miro el _____ para saber la hora."
                             }
                         ]
                     }
                 ]
-            }
+            }            
         ]
     }
 ]
