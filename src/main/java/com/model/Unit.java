@@ -128,4 +128,12 @@ public class Unit {
     public ArrayList<Lesson> getLessons() {
         return lessonList.getLessons();
     }
+
+    public WordList getUnitWordList() {
+        WordList unitWordList = new WordList(new ArrayList<>());
+        for (Lesson lesson : lessonList.getLessons()) {
+            unitWordList.getWords().addAll(lesson.getWords());
+        }
+        return unitWordList;
+    }
 }
