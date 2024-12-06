@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.language.App;
+import com.model.LanguageSystemFacade;
 import com.model.User;
-import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +30,7 @@ public class LoginController implements Initializable{
     @FXML
     private ImageView whaleImage;
 
-    private UserList userList;
+    private LanguageSystemFacade facade;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -38,7 +38,7 @@ public class LoginController implements Initializable{
         Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
         whaleImage.setImage(whale);
         // Initialize the UserList singleton
-        this.userList = UserList.getInstance();
+        this.facade = LanguageSystemFacade.getInstance();
     }
 
     @FXML
@@ -46,12 +46,9 @@ public class LoginController implements Initializable{
         String username = txt_username.getText();
         String password = txt_password.getText();
 
-        if (userList.validPass(username, password)) {
-            // Set the current user
-            User loggedInUser = userList.getUser(username);
-            userList.setCurrentUser(loggedInUser);
+        User currentUser = facade.login(username, password);
 
-            // Navigate to the user home page
+        if (currentUser != null) {
             App.setRoot("user_home");
         } else {
             lbl_error.setText("Invalid username or password. Please try again.");
