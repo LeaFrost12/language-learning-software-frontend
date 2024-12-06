@@ -1,21 +1,33 @@
 package com.controllers;
 
+import java.io.IOException;
+
 import com.language.App;
-import javafx.event.ActionEvent;
+import com.narration.Narrator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.io.IOException;
+import javafx.event.ActionEvent;
 
 public class StoryController {
 
     @FXML
-    private Label storyLabel;
+    private Label storyTitleLabel;
+
+    @FXML
+    private Label storyTextLabel;
 
     public void initialize() {
-        // Set a beginner-level story paragraph featuring specified words
+        // Set the story content
         String storyContent = "Hola, me llamo Juan. Vivo en una casa verde muy bonita. Tengo un gato que le gusta saltar y caminar rápido. Cada mañana, el niño dice 'adios' y va a la escuela.";
-        storyLabel.setText(storyContent);
+        
+        storyTextLabel.setText(storyContent);
+    }
+
+    @FXML
+    private void onNarrateStoryClicked(ActionEvent event) {
+        // Narrate the story using the Narrator class
+        String storyContent = storyTextLabel.getText();
+        Narrator.playSound(storyContent);
     }
 
     @FXML
@@ -23,4 +35,3 @@ public class StoryController {
         App.setRoot("user_home");
     }
 }
-
