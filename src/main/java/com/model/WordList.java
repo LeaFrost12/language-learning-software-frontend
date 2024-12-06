@@ -68,6 +68,9 @@ public class WordList {
     }
 
     public Word getNextWord() {
+        if (words.isEmpty()) {  // Assuming "words" is the list holding Word objects
+            return null;
+        }
         Word word = words.get(currentIndex);
         currentIndex = (currentIndex + 1) % words.size();
         return word;

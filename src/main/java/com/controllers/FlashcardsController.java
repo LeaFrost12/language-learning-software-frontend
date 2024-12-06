@@ -40,11 +40,15 @@ public class FlashcardsController {
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
         wordList = currentUser.getProblemWordList();
-        nextWord();
+        try {
+            nextWord();
+        } catch (IllegalStateException e) {
+            wordLabel.setText("No words available!");
+            nextCardButton.setDisable(true); 
+        }
         waveImage.setImage(new Image(getClass().getResourceAsStream("/images/wave.png")));
-
     }
-    
+
     @FXML
     void goBack(ActionEvent event) throws IOException {
         App.setRoot("user_home");
