@@ -1,12 +1,14 @@
 package com.controllers;
 
-import javafx.fxml.FXML;
 import java.io.IOException;
-import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
+
 import com.language.App;
 import com.model.User;
 import com.model.UserList;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class ProfileController {
 
