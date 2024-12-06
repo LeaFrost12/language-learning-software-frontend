@@ -67,4 +67,8 @@ public class TempUser {
     public void setCurrentUnitId(UUID unitId) {
         this.currentUnitId = unitId;
     }
+
+    public Language getLanguage() {
+        return language;
+    }
 }

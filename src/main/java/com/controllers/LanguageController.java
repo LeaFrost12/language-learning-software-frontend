@@ -46,7 +46,7 @@ public class LanguageController {
         }
     
         // Retrieve the loaded language from the current user
-        Language selectedLanguage = facade.getCurrentUser().getLanguage();
+        Language selectedLanguage = facade.getTempUser().getLanguage();
         if (selectedLanguage == null) {
             System.out.println("Language was loaded but could not be retrieved.");
             return;
