@@ -278,7 +278,7 @@ private void addProblemWord(String foreignWord, String translation, String partO
 
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
-        App.setRoot("user_home");
+        App.setRoot("progress");
     }
 
     @FXML

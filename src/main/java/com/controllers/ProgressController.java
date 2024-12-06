@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -24,6 +26,9 @@ public class ProgressController {
     @FXML
     private Label unitTitleLabel;
 
+    @FXML
+    private ImageView progressWhaleImage;
+
     private User currentUser;
     private Lesson currentLesson;
     private Unit currentUnit;
@@ -33,6 +38,10 @@ public class ProgressController {
      * Access current user's lesson and unit.
      */
     public void initialize() {
+        // Load the whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/progressWhale.png"));
+        progressWhaleImage.setImage(whale);
+
         //Get current user
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
@@ -44,7 +53,7 @@ public class ProgressController {
 
             //Set lesson label
             if (currentLesson != null) {
-                lessonTitleLabel.setText(currentLesson.getLessonName());
+                lessonTitleLabel.setText("Next Lesson:\n" + currentLesson.getLessonName());
 
             } else {
                 lessonTitleLabel.setText("No current lesson found.");
@@ -74,7 +83,7 @@ public class ProgressController {
     }
 
     @FXML
-    private void back(MouseEvent event) throws IOException {
+    private void back(ActionEvent event) throws IOException {
         App.setRoot("user_home");
     }
 }

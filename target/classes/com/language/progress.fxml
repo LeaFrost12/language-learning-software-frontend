@@ -12,8 +12,17 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.ProgressController" styleClass="progress-container">
     <children>
-         <Label fx:id="unitTitleLabel" text="Unit Title" styleClass="unit-title"/>
+        <Label fx:id="unitTitleLabel" text="Unit Title" styleClass="unit-title"/>
+
+        <ImageView fx:id="progressWhaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
+
+        <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>
+
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button fx:id="backButton" text="Back" onAction="#back" styleClass="nav-button" />
+            <Button fx:id="flashcardButton" text="Flashcards" onAction="#onFlashcardsClicked" styleClass="nav-button" />
+            <Button fx:id="lessonButton" text="Next Lesson" onAction="#onNextLessonClicked" styleClass="nav-button" />
+        </HBox>
         
-        <Button fx:id="backButton" text="Back" onMouseClicked="#back" styleClass="nav-button" />
     </children>
 </VBox>
