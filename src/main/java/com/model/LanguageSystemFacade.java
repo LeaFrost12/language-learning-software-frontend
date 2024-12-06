@@ -10,6 +10,7 @@ public class LanguageSystemFacade {
     private UnitList unitList;
     private LessonList lessonList;
     private static LanguageSystemFacade facade;
+    private TempUser tempUser;
 
     /**
      * Initializes the facade by retrieving instances of system components like
@@ -55,6 +56,13 @@ public class LanguageSystemFacade {
         return null;
     }
 
+    public void setTempUser(TempUser tempUser) {
+        this.tempUser = tempUser;
+    }
+    
+    public TempUser getTempUser() {
+        return tempUser;
+    }
     /**
      * Logs out the current user.
      *
@@ -69,17 +77,48 @@ public class LanguageSystemFacade {
      * Loads the specified language for the current user.
      *
      * @param languageName The name of the language to load.
-     * @return true if the language is successfully loaded, false if the
-     * language is not found.
+     * @return true if the language is successfully loaded, false otherwise.
      */
     public boolean loadLanguage(String languageName) {
-        if (languageList.contains(languageName)) {
-            Language language = languageList.getLanguage(languageName);
-            currentUser.setLanguage(language);
-            return true;
+        if (languageName == null || languageName.isEmpty()) {
+            System.out.println("Invalid language name provided.");
+            return false;
         }
-        return false;
+
+        // Check if the language exists in the LanguageList
+        Language language = languageList.getLanguage(languageName);
+        if (language == null) {
+            System.out.println("Language not found: " + languageName);
+            return false;
+        }
+
+        // Ensure there is a logged-in user to set the language for
+        if (currentUser == null) {
+            System.out.println("No current user found. Please log in or create a new user first.");
+            return false;
+        }
+
+        // Set the language for the current user
+        currentUser.setLanguage(language);
+
+        // Initialize the user's first unit and lesson if not already set
+        if (currentUser.getCurrentUnit() == null || currentUser.getCurrentLesson() == null) {
+            Unit initialUnit = language.getUnitList().getUnit(0);
+            Lesson initialLesson = initialUnit.getLessonList().getLesson(0);
+
+            if (initialUnit != null && initialLesson != null) {
+                currentUser.setCurrentUnitId(initialUnit.getId());
+                currentUser.setCurrentLessonId(initialLesson.getId());
+            } else {
+                System.out.println("Failed to initialize user progress for the selected language.");
+                return false;
+            }
+        }
+
+        System.out.println("Language successfully loaded: " + languageName);
+        return true;
     }
+
 
     /**
      * Runs a specific unit for the current user. If unitNumber is 0, the

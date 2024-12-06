@@ -3,6 +3,8 @@ package com.controllers;
 import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.LanguagesEnum;
+import com.model.Language;
+import com.model.TempUser;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,30 +22,59 @@ public class LanguageController {
 
     public void initialize() {
         // Dynamically create buttons for each language in LanguagesEnum
-        for (LanguagesEnum language : LanguagesEnum.values()) {
-            Button languageButton = new Button(language.name());
+        for (LanguagesEnum languageEnum : LanguagesEnum.values()) {
+            Button languageButton = new Button(languageEnum.name());
             languageButton.setStyle("-fx-font-size: 14pt; -fx-padding: 10px;");
-            languageButton.setOnAction(e -> handleLanguageSelection(language));
+            languageButton.setOnAction(e -> handleLanguageSelection(languageEnum));
             languageButtonsContainer.getChildren().add(languageButton);
         }
     }
 
-    private void handleLanguageSelection(LanguagesEnum language) {
-        boolean success = facade.loadLanguage(language.name());
-        if (success) {
-            System.out.println("Language selected: " + language.name());
-        } else {
-            System.out.println("Failed to load language: " + language.name());
+    private void handleLanguageSelection(LanguagesEnum languageEnum) {
+        // Attempt to load the selected language
+        boolean isLoaded = facade.loadLanguage(languageEnum.name());
+        if (!isLoaded) {
+            System.out.println("Failed to load language: " + languageEnum.name());
+            return;
         }
-        navigateToUserHome();
+    
+        // Retrieve temporary user information
+        TempUser tempUser = facade.getTempUser();
+        if (tempUser == null) {
+            System.out.println("Temporary user information is missing.");
+            return;
+        }
+    
+        // Retrieve the loaded language from the current user
+        Language selectedLanguage = facade.getCurrentUser().getLanguage();
+        if (selectedLanguage == null) {
+            System.out.println("Language was loaded but could not be retrieved.");
+            return;
+        }
+    
+        // Finalize user registration
+        boolean success = facade.createUser(
+                tempUser.getFirstName(),
+                tempUser.getLastName(),
+                tempUser.getEmail(),
+                tempUser.getPhoneNumber(),
+                tempUser.getUsername(),
+                tempUser.getPassword(),
+                selectedLanguage
+        );
+    
+        if (success) {
+            System.out.println("User registered successfully with language: " + selectedLanguage.getLanguageName());
+            facade.login(tempUser.getUsername(), tempUser.getPassword());
+            App.setRoot("user_home");
+        } else {
+            System.out.println("Failed to finalize user registration.");
+        }
     }
-
-    private void navigateToUserHome() {
-        App.setRoot("user_home");
-    }
+    
 
     @FXML
-    private void onBackHomeClicked(ActionEvent event) {
-        navigateToUserHome();
+    private void onBackHomeClicked(ActionEvent event) throws IOException {
+        App.setRoot("user_home");
     }
 }

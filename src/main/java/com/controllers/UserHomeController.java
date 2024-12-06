@@ -75,5 +75,9 @@ public class UserHomeController implements Initializable {
         // Navigate to the problem words page
         App.setRoot("problemWords");
     }
+    @FXML
+    private void onViewProblemWordsClicked(ActionEvent event) {
+        App.setRoot("problemWords");
+    }
 }
 

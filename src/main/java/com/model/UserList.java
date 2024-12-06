@@ -216,7 +216,11 @@ public class UserList {
         return currentUser;
     }
 
+    public void saveUserProgress(User user) {
+        DataWriter.saveUserProgress(user);
+    }    
+
     public void setCurrentUser(User user) {
         this.currentUser = user;
-    }
+}
 }
