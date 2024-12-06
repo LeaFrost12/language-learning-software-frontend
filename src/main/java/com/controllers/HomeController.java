@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class HomeController {
 
@@ -27,7 +28,7 @@ public class HomeController {
         // Load the whale image
         Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
         whaleImage.setImage(whale);
-        label.setWrapText(true);
+        label.setText("Welcome to\nLanguage Learning App");
     }
 
     /** 
