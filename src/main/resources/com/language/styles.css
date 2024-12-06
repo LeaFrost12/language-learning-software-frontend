@@ -84,7 +84,7 @@
 .error-label {
     -fx-text-fill: red;
     -fx-font-size: 12px;
-    -fx-padding: 5 0;
+    -fx-padding: 1 0 1 0;
 }
 
 .login-button {
@@ -330,7 +330,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.3, 0, 3); /* Light shadow for depth */
 }
 .image-view {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Add shadow to the image */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.3, 0, 3); /* Add shadow to the image */
     -fx-background-radius: 15;
     -fx-border-radius: 15;
 }
