@@ -492,3 +492,43 @@
 .nav-icon-button:hover {
     -fx-text-fill: #1FB4D2; /* Light blue on hover */
 }
+
+.flashcard-container {
+    -fx-border-color: #ccc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20px;
+    -fx-background-color: #f9f9f9;
+}
+
+.next-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 20px;
+}
+
+.click-to-reveal {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888;
+}
+
+.unit-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #008000;
+}
+
+.word-label {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666666;
+}
