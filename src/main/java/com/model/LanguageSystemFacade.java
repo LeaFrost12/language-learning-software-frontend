@@ -74,6 +74,45 @@ public class LanguageSystemFacade {
         return userList.logout(currentUser);
     }
 
+    public boolean loadLanguageTempUser(String languageName) {
+
+        if (languageName == null || languageName.isEmpty()) {
+            System.out.println("Invalid language name provided.");
+            return false;
+        }
+
+        // Check if the language exists in the LanguageList
+        Language language = languageList.getLanguage(languageName);
+        if (language == null) {
+            System.out.println("Language not found: " + languageName);
+            return false;
+        }
+
+        // Ensure there is a logged-in user to set the language for
+        if (tempUser == null) {
+            System.out.println("No temp user found.");
+            return false;
+        }
+
+        // Set the language for the current user
+        tempUser.setLanguage(language);
+
+        // Initialize the user's first unit and lesson
+        Unit initialUnit = language.getUnitList().getUnit(0);
+        Lesson initialLesson = initialUnit.getLessonList().getLesson(0);
+
+        if (initialUnit != null && initialLesson != null) {
+            tempUser.setCurrentUnitId(initialUnit.getId());
+            tempUser.setCurrentLessonId(initialLesson.getId());
+        } else {
+            System.out.println("Failed to initialize user progress for the selected language.");
+            return false;
+        }
+
+        System.out.println("Language successfully loaded: " + languageName);
+        return true;
+    }
+
     /**
      * Loads the specified language for the current user.
      *

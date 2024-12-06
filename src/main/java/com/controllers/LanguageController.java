@@ -32,7 +32,7 @@ public class LanguageController {
 
     private void handleLanguageSelection(LanguagesEnum languageEnum) {
         // Attempt to load the selected language
-        boolean isLoaded = facade.loadLanguage(languageEnum.name());
+        boolean isLoaded = facade.loadLanguageTempUser(languageEnum.name());
         if (!isLoaded) {
             System.out.println("Failed to load language: " + languageEnum.name());
             return;
