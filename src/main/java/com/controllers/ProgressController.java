@@ -48,7 +48,7 @@ public class ProgressController {
 
             //Set lesson label
             if (currentLesson != null) {
-                lessonTitleLabel.setText("Next Lesson:\n" + currentLesson.getLessonName());
+                lessonTitleLabel.setText(currentLesson.getLessonName());
 
             } else {
                 lessonTitleLabel.setText("No current lesson found.");

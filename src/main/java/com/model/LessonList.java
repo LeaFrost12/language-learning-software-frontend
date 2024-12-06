@@ -104,6 +104,7 @@ public class LessonList {
      */
     public Lesson nextLesson(Lesson currentLesson) {
         int index = lessons.indexOf(currentLesson);
+        System.out.println("index" + index);
         if (index != -1 && index < lessons.size() - 1) {
             return lessons.get(index + 1);
         }
