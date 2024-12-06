@@ -47,11 +47,13 @@ public class SettingsController implements Initializable {
 
     @FXML
     private void onLogoutClicked(ActionEvent event) throws IOException {
+        
         if (facade.logout()) {
             App.setRoot("home");
         } else {
             label.setText("Error logging out. Please try again.");
         }
+        
     }
 
     @FXML

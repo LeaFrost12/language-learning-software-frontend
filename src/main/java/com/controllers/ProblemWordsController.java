@@ -70,6 +70,6 @@ public class ProblemWordsController {
 
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
-        App.setRoot("user_home");
+        App.setRoot("settings");
     }
 }

@@ -31,7 +31,7 @@ public class LoginController implements Initializable{
     @FXML
     private ImageView whaleImage;
 
-    private LanguageSystemFacade facade;
+    private LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
     private UserList userList;
 
     @Override
@@ -42,7 +42,6 @@ public class LoginController implements Initializable{
 
         // Initialize the UserList singleton
         this.userList = UserList.getInstance();
-        this.facade = LanguageSystemFacade.getInstance();
 
     }
 
@@ -53,8 +52,7 @@ public class LoginController implements Initializable{
 
         if (userList.validPass(username, password)) {
             // Set the current user
-            User loggedInUser = userList.getUser(username);
-            userList.setCurrentUser(loggedInUser);
+            facade.login(username, password);
 
             // Navigate to the user home page
             App.setRoot("user_home");
