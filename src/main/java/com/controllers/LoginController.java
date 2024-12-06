@@ -3,8 +3,8 @@ package com.controllers;
 import java.io.IOException;
 
 import com.language.App;
+import com.model.LanguageSystemFacade;
 import com.model.User;
-import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,23 +23,20 @@ public class LoginController {
     @FXML
     private Label lbl_error;
 
-    private UserList userList;
+    private LanguageSystemFacade facade;
 
     public LoginController() {
         // Initialize the UserList singleton
-        this.userList = UserList.getInstance();
+        this.facade = LanguageSystemFacade.getInstance();
     }
     @FXML
     private void btnLoginClicked(ActionEvent event) throws IOException {
         String username = txt_username.getText();
         String password = txt_password.getText();
 
-        if (userList.validPass(username, password)) {
-            // Set the current user
-            User loggedInUser = userList.getUser(username);
-            userList.setCurrentUser(loggedInUser);
+        User currentUser = facade.login(username, password);
 
-            // Navigate to the user home page
+        if (currentUser != null) {
             App.setRoot("user_home");
         } else {
             lbl_error.setText("Invalid username or password. Please try again.");

@@ -1,5 +1,7 @@
 package com.controllers;
 
+import java.io.IOException;
+
 import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.TempUser;
@@ -8,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
 
 public class SignUpController {
 

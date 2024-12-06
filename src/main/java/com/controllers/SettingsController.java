@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.User;
-import com.model.UserList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +17,6 @@ import javafx.scene.input.MouseEvent;
 
 public class SettingsController implements Initializable {
     private LanguageSystemFacade facade;
-    private UserList userList;
     private User currentUser;
 
     @FXML
@@ -32,9 +30,9 @@ public class SettingsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Retrieve the current user from UserList
-        userList = UserList.getInstance();
-        currentUser = userList.getCurrentUser();
+        // Retrieve the current user from facade
+        facade = LanguageSystemFacade.getInstance();
+        currentUser = facade.getCurrentUser();
     }
 
     @FXML
@@ -49,13 +47,15 @@ public class SettingsController implements Initializable {
 
     @FXML
     private void onLogoutClicked(ActionEvent event) throws IOException {
-        userList.logout(currentUser);
-        App.setRoot("home");
+        if (facade.logout()) {
+            App.setRoot("home");
+        } else {
+            label.setText("Error logging out. Please try again.");
+        }
     }
 
     @FXML
     private void back(MouseEvent event) throws IOException {
         App.setRoot("user_home");
     }
-
 }
