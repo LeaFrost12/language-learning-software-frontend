@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 import com.language.App;
+import com.model.FillInTheBlank;
 import com.model.Lesson;
 import com.model.Matching;
-import com.model.Question;
-import com.model.FillInTheBlank;
 import com.model.MultipleChoice;
-import com.model.WordBank;
-import com.narration.Narrator;
+import com.model.Question;
 import com.model.User;
 import com.model.UserList;
 import com.model.Word;
+import com.model.WordBank;
+import com.narration.Narrator;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +26,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 public class LessonController {
+    @FXML
+    private Button backButton;
+    
     @FXML
     private Label lessonTitleLabel;
 
@@ -191,6 +194,11 @@ public class LessonController {
             feedbackLabel.setStyle("-fx-text-fill: red;");
         }
         nextButton.setDisable(false);
+    }
+
+    @FXML
+    void goBack(ActionEvent event) throws IOException {
+        App.setRoot("user_home");
     }
 
     @FXML

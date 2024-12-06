@@ -12,6 +12,12 @@
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.LessonController" styleClass="lesson-container">
     <!-- Center: Main Lesson Content -->
     <center>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
+            <children>
+                <Button fx:id="backButton" text="◀" onAction="#goBack" styleClass="nav-button" />
+            </children>
+        </HBox>
+
         <VBox alignment="CENTER" spacing="20">
             <!-- Lesson Title -->
             <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>

@@ -2,22 +2,17 @@ package com.controllers;
 
 import java.io.IOException;
 
+import com.language.App;
 import com.model.Lesson;
+import com.model.Unit;
 import com.model.User;
 import com.model.UserList;
-import com.model.Unit;
-import com.language.App;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 public class ProgressController {
     @FXML
