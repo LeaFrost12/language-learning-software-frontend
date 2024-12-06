@@ -46,6 +46,7 @@ public class LanguageSystemFacade {
         if (userList.userExists(username)) {
             if (userList.login(username, password)) {
                 currentUser = userList.getUser(username);
+                userList.setCurrentUser(currentUser);
                 return currentUser;
             } else {
                 System.out.println("Password is incorrect, please try logging in again \n");
