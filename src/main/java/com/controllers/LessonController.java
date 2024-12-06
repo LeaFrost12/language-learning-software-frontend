@@ -197,7 +197,9 @@ public class LessonController {
     private void onSubmitClicked() {
         Question question = questions.get(currentQuestionIndex);
 
-        if (question instanceof FillInTheBlank) {
+        if (question instanceof Matching) {
+            validateMatchingQuestion((Matching) question);
+        } else if (question instanceof FillInTheBlank) {
             String userAnswer = answerField.getText().trim();
             if (userAnswer.isEmpty()) {
                 feedbackLabel.setText("Please enter an answer.");
@@ -212,22 +214,21 @@ public class LessonController {
                 feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
                 feedbackLabel.setStyle("-fx-text-fill: red;");
 
-                // Add to problem words
-                UserList userList = UserList.getInstance();
-                User currentUser = userList.getCurrentUser();
-                if (currentUser != null) {
-                    currentUser.addProblemWord(new Word(
-                            question.getQuestionText(), // Text of the question
-                            question.getCorrectAnswer(), // Correct answer
-                            "N/A", // Part of speech (update if available)
-                            "Example sentence." // Example (update if available)
-                    ));
-                }
+                // Add incorrect answer to problem word list
+                addProblemWord(question.getCorrectAnswer(), "translation here", "part of speech here", "example sentence here");
             }
         }
 
         nextButton.setDisable(false);
     }
+
+private void addProblemWord(String foreignWord, String translation, String partOfSpeech, String exampleSentence) {
+    Word problemWord = new Word(foreignWord, translation, partOfSpeech, exampleSentence);
+    currentUser.getProblemWordList().addWord(problemWord);
+
+    // Save user progress after adding problem word
+    UserList.getInstance().saveUserProgress(currentUser);
+}
 
 
     private void validateMatchingQuestion(Matching matchingQuestion) {
@@ -270,6 +271,7 @@ public class LessonController {
 
             // Save problem words
             UserList.getInstance().saveUsers();
+            UserList.getInstance().saveUserProgress(currentUser);
         }
     }
 
