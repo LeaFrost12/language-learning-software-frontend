@@ -13,9 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 public class FlashcardsController {
 
@@ -24,6 +24,9 @@ public class FlashcardsController {
 
     @FXML
     private Button nextCardButton;
+    
+    @FXML
+    private VBox flashcard;
 
     @FXML
     private Label unitLabel;
@@ -57,7 +60,6 @@ public class FlashcardsController {
             wordLabel.setText("No words available!");
             nextCardButton.setDisable(true); 
         }
-        waveImage.setImage(new Image(getClass().getResourceAsStream("/com/language/images/wave.png")));
     }
 
     @FXML
