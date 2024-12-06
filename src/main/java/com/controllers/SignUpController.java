@@ -3,15 +3,21 @@ package com.controllers;
 import com.language.App;
 import com.model.LanguageSystemFacade;
 import com.model.TempUser;
+import com.model.UserList;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignUpController {
+public class SignUpController implements Initializable{
 
     @FXML
     private TextField txt_username;
@@ -27,8 +33,18 @@ public class SignUpController {
     private TextField txt_email;
     @FXML
     private Label lbl_error;
+    @FXML
+    private ImageView whaleImage;
 
     private final LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // Load the whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whaleImage.setImage(whale);
+
+    }
 
     @FXML
     private void btnSignupClicked(MouseEvent event) throws IOException {
@@ -38,6 +54,8 @@ public class SignUpController {
         String lastName = txt_last_name.getText().trim();
         String phoneNumber = txt_phone_number.getText().trim();
         String email = txt_email.getText().trim();
+
+        
 
         // Check for empty fields
         if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty()) {

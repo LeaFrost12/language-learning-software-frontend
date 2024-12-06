@@ -11,7 +11,7 @@
 
 <VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignUpController" styleClass="signup-container">
    <children>
-      <ImageView fx:id="whaleImage" fitHeight="120.0" fitWidth="150.0" preserveRatio="true" />
+      <ImageView fx:id="whaleImage" fitHeight="80.0" fitWidth="110.0" preserveRatio="true" />
       <!-- Header -->
       <Label text="Create your Account" styleClass="header-label" />
       <!-- Name Fields -->
@@ -27,7 +27,10 @@
       <!-- Error Label -->
       <Label fx:id="lbl_error" text="" styleClass="error-label" />
 
-      <Button fx:id="btnSignup" text="Sign up" onMouseClicked="#btnSignupClicked" styleClass="signup-button" />
-      <Button fx:id="backButton" text="Back" onMouseClicked="#back" styleClass="nav-button" />
+      <HBox spacing="10.0" alignment="CENTER">
+         <Button fx:id="backButton" text="Back" onMouseClicked="#back" styleClass="nav-button" />
+         <Button fx:id="btnSignup" text="Sign up" onMouseClicked="#btnSignupClicked" styleClass="signup-button" />
+      </HBox>
+
    </children>
 </VBox>
