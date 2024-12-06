@@ -8,6 +8,7 @@ import java.util.Random;
  */
 public class WordList {
     private ArrayList<Word> words;
+    private int currentIndex = 0;
 
     /**
      * Constructor for the WordList.java
@@ -64,5 +65,11 @@ public class WordList {
      */
     public WordList getWordList() {
         return this;
+    }
+
+    public Word getNextWord() {
+        Word word = words.get(currentIndex);
+        currentIndex = (currentIndex + 1) % words.size();
+        return word;
     }
 }
