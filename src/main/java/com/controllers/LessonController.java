@@ -164,14 +164,28 @@ public class LessonController {
     }
 
     private void displayWordBankQuestion(WordBank question) {
+        questionContainer.getChildren().clear();
+
         Label questionTextLabel = new Label(question.getQuestionText());
         questionContainer.getChildren().add(questionTextLabel);
 
-        for (String word : question.getWordBankText()) {
+        GridPane buttonGrid = new GridPane();
+        buttonGrid.setHgap(10);
+        buttonGrid.setVgap(10);
+
+        List<String> wordBank = question.getWordBankText();
+        int columns = 3;
+
+        for (int i = 0; i < wordBank.size(); i++) {
+            String word = wordBank.get(i);
             Button wordButton = new Button(word);
             wordButton.setOnAction(e -> handleWordBankSelection(question, word));
-            questionContainer.getChildren().add(wordButton);
+            
+            int row = i / columns;
+            int col = i % columns; 
+            buttonGrid.add(wordButton, col, row);
         }
+            questionContainer.getChildren().add(buttonGrid);
     }
 
     private void handleMultipleChoiceSelection(MultipleChoice question, String selectedChoice) {
