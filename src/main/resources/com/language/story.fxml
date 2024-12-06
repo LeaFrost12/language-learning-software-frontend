@@ -4,6 +4,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.StoryController" styleClass="story-container">
     <!-- Center: Story Content -->
@@ -12,15 +14,18 @@
             <!-- Story Title -->
             <Label fx:id="storyTitleLabel" text="Unit 1 Story" styleClass="story-title" />
             
-            <!-- Story Text -->
-            <Label fx:id="storyTextLabel" wrapText="true" styleClass="story-text" />
+            <!-- Story Text Flow for clickable buzz words -->
+            <TextFlow fx:id="storyTextFlow" styleClass="story-text" />
+            
+            <!-- Image View for displaying buzz word images -->
+            <ImageView fx:id="buzzWordImageView" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
         </VBox>
     </center>
 
     <!-- Bottom: Navigation Buttons -->
     <bottom>
         <VBox alignment="CENTER" spacing="10">
-            <Button fx:id="narrateButton" text="Narrate Story 📢" onAction="#onNarrateStoryClicked" styleClass="narrate-button" />
+            <Button fx:id="narrateButton" text="Narrate Story" onAction="#onNarrateStoryClicked" styleClass="nav-button" />
             <Button fx:id="unit2StoryButton" text="Unit 2 Story" onAction="#onUnit2StoryClicked" styleClass="nav-button" />
             <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button" />
         </VBox>
