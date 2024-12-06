@@ -15,6 +15,7 @@ import com.model.WordBank;
 import com.narration.Narrator;
 import com.model.User;
 import com.model.UserList;
+import com.model.Word;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -196,9 +197,7 @@ public class LessonController {
     private void onSubmitClicked() {
         Question question = questions.get(currentQuestionIndex);
 
-        if (question instanceof Matching) {
-            validateMatchingQuestion((Matching) question);
-        } else if (question instanceof FillInTheBlank) {
+        if (question instanceof FillInTheBlank) {
             String userAnswer = answerField.getText().trim();
             if (userAnswer.isEmpty()) {
                 feedbackLabel.setText("Please enter an answer.");
@@ -212,11 +211,24 @@ public class LessonController {
             } else {
                 feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
                 feedbackLabel.setStyle("-fx-text-fill: red;");
+
+                // Add to problem words
+                UserList userList = UserList.getInstance();
+                User currentUser = userList.getCurrentUser();
+                if (currentUser != null) {
+                    currentUser.addProblemWord(new Word(
+                            question.getQuestionText(), // Text of the question
+                            question.getCorrectAnswer(), // Correct answer
+                            "N/A", // Part of speech (update if available)
+                            "Example sentence." // Example (update if available)
+                    ));
+                }
             }
         }
 
         nextButton.setDisable(false);
     }
+
 
     private void validateMatchingQuestion(Matching matchingQuestion) {
         boolean allCorrect = true;
@@ -255,8 +267,12 @@ public class LessonController {
         } else {
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
+
+            // Save problem words
+            UserList.getInstance().saveUsers();
         }
     }
+
 
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
