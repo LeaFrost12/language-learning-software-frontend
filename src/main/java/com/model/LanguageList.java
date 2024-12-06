@@ -47,7 +47,7 @@ public class LanguageList {
      */
     public Language getLanguage(String languageName) {
         for (Language language : languages) {
-            if (language.getLanguageName().equals(languageName)) {
+            if (language.getLanguageName().equalsIgnoreCase(languageName)) {
                 return language;
             }
         }
