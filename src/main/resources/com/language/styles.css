@@ -532,3 +532,42 @@
     -fx-font-size: 16px;
     -fx-text-fill: #666666;
 }
+.story-container {
+    padding: 20px;
+}
+
+.story-label {
+    font-size: 16pt;
+    text-align: center;
+}
+.story-page {
+    -fx-background-color: #FAFAFA;
+}
+
+.story-container {
+    -fx-padding: 20;
+}
+
+.story-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.story-text {
+    -fx-font-size: 16px;
+    -fx-line-spacing: 1.5;
+    -fx-text-alignment: center;
+}
+
+.narrate-container {
+    -fx-padding: 20;
+}
+
+.narrate-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 10 20 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}

@@ -71,13 +71,13 @@ public class UserHomeController implements Initializable {
     }
 
     @FXML
-    private void onProblemWordsClicked(ActionEvent event) throws IOException {
-        // Navigate to the problem words page
-        App.setRoot("problemWords");
+    public void onViewProblemWordsClicked(ActionEvent event) throws IOException {
+        App.setRoot("problem_words");
     }
+
     @FXML
-    private void onViewProblemWordsClicked(ActionEvent event) {
-        App.setRoot("problemWords");
+    private void onStoryClicked(ActionEvent event) throws IOException {
+        App.setRoot("story");
     }
 }
 
