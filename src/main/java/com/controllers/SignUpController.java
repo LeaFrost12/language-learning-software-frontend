@@ -1,6 +1,8 @@
 package com.controllers;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.language.App;
 import com.model.LanguageSystemFacade;
@@ -14,10 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable{
 
@@ -39,6 +37,7 @@ public class SignUpController implements Initializable{
     private ImageView whaleImage;
 
     private final LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
+    private final UserList userList = UserList.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
