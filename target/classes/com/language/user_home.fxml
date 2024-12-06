@@ -20,6 +20,7 @@
             <Button fx:id="ContinueUnitButton" text="Continue Unit ➧" styleClass="rounded-button1" onAction="#onContinueUnitClicked" />
             <Button text="Problem Words💡" styleClass="rounded-button2" onAction="#onViewProblemWordsClicked" />
             <Button fx:id="BadgesButton" text="Badges 🎖" styleClass="rounded-button1" onAction="#onBadgesClicked" />
+            <Button fx:id="storyButton" text="Story" styleClass="rounded-button2" onAction="#onStoryClicked" styleClass="nav-button"/>
          </children>
       </VBox>
 

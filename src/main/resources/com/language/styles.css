@@ -532,3 +532,11 @@
     -fx-font-size: 16px;
     -fx-text-fill: #666666;
 }
+.story-container {
+    padding: 20px;
+}
+
+.story-label {
+    font-size: 16pt;
+    text-align: center;
+}
