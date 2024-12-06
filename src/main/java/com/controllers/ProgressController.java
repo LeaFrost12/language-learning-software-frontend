@@ -33,13 +33,16 @@ public class ProgressController {
      * Access current user's lesson and unit.
      */
     public void initialize() {
+        //Get current user
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 
+        //Check if user is null
         if (currentUser != null) {
             currentLesson = currentUser.getCurrentLesson();
             currentUnit = currentUser.getCurrentUnit();
 
+            //Set lesson label
             if (currentLesson != null) {
                 lessonTitleLabel.setText(currentLesson.getLessonName());
 
@@ -47,11 +50,12 @@ public class ProgressController {
                 lessonTitleLabel.setText("No current lesson found.");
             }
 
+            //Set unit label
             if (currentUnit != null) {
-                lessonTitleLabel.setText(currentUnit.getUnitName());
+                unitTitleLabel.setText(currentUnit.getUnitName());
 
             } else {
-                lessonTitleLabel.setText("No current unit found.");
+                unitTitleLabel.setText("No current unit found.");
             }
 
         } else {
