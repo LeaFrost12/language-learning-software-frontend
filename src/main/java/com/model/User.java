@@ -321,8 +321,11 @@ public class User {
      */
     public boolean moveToNextLesson() {
         Lesson nextLesson = getCurrentUnit().getLessonList().nextLesson(getCurrentLesson());
-        if (nextLesson == null)
+        System.out.println(getCurrentLesson());
+        if (nextLesson == null){
+            
             return false;
+        }
         currentLessonId = nextLesson.getId();
         return true;
     }

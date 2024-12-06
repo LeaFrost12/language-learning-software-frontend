@@ -58,9 +58,10 @@ public class LessonController {
     private User currentUser;
     private Lesson currentLesson;
     private Map<String, TextField> matchingInputs;
+    private UserList userList;
 
     public void initialize() {
-        UserList userList = UserList.getInstance();
+        userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 
         if (currentUser != null) {
@@ -286,14 +287,19 @@ private void addProblemWord(String foreignWord, String translation, String partO
     private void onNextQuestionClicked() {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.size()) {
+            
             displayQuestion();
         } else {
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
 
-            // Save problem words
-            UserList.getInstance().saveUsers();
-            UserList.getInstance().saveUserProgress(currentUser);
+
+            //Move to next lesson
+            currentUser.moveToNextLesson();
+
+            // Save progress
+            userList.saveUsers();
+
         }
     }
 
