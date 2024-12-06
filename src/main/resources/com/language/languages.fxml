@@ -14,5 +14,5 @@
     </VBox>
 
     <!-- Back Home Button -->
-    <Button text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button"/>
+    <Button text="Back" onAction="#onBackHomeClicked" styleClass="nav-button"/>
 </VBox>
