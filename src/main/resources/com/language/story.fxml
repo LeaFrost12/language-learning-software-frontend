@@ -20,7 +20,7 @@
     <!-- Bottom: Navigation Buttons -->
     <bottom>
         <VBox alignment="CENTER" spacing="10">
-            <Button fx:id="narrateButton" text="Narrate Story" onAction="#onNarrateStoryClicked" styleClass="nav-button" />
+            <Button fx:id="narrateButton" text="Narrate Story 📢" onAction="#onNarrateStoryClicked" styleClass="narrate-button" />
             <Button fx:id="unit2StoryButton" text="Unit 2 Story" onAction="#onUnit2StoryClicked" styleClass="nav-button" />
             <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button" />
         </VBox>
