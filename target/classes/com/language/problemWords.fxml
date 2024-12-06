@@ -16,7 +16,7 @@
             <Label fx:id="wordDetailsLabel" text="Select a word to see details" wrapText="true" />
             
             <!-- Back Button -->
-            <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked"/>
+            <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button"/>
         </VBox>
     </center>
 </BorderPane>
