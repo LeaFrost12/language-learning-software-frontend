@@ -59,6 +59,8 @@ public class LessonController {
     private Lesson currentLesson;
     private Map<String, TextField> matchingInputs;
 
+    private int correctAnswersCount = 0;  // Counter for correct answers
+
     public void initialize() {
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
@@ -120,7 +122,6 @@ public class LessonController {
             answerField = null; // Reset instance variable
         }
     }
-    
 
     private void displayMatchingQuestion(Matching matchingQuestion) {
         matchingGrid.getChildren().clear(); // Clear previous content
@@ -150,7 +151,6 @@ public class LessonController {
         this.answerField = answerField; // Assign to instance variable for later use
         questionContainer.getChildren().add(answerField);
     }
-    
 
     private void displayMultipleChoiceQuestion(MultipleChoice question) {
         Label questionTextLabel = new Label(question.getQuestionText());
@@ -192,6 +192,7 @@ public class LessonController {
         if (question.checkAnswer(selectedChoice)) {
             feedbackLabel.setText("Correct!");
             feedbackLabel.setStyle("-fx-text-fill: green;");
+            correctAnswersCount++;  // Increment correct answers count
         } else {
             feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
             feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -203,6 +204,7 @@ public class LessonController {
         if (question.checkAnswer(selectedWord)) {
             feedbackLabel.setText("Correct!");
             feedbackLabel.setStyle("-fx-text-fill: green;");
+            correctAnswersCount++;  // Increment correct answers count
         } else {
             feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
             feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -232,6 +234,7 @@ public class LessonController {
             if (question.checkAnswer(userAnswer)) {
                 feedbackLabel.setText("Correct!");
                 feedbackLabel.setStyle("-fx-text-fill: green;");
+                correctAnswersCount++;  // Increment correct answers count
             } else {
                 feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
                 feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -244,14 +247,13 @@ public class LessonController {
         nextButton.setDisable(false);
     }
 
-private void addProblemWord(String foreignWord, String translation, String partOfSpeech, String exampleSentence) {
-    Word problemWord = new Word(foreignWord, translation, partOfSpeech, exampleSentence);
-    currentUser.getProblemWordList().addWord(problemWord);
+    private void addProblemWord(String foreignWord, String translation, String partOfSpeech, String exampleSentence) {
+        Word problemWord = new Word(foreignWord, translation, partOfSpeech, exampleSentence);
+        currentUser.getProblemWordList().addWord(problemWord);
 
-    // Save user progress after adding problem word
-    UserList.getInstance().saveUserProgress(currentUser);
-}
-
+        // Save user progress after adding problem word
+        UserList.getInstance().saveUserProgress(currentUser);
+    }
 
     private void validateMatchingQuestion(Matching matchingQuestion) {
         boolean allCorrect = true;
@@ -265,6 +267,7 @@ private void addProblemWord(String foreignWord, String translation, String partO
 
             if (correctAnswers.get(englishWord).equalsIgnoreCase(userAnswer)) {
                 inputField.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
+                correctAnswersCount++;  // Increment correct answers count
             } else {
                 inputField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 allCorrect = false;
@@ -286,12 +289,31 @@ private void addProblemWord(String foreignWord, String translation, String partO
     private void onNextQuestionClicked() {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.size()) {
+            // Display the next question if there are more questions left
             displayQuestion();
         } else {
+            // User has completed all the questions in the current lesson
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
 
-            // Save problem words
+            // Check if the user qualifies to proceed to the next unit
+            double score = ((double) correctAnswersCount / questions.size()) * 100;
+            if (score >= 75) {
+                feedbackLabel.setText("Congratulations! You passed the lesson. You can proceed to the next unit.");
+                feedbackLabel.setStyle("-fx-text-fill: green;");
+                
+                // Attempt to advance to the next unit if available
+                if (currentUser.moveToNextUnit()) {
+                    feedbackLabel.setText("You have been advanced to the next unit.");
+                } else {
+                    feedbackLabel.setText("You passed the lesson, but there are no more units available at the moment.");
+                }
+            } else {
+                feedbackLabel.setText("You did not pass the lesson. Please try again.");
+                feedbackLabel.setStyle("-fx-text-fill: red;");
+            }
+
+            // Save progress
             UserList.getInstance().saveUsers();
             UserList.getInstance().saveUserProgress(currentUser);
         }
