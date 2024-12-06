@@ -2,25 +2,27 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.StoryController" styleClass="story-page">
-    <!-- Center: Main Story Content -->
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.StoryController" styleClass="story-container">
+    <!-- Center: Story Content -->
     <center>
-        <VBox alignment="CENTER" spacing="30.0" styleClass="story-container">
+        <VBox alignment="CENTER" spacing="20">
             <!-- Story Title -->
-            <Label fx:id="storyTitleLabel" text="A Spanish Story" styleClass="story-title"/>
-
+            <Label fx:id="storyTitleLabel" text="Unit 1 Story" styleClass="story-title" />
+            
             <!-- Story Text -->
-            <Label fx:id="storyTextLabel" wrapText="true" styleClass="story-text" maxWidth="300.0" />
+            <Label fx:id="storyTextLabel" wrapText="true" styleClass="story-text" />
         </VBox>
     </center>
 
-    <!-- Bottom: Narrate Button -->
+    <!-- Bottom: Navigation Buttons -->
     <bottom>
-        <VBox alignment="CENTER" spacing="10.0" styleClass="narrate-container">
-            <Button text="Narrate Story 📢" onAction="#onNarrateStoryClicked" styleClass="narrate-button"/>
+        <VBox alignment="CENTER" spacing="10">
+            <Button fx:id="narrateButton" text="Narrate Story" onAction="#onNarrateStoryClicked" styleClass="nav-button" />
+            <Button fx:id="unit2StoryButton" text="Unit 2 Story" onAction="#onUnit2StoryClicked" styleClass="nav-button" />
+            <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button" />
         </VBox>
     </bottom>
 </BorderPane>
