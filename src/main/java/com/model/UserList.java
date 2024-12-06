@@ -43,6 +43,7 @@ public class UserList {
     public boolean userExists(String username) {
         if (username == null) 
             return false;
+        System.out.println("\n\n\nSIZE OF USERS LIST: "+users.size()+"\n\n");
         for (User user : users) {
             if (user.getUsername().equalsIgnoreCase(username)) {
                 return true;
