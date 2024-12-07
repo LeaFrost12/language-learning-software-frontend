@@ -10,65 +10,103 @@ import com.model.Word;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 public class ProblemWordsController {
 
     @FXML
-    private ListView<String> problemWordsList;
+    private ComboBox<String> unitComboBox;
+
+    @FXML
+    private ImageView whaleImage;
+
+    @FXML
+    private GridPane wordGrid;
 
     @FXML
     private Label wordDetailsLabel;
 
-    @FXML
-    private Button backHomeButton;
-
     private User currentUser;
 
+    /**
+     * Initialize the controller.
+     */
     public void initialize() {
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 
+        // Load whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whaleImage.setImage(whale);
+
         if (currentUser != null) {
             loadProblemWords();
         } else {
-            problemWordsList.getItems().add("No user logged in.");
+            showNoUserLoggedInMessage();
         }
     }
 
+    /**
+     * Load problem words for the current user into the GridPane.
+     */
     private void loadProblemWords() {
         List<Word> problemWords = currentUser.getProblemWordList().getWords();
-
-        problemWordsList.getItems().clear(); // Clear existing items
+        wordGrid.getChildren().clear();
 
         if (problemWords.isEmpty()) {
-            problemWordsList.getItems().add("No problem words logged.");
+            Label emptyLabel = new Label("No problem words logged.");
+            wordGrid.add(emptyLabel, 0, 0);
         } else {
-            for (Word word : problemWords) {
-                problemWordsList.getItems().add(word.getForeignWord());
+            for (int i = 0; i < problemWords.size(); i++) {
+                Word word = problemWords.get(i);
+
+                Label wordLabel = new Label(word.getForeignWord());
+                Label translationLabel = new Label(word.getTranslatedWord());
+                Label partOfSpeechLabel = new Label(word.getPartofSpeech());
+
+                // Add labels to the GridPane
+                wordGrid.add(wordLabel, 0, i);
+                wordGrid.add(translationLabel, 1, i);
+                wordGrid.add(partOfSpeechLabel, 2, i);
+
+                // Event to show word details on selection
+                wordLabel.setOnMouseClicked(e -> displayWordDetails(word));
             }
-
-            problemWordsList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                Word selectedWord = problemWords.stream()
-                        .filter(word -> word.getForeignWord().equals(newValue))
-                        .findFirst()
-                        .orElse(null);
-
-                if (selectedWord != null) {
-                    displayWordDetails(selectedWord);
-                }
-            });
         }
     }
 
+    /**
+     * Display details for the selected word in the details label.
+     */
     private void displayWordDetails(Word word) {
         String details = String.format("Word: %s\nTranslation: %s\nPart of Speech: %s\nExample: %s",
                 word.getForeignWord(), word.getTranslatedWord(), word.getPartofSpeech(), word.getExampleSentence());
         wordDetailsLabel.setText(details);
     }
 
+    /**
+     * Show a message when no user is logged in.
+     */
+    private void showNoUserLoggedInMessage() {
+        Label message = new Label("No user logged in.");
+        wordGrid.add(message, 0, 0);
+    }
+
+    /**
+     * Handle the Begin Review button click event.
+     */
+    @FXML
+    private void onBeginReviewClicked(ActionEvent event) throws IOException {
+        App.setRoot("flashcardPW");
+    }
+
+    /**
+     * Handle the Back to Home button click event.
+     */
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
         App.setRoot("user_home");
