@@ -18,27 +18,32 @@ public class BadgeController {
     @FXML
     private Button backButton;
 
-    // Flag to determine if the badge has already been added
-    private boolean badgeAdded = false;
+    // Flags to prevent duplicate badge additions
+    private boolean badge1Added = false;
+    private boolean badge2Added = false;
 
     public void initialize() {
         // Dynamically add badges to the container
-        if (!badgeAdded) {
-            addBadgeImage();
-            badgeAdded = true;
+        if (!badge1Added) {
+            addBadgeImage("/com/language/images/badge1.png", "Congratulations! You earned the Unit 1 Lesson 1 badge!");
+            badge1Added = true;
+        }
+        if (!badge2Added) {
+            addBadgeImage("/com/language/images/badge2.png", "Congratulations! You earned the Unit 2 Lesson 1 badge!");
+            badge2Added = true;
         }
     }
 
-    private void addBadgeImage() {
+    private void addBadgeImage(String imagePath, String description) {
         // Create an ImageView for the badge
         ImageView badgeImageView = new ImageView();
-        badgeImageView.setImage(new Image(App.class.getResourceAsStream("/com/language/images/badge1.png")));
+        badgeImageView.setImage(new Image(App.class.getResourceAsStream(imagePath)));
         badgeImageView.setFitWidth(100); // Set the image width
         badgeImageView.setFitHeight(100); // Set the image height
         badgeImageView.setPreserveRatio(true);
 
         // Create a description for the badge
-        Text badgeDescription = new Text("Congratulations! You earned the Lesson 1 badge!");
+        Text badgeDescription = new Text(description);
         badgeDescription.setStyle("-fx-font-size: 14; -fx-padding: 5;");
 
         // Add the badge image and description to the container

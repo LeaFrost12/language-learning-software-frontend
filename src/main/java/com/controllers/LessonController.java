@@ -304,9 +304,11 @@ public class LessonController {
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
 
-            // If it's Lesson 1, show the badge
-            if (currentLesson.getLessonName().equalsIgnoreCase("Lesson 1")) {
-                displayBadge();
+            // Display badges based on lesson/unit
+            if (currentLesson.getLessonName().equalsIgnoreCase("Unit 1 Lesson 1")) {
+                displayBadge("Unit 1 Lesson 1", "/com/language/images/badge1.png");
+            } else if (currentLesson.getLessonName().equalsIgnoreCase("Unit 2 Lesson 1")) {
+                displayBadge("Unit 2 Lesson 1", "/com/language/images/badge2.png");
             } else {
                 feedbackLabel.setText("You have completed the lesson, but no badge is awarded for this lesson.");
             }
@@ -317,10 +319,10 @@ public class LessonController {
     }
 
 
-    private void displayBadge() {
-        badgeImageView.setImage(new Image(App.class.getResourceAsStream("/com/language/images/badge1.png")));
+    private void displayBadge(String badgeName, String badgeImagePath) {
+        badgeImageView.setImage(new Image(App.class.getResourceAsStream(badgeImagePath)));
         badgeImageView.setVisible(true);
-        feedbackLabel.setText("Congratulations! You earned a badge for completing Lesson 1!");
+        feedbackLabel.setText("Congratulations! You earned a badge for completing " + badgeName + "!");
         feedbackLabel.setStyle("-fx-text-fill: green;");
     }
     
