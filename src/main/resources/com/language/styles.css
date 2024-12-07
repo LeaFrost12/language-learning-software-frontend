@@ -19,7 +19,7 @@
 .title-label {
     -fx-font-size: 24px; /* Adjust size as needed */
     -fx-font-weight: bold; /* Emphasize the text */
-    -fx-text-fill: #FFFFFF; /* White color for contrast */
+    -fx-text-fill: #134349; /* White color for contrast */
     -fx-alignment: center; /* Center the text */
 }
 
