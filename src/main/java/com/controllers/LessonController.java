@@ -94,9 +94,13 @@ public class LessonController {
         currentUser = userList.getCurrentUser();
         Image whaleImage = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
         whalePosition1.setImage(whaleImage);
+        whalePosition1.setScaleX(-1);
         whalePosition2.setImage(whaleImage);
+        whalePosition2.setScaleX(-1);
         whalePosition3.setImage(whaleImage);
+        whalePosition3.setScaleX(-1);
         whalePosition4.setImage(whaleImage);
+        whalePosition4.setScaleX(-1);
     
         // Hide the whale images initially
         whalePosition1.setVisible(false);
