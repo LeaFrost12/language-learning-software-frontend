@@ -59,7 +59,6 @@ public class LessonController {
     private User currentUser;
     private Lesson currentLesson;
     private Map<String, TextField> matchingInputs;
-    private int correctAnswersCount = 0;
 
     private int correctAnswersCount = 0;  // Counter for correct answers
 
