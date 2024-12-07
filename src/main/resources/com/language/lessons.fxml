@@ -43,7 +43,7 @@
             <HBox spacing="10" alignment="CENTER">
                 <Button text="Narrate" onAction="#onNarrateClicked" styleClass="nav-button"/>
                 <Button text="Submit" onAction="#onSubmitClicked" styleClass="submit-button"/>
-                <Button text="Next Question" onAction="#onNextQuestionClicked" styleClass="next-button" disable="true" fx:id="nextButton"/>
+                <Button text="Next Question" onAction="#onNextQuestionClicked" styleClass="primary-button" disable="true" fx:id="nextButton"/>
                 <Button fx:id="backHomeButton" text="Back Home" onAction="#onBackHomeClicked" styleClass="nav-button"/>
             </HBox>
         </VBox>

@@ -1,6 +1,7 @@
  package com.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +23,8 @@ public class User {
     private ArrayList<Badge> badges;
     private UUID currentUnitId;
     private UUID currentLessonId;
+    private Lesson currentLesson;
+    private Unit currentUnit;
     private WordList problemWordList;
 
     /**
@@ -321,8 +324,11 @@ public class User {
      */
     public boolean moveToNextLesson() {
         Lesson nextLesson = getCurrentUnit().getLessonList().nextLesson(getCurrentLesson());
-        if (nextLesson == null)
+        System.out.println(getCurrentLesson());
+        if (nextLesson == null){
+            
             return false;
+        }
         currentLessonId = nextLesson.getId();
         return true;
     }
@@ -332,12 +338,51 @@ public class User {
      * unit's ID.
      */
     public boolean moveToNextUnit() {
-        Unit nextUnit = language.getUnitList().nextUnit(getCurrentUnit()); 
-        if (nextUnit == null)
-            return false;
-        currentUnitId = nextUnit.getId();
+    Language currentLanguage = this.getLanguage();
+    if (currentLanguage == null) {
+        return false;
+    }
+
+    List<Unit> units = currentLanguage.getUnitList().getUnits();
+    int currentIndex = units.indexOf(this.getCurrentUnit());
+
+    if (currentIndex >= 0 && currentIndex < units.size() - 1) {
+        // Move to the next unit
+        this.setCurrentUnit(units.get(currentIndex + 1));
+        this.setCurrentLesson(this.getCurrentUnit().getLessonList().getLessons().get(0));  // Set to the first lesson of the new unit
         return true;
     }
+
+    // No more units available
+    return false;
+}
+
+    /**
+     * Set the current lesson for the user.
+     * @param lesson The Lesson to be set as the current lesson.
+     */
+    public void setCurrentLesson(Lesson lesson) {
+        if (lesson != null) {
+            this.currentLesson = lesson;
+            this.currentLessonId = lesson.getId();
+        }
+    }
+
+    /**
+     * Set the current unit for the user.
+     * @param unit The Unit to be set as the current unit.
+     */
+    public void setCurrentUnit(Unit unit) {
+        if (unit != null) {
+            this.currentUnit = unit;
+            this.currentUnitId = unit.getId();
+            // Automatically set the first lesson of the unit as the current lesson
+            if (unit.getLessonList() != null && !unit.getLessonList().getLessons().isEmpty()) {
+                setCurrentLesson(unit.getLessonList().getLessons().get(0));
+            }
+        }
+    }
+
 
     /**
      * Runs the user's current lesson. If the user passes the lesson, move to

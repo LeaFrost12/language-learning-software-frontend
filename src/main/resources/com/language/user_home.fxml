@@ -6,35 +6,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.UserHomeController" styleClass="user-home-container" >
-   <children>
-      <HBox alignment="CENTER" spacing="10.0" styleClass="top-bar" >
-         <children>
-            <Label text="Spanish" style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px; -fx-font-weight: bold;"/>
-         </children>
-      </HBox>
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.UserHomeController" styleClass="user-home-container">
+    <children>
+        <HBox alignment="CENTER" spacing="7.0" styleClass="top-bar">
+            <children>
+                <Label text="Spanish" style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+            </children>
+        </HBox>
 
-            <!-- Main Content -->
-      <VBox alignment="CENTER" spacing="15.0">
-         <children>
-            <Button fx:id="ContinueUnitButton" text="Continue Unit ➧" styleClass="rounded-button1" onAction="#onContinueUnitClicked" />
-            <Button text="Problem Words💡" styleClass="rounded-button2" onAction="#onViewProblemWordsClicked" />
-            <Button fx:id="BadgesButton" text="Badges 🎖" styleClass="rounded-button1" onAction="#onBadgesClicked" />
-         </children>
-      </VBox>
+        <!-- Main Content -->
+        <VBox alignment="CENTER" spacing="15.0">
+            <children>
+                <Button fx:id="ContinueUnitButton" text="Continue Unit ➧" styleClass="rounded-button1" onAction="#onContinueUnitClicked"/>
+                <Button text="Problem Words💡" styleClass="rounded-button2" onAction="#onViewProblemWordsClicked"/>
+                <Button fx:id="BadgesButton" text="Badges 🎖" styleClass="rounded-button1" onAction="#onBadgesClicked"/>
+                <Button fx:id="storyButton" text="Story📖" styleClass="rounded-button2" onAction="#onStoryClicked"/>
+            </children>
+        </VBox>
 
-      <VBox alignment="CENTER" spacing="20.0">
-         <children>
-            <ImageView fx:id="whaleImage" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" />
-            <Label fx:id="welcomeLabel" text="Welcome back!" styleClass="welcome-label" />
-         </children>
-      </VBox>
+        <VBox alignment="CENTER" spacing="20.0">
+            <children>
+                <ImageView fx:id="whaleImage" fitHeight="100.0" fitWidth="150.0" preserveRatio="true"/>
+                <Label fx:id="welcomeLabel" text="Welcome back!" style="-fx-text-fill: #134349; -fx-font-size: 24px; -fx-font-weight: bold;" />
+            </children>
+        </VBox>
 
-      <HBox alignment="CENTER" spacing="20.0" styleClass="bottom-nav">
-         <children>
-            <Button fx:id="btnLanguages" text="Languages" styleClass="nav-icon-button" onAction="#onLanguagesClicked" />
-            <Button fx:id="btnSettings" text="Settings" styleClass="nav-icon-button" onAction="#onSettingsClicked" />
-         </children>
-      </HBox>
-   </children>
+        <HBox alignment="CENTER" spacing="20.0" styleClass="bottom-nav">
+            <children>
+                <Button fx:id="btnLanguages" text="Languages" styleClass="nav-icon-button" onAction="#onLanguagesClicked"/>
+                <Button fx:id="btnSettings" text="Settings" styleClass="nav-icon-button" onAction="#onSettingsClicked"/>
+            </children>
+        </HBox>
+    </children>
 </VBox>

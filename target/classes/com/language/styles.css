@@ -7,7 +7,7 @@
 
 .top-bar {
     -fx-background-color: #134349; /* Dark teal */
-    -fx-padding: 10px;
+    -fx-padding: 7px;
 }
 
 .bottom-bar {
@@ -62,14 +62,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5); */
 }
 
-.header-label {
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-    -fx-font-family: 'Alegreya Sans SC';
-    -fx-text-fill: #134349; /* Deep sea blue */
-}
-
-
 .input-field {
     -fx-font-size: 14px;
     -fx-padding: 10px;
@@ -88,16 +80,19 @@
 }
 
 .login-button {
-    -fx-background-color: #134349;
-    -fx-text-fill: #EFEFEF;
-    -fx-font-size: 20px;
-    -fx-font-family: 'Alegreya Sans SC';
-    -fx-padding: 10 20;
-    -fx-background-radius: 15;      
+    -fx-background-color: #134349; /* Light blue */
+    -fx-text-fill: #EFEFEF; /* White text */
+    -fx-font-size: 25px;
+    -fx-font-weight: bold; 
+    -fx-padding: 10px;
+    -fx-background-radius: 15; /* Rounded corners */
     -fx-border-radius: 15;
-    -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
-
+    -fx-pref-width: 250px; /* Fixed width */
+}
+    
+.login-button:hover {
+    -fx-text-fill: rgb(24, 136, 158); 
 }
 
 .login-button:hover {
@@ -109,20 +104,20 @@
     -fx-padding: 20px;
 }
 
-.signup-button {
-    -fx-background-color: #134349; /* Dark teal */
-    -fx-text-fill: #FFFFFF; /* White text */
-    -fx-font-size: 16px;
+.signup-button { /* opposite colorway */
+    -fx-background-color: #EFEFEF;
+    -fx-text-fill: #134349; 
+    -fx-font-size: 25px;
+    -fx-font-weight: bold; 
     -fx-padding: 10px;
     -fx-background-radius: 15; /* Rounded corners */
     -fx-border-radius: 15;
-    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
+    -fx-pref-width: 250px; /* Fixed width */
 }
 
-.header-label {
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #134349;
+.signup-button:hover {
+    -fx-text-fill: #b6b3b3; 
 }
 
 #badgeContainer {
@@ -138,12 +133,6 @@
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
-}
-
-.header-label {
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333;
 }
 
 .badge-scroll-pane {
@@ -176,31 +165,17 @@
     -fx-font-size: 14px;
     -fx-text-fill: #7f8c8d;
 }
-/* Background for the AnchorPane */
-.anchor-pane {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc);
-}
-
-/* Header Label Styling */
-.header-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #01579b; /* Deep sea blue */
-    -fx-alignment: center;
-}
 
 /* Primary Button Styling */
 .primary-button {
-    -fx-background-color: #134349; /* Ocean blue */
+    -fx-background-color: #0288d1; /* Ocean blue */
     -fx-text-fill: #EFEFEF;
-    -fx-font-size: 30px;
-    -fx-font-family: 'Alegreya Sans SC';
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10px;
-    -fx-background-radius: 25;
-    -fx-border-color: #134349; /* Deep sea blue */
-    -fx-border-width: 2;
-    -fx-border-radius: 25;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.3, 0, 1);
+    -fx-border-radius: 10px;
 }
 
 /* Hover effect for Primary Button */
@@ -225,26 +200,10 @@
 .secondary-button:hover {
     -fx-background-color: #b3e5fc; /* Lightest blue */
 }
-.anchor-pane {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc);
-}
-
-.header-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #01579b; /* Deep sea blue */
-    -fx-alignment: center;
-}
 
 .button-container {
     -fx-alignment: center;
     -fx-padding: 20;
-}
-
-.header-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333;
 }
 
 .info-label {
@@ -270,19 +229,19 @@
 .root {
     -fx-font-family: "Nunito";
     -fx-base: #87C7D1;
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #e3f2fd, #b3e5fc); /* Sea theme gradient */
+    -fx-background-color: white /* linear-gradient(to bottom, #ffffff, #e3f2fd, #b3e5fc);  Sea theme gradient */
 }
 
 /* AnchorPane Background for Profile */
 .anchor-pane {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc); /* Soft sea blues */
+    -fx-background-color: white /*linear-gradient(to bottom, #ffffff, #e0f7fa, #b3e5fc);  Soft sea blues */
 }
 
 /* Header Label Styling */
 .header-label {
-    -fx-font-size: 28px;
+    -fx-font-size: 30px;
     -fx-font-weight: bold;
-    -fx-text-fill: #01579b; /* Deep sea blue */
+    -fx-text-fill: #013541; /* Deep sea blue */
     -fx-alignment: center;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.3, 0, 1); /* Text outline effect */
 }
@@ -333,16 +292,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.3, 0, 3); /* Add shadow to the image */
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-}
-.anchor-pane {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #e3f2fd, #b3e5fc);
-}
-
-.header-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #01579b;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.3, 0, 1);
 }
 
 .primary-button {
@@ -397,7 +346,7 @@
     -fx-text-fill: #d32f2f; /* Red for incorrect, change dynamically if needed */
 }
 
-.submit-button, .next-button {
+.submit-button {
     -fx-background-color: #0288d1;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
@@ -406,7 +355,7 @@
     -fx-border-radius: 5;
 }
 
-.submit-button:hover, .next-button:hover {
+.submit-button:hover {
     -fx-background-color: #03a9f4;
 }
 
@@ -430,6 +379,15 @@
     -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.5) , 2, 0.0 , 1 , 1 );
 
+}
+
+.circle-button {
+    -fx-background-color: #B3F3FA;
+    -fx-text-fill: #038EAE;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;   
 }
 
 .rounded-button1 {
@@ -494,11 +452,18 @@
 }
 
 .flashcard-container {
-    -fx-border-color: #ccc;
-    -fx-border-width: 2px;
-    -fx-border-radius: 10px;
-    -fx-padding: 20px;
+    -fx-border-color: #038EAE;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
     -fx-background-color: #f9f9f9;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 200px;
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+    -fx-max-width: 250px;
+    -fx-max-height: 250px;
 }
 
 .next-button {
@@ -512,23 +477,78 @@
 }
 
 .click-to-reveal {
-    -fx-font-size: 12px;
-    -fx-text-fill: #888;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+    -fx-text-fill: #555555;
 }
 
 .unit-label {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #008000;
+    -fx-text-fill: #134349;
 }
 
 .word-label {
-    -fx-font-size: 32px;
+    -fx-font-size: 35px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
+    -fx-text-fill: #01579b;
+    -fx-wrap-text: true;
 }
 
 .subtitle {
-    -fx-font-size: 16px;
+    -fx-font-size: 13px;
     -fx-text-fill: #666666;
+}
+.story-container {
+    padding: 20px;
+}
+
+.story-label {
+    font-size: 16pt;
+    text-align: center;
+}
+.story-page {
+    -fx-background-color: #FAFAFA;
+}
+
+.story-container {
+    -fx-padding: 20;
+}
+
+.story-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.story-text {
+    -fx-font-size: 16px;
+    -fx-line-spacing: 1.5;
+    -fx-text-alignment: center;
+}
+
+.narrate-container {
+    -fx-padding: 20;
+}
+
+.narrate-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 10 20 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.next-button {
+    -fx-background-color: transparent; /* Ocean blue */
+    -fx-text-fill: #0288d1;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.next-button:hover {
+    -fx-text-fill: #044664;
 }

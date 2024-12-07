@@ -29,7 +29,7 @@
 
       <HBox spacing="10.0" alignment="CENTER">
          <Button fx:id="backButton" text="Back" onMouseClicked="#back" styleClass="nav-button" />
-         <Button fx:id="btnSignup" text="Sign up" onMouseClicked="#btnSignupClicked" styleClass="signup-button" />
+         <Button fx:id="btnSignup" text="Sign up" onMouseClicked="#btnSignupClicked" styleClass="login-button" />
       </HBox>
 
    </children>

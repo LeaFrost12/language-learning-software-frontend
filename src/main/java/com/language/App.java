@@ -72,7 +72,7 @@ public class App extends Application {
     public static void setCurrentUser(String username) {
         currentUser = username;
     }
-
+    
     /**
      * Gets the current user's username.
      *
