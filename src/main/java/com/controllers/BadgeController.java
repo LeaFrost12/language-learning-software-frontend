@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import com.language.App;
+import com.model.User;
+import com.model.UserList;
 import java.io.IOException;
 
 public class BadgeController {
@@ -18,19 +20,21 @@ public class BadgeController {
     @FXML
     private Button backButton;
 
-    // Flags to prevent duplicate badge additions
-    private boolean badge1Added = false;
-    private boolean badge2Added = false;
-
     public void initialize() {
-        // Dynamically add badges to the container
-        if (!badge1Added) {
-            addBadgeImage("/com/language/images/badge1.png", "Congratulations! You earned the Unit 1 Lesson 1 badge!");
-            badge1Added = true;
+        // Get the current user
+        UserList userList = UserList.getInstance();
+        User currentUser = userList.getCurrentUser();
+
+        if (currentUser == null) {
+            System.out.println("No user logged in. Cannot display badges.");
+            return;
         }
-        if (!badge2Added) {
+
+        // Dynamically add badges based on the user's progress
+        if (currentUser.getCurrentLesson().getLessonName().equals("Unit 1 Lesson 1")) {
+            addBadgeImage("/com/language/images/badge1.png", "Congratulations! You earned the Unit 1 Lesson 1 badge!");
+        }else{
             addBadgeImage("/com/language/images/badge2.png", "Congratulations! You earned the Unit 2 Lesson 1 badge!");
-            badge2Added = true;
         }
     }
 
