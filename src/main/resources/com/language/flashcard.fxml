@@ -9,7 +9,7 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FlashcardsController">
     <!-- Header -->
-    <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
+    <HBox alignment="CENTER_LEFT" spacing="10.0" >
         <children>
             <Button fx:id="backButton" text="◀" onAction="#goBack" styleClass="nav-button" />
         </children>
@@ -22,20 +22,19 @@
     </VBox>
 
     <!-- Flashcard Container -->
-    <StackPane styleClass="flashcard-container" prefWidth="300.0" prefHeight="200.0" onMouseClicked="#flipCard">
+    <StackPane styleClass="flashcard-container" onMouseClicked="#flipCard">
         <children>
             <!-- Flashcard Content -->
             <VBox alignment="CENTER" spacing="15.0">
                 <Label fx:id="unitLabel" text="Unit 1" styleClass="unit-label" />
                 <Label fx:id="wordLabel" text="Word" styleClass="word-label" alignment="CENTER" />
-                <ImageView fx:id="waveImage" fitHeight="40.0" preserveRatio="true" styleClass="image-view" />
                 <Label text="Click to Reveal Answer" styleClass="click-to-reveal" />
             </VBox>
         </children>
     </StackPane>
 
     <!-- Navigation Button -->
-    <HBox alignment="BOTTOM_RIGHT" spacing="15.0">
+    <HBox alignment="BOTTOM_RIGHT" spacing="15.0" style="-fx-padding: 0 30 30 0;">
         <Button fx:id="nextCardButton" text="Next Card ▶" onAction="#nextCard" styleClass="next-button" />
     </HBox>
 </VBox>

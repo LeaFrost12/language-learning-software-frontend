@@ -7,7 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FlashcardsController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FlashcardsPWController">
     <!-- Header -->
     <HBox alignment="CENTER_LEFT" spacing="10.0" >
         <children>
@@ -18,7 +18,7 @@
     <!-- Title -->
     <VBox alignment="CENTER" spacing="10.0">
         <Label text="Flash Cards" styleClass="header-label" />
-        <Label text="Study On Your Own!" styleClass="subtitle" />
+        <Label text="Study Words You Struggle With!" styleClass="subtitle" />
     </VBox>
 
     <!-- Flashcard Container -->
