@@ -115,10 +115,7 @@ public class MultipleChoice implements Question {
      */
     @Override
     public String getQuestionText() {
-        StringBuilder questionText = new StringBuilder(question).append("\nChoices:\n");
-        for (int i = 0; i < choices.size(); i++) {
-            questionText.append(i + 1).append(". ").append(choices.get(i)).append("\n");
-        }
+        StringBuilder questionText = new StringBuilder(question);
         return questionText.toString();
     }
 
