@@ -3,7 +3,7 @@
         "badges": [],
         "firstName": "John",
         "lastName": "Doe",
-        "password": "password",
+        "password": "Password123!",
         "phoneNumber": "123456789",
         "languages": [
             {
@@ -11,7 +11,22 @@
             }
         ],
         "currentLessonID": "d9803a1b-97db-4518-afd0-20562be10c0e",
-        "problemWords": [],
+        "problemWords": [
+            {
+                "exampleSentence": "al nino le gusta _____",
+                "partOfSpeech": "verb",
+                "translation": "to jump",
+                "id": "79ea8d70-fd5c-4693-b28c-872578b65983",
+                "text": "saltar"
+            },
+            {
+                "exampleSentence": "yo vivo en una _____",
+                "partOfSpeech": "noun",
+                "translation": "house",
+                "id": "53655cb7-27ba-4688-8bf1-1b8bdc52e579",
+                "text": "casa"
+            }
+        ],
         "uuid": "63150b0e-bc53-4be0-aa4f-d26a6402045c",
         "email": "john.doe@email.com",
         "username": "john.doe",
