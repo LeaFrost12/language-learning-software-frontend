@@ -34,6 +34,7 @@ public class LanguageController {
             Button languageButton = new Button(languageEnum.name());
             languageButton.setStyle("-fx-font-size: 14pt; -fx-padding: 10px;");
             languageButton.setOnAction(e -> handleLanguageSelection(languageEnum));
+            languageButton.getStyleClass().add("rounded-button1");
             languageButtonsContainer.getChildren().add(languageButton);
         }
     }
