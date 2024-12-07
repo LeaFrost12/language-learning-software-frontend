@@ -42,16 +42,19 @@
             <Label fx:id="feedbackLabel" text="" styleClass="feedback-label"/>
 
             <!-- Badge ImageView -->
-            <ImageView fx:id="badgeImageView" fitWidth="100" fitHeight="100" visible="false" />
+            <ImageView fx:id="badgeImageView" fitWidth="75" fitHeight="75" visible="false" />
 
-            <!-- Buttons Section -->
-            <VBox alignment="CENTER" spacing="20">
-                <HBox spacing="10" alignment="CENTER">
-                    <Button text="Narrate 🔊" onAction="#onNarrateClicked" styleClass="nav-button"/>
-                    <Button text="Submit" onAction="#onSubmitClicked" styleClass="submit-button"/>
-                </HBox>
-                <Button text="Next Question" onAction="#onNextQuestionClicked" styleClass="primary-button" disable="true" fx:id="nextButton"/>
-            </VBox>
+            
         </VBox>
     </center>
+    <bottom>
+        <!-- Buttons Section -->
+        <VBox alignment="CENTER" spacing="20">
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Narrate 🔊" onAction="#onNarrateClicked" styleClass="nav-button"/>
+                <Button text="Submit" onAction="#onSubmitClicked" styleClass="submit-button"/>
+            </HBox>
+            <Button text="Next Question" onAction="#onNextQuestionClicked" styleClass="primary-button" disable="true" fx:id="nextButton"/>
+        </VBox>
+    </bottom>
 </BorderPane>
