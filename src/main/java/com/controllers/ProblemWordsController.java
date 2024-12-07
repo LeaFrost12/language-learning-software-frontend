@@ -1,17 +1,18 @@
 package com.controllers;
 
+import java.io.IOException;
+import java.util.List;
+
 import com.language.App;
 import com.model.User;
 import com.model.UserList;
 import com.model.Word;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-
-import java.io.IOException;
-import java.util.List;
 
 public class ProblemWordsController {
 
@@ -70,6 +71,6 @@ public class ProblemWordsController {
 
     @FXML
     private void onBackHomeClicked(ActionEvent event) throws IOException {
-        App.setRoot("settings");
+        App.setRoot("user_home");
     }
 }

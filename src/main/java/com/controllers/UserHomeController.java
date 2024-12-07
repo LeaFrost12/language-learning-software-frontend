@@ -72,7 +72,7 @@ public class UserHomeController implements Initializable {
 
     @FXML
     public void onViewProblemWordsClicked(ActionEvent event) throws IOException {
-        App.setRoot("problem_words");
+        App.setRoot("problemWords");
     }
 
     @FXML
