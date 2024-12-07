@@ -32,8 +32,8 @@
         <VBox alignment="CENTER" spacing="40.0">
 
             <VBox alignment="CENTER" spacing="12.0">
-                <Label  text="Next Lesson: " styleClass="lesson-title"/>
-                <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title" style="-fx-font-weight: null"/>
+                <Label  text="Next Lesson: " styleClass="lesson-title" style="-fx-text-fill: #004d73;"/>
+                <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title" style="-fx-font-weight: null; -fx-text-fill: #004d73;"/>
             </VBox>
 
             <!-- HBox for buttons at the very bottom -->
