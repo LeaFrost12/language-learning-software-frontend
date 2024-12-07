@@ -17,11 +17,12 @@
             <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar">
                 <children>
                     <Button fx:id="backButton" text="◀" onAction="#goBack" styleClass="nav-button" />
+                    <!-- Lesson Title -->
+                    <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>
                 </children>
             </HBox>
 
-            <!-- Lesson Title -->
-            <Label fx:id="lessonTitleLabel" text="Lesson Title" styleClass="lesson-title"/>
+            
 
             <!-- Question Container -->
             <VBox fx:id="questionContainer" spacing="10" alignment="CENTER" visible="false" managed="false">
