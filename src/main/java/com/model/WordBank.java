@@ -78,10 +78,7 @@ public class WordBank implements Question {
      */
     @Override
     public String getQuestionText() {
-        StringBuilder questionText = new StringBuilder(question).append("\nWord choices:\n");
-        for (Word word : wordBank) {
-            questionText.append(word.getForeignWord()).append("\n");
-        }
+        StringBuilder questionText = new StringBuilder(question);
         return questionText.toString();
     }
 
