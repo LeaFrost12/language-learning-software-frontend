@@ -29,7 +29,7 @@
             </GridPane>
             <Label fx:id="wordDetailsLabel" text="Select a word to see details" style="-fx-font-size: 14px;" />
             <Button fx:id="beginReviewButton" text="Begin Review!" onAction="#onBeginReviewClicked" styleClass="circle-button" />
-            <Button text="Back" onMouseClicked="#back" styleClass="nav-button" />
+            <Button text="Back" onAction="#back" styleClass="nav-button" />
 
         </VBox>
     </center>

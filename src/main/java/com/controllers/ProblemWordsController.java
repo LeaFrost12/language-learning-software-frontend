@@ -33,7 +33,6 @@ public class ProblemWordsController {
     /**
      * Initialize the controller.
      */
-    @FXML
     public void initialize() {
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
@@ -48,7 +47,6 @@ public class ProblemWordsController {
     /**
      * Load problem words for the current user into the GridPane.
      */
-    @FXML
     private void loadProblemWords() {
         List<Word> problemWords = currentUser.getProblemWordList().getWords();
         wordGrid.getChildren().clear();
@@ -78,7 +76,6 @@ public class ProblemWordsController {
     /**
      * Display details for the selected word in the details label.
      */
-    @FXML
     private void displayWordDetails(Word word) {
         String details = String.format("Word: %s\nTranslation: %s\nPart of Speech: %s\nExample: %s",
                 word.getForeignWord(), word.getTranslatedWord(), word.getPartofSpeech(), word.getExampleSentence());
