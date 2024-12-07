@@ -43,6 +43,18 @@ public class StoryController {
         buzzWordImageMap.put("rapido", "/com/language/images/rapido.png");
         buzzWordImageMap.put("escuela", "/com/language/images/escuela.png");
 
+        // Unit 2 buzzwords
+        buzzWordImageMap.put("mesa", "/com/language/images/mesa.png");
+        buzzWordImageMap.put("silla", "/com/language/images/silla.png");
+        buzzWordImageMap.put("ventana", "/com/language/images/ventana.png");
+        buzzWordImageMap.put("puerta", "/com/language/images/puerta.png");
+        buzzWordImageMap.put("lampara", "/com/language/images/lampara.png");
+        buzzWordImageMap.put("libro", "/com/language/images/libro.png");
+        buzzWordImageMap.put("cama", "/com/language/images/cama.png");
+        buzzWordImageMap.put("cocina", "/com/language/images/cocina.png");
+        buzzWordImageMap.put("plato", "/com/language/images/plato.png");
+        buzzWordImageMap.put("reloj", "/com/language/images/reloj.png");
+
         // Set the initial story content
         String storyContent = "Hola, me llamo Juan. Vivo en una casa verde muy bonita. Tengo un gato que le gusta saltar y caminar rápido. Cada mañana, el niño dice 'adios' y va a la escuela.";
         setBuzzWordListeners(storyContent);
@@ -58,8 +70,8 @@ public class StoryController {
     @FXML
     private void onUnit2StoryClicked(ActionEvent event) {
         // Set the Unit 2 story content
-        String storyContent = "Hola, soy Ana. Vivo en una casa grande y bonita. En mi casa, hay un jardín con muchas flores de colores. Mi gato, que se llama Max, siempre camina rápido por el jardín. Cada mañana, saludo a mis amigos y nos vamos a la escuela juntos. Después de la escuela, me gusta saltar la cuerda y jugar con mi perro, que también es muy rápido. ¡Me encanta mi casa y mis amigos!";
-        
+        String storyContent = "En mi casa, hay una mesa grande y una silla pequeña. Cerca de la ventana, está la puerta. En la sala, hay una lámpara y un libro. En mi habitación, tengo una cama muy cómoda. La cocina tiene un plato blanco y un reloj colgado en la pared.";
+
         storyTitleLabel.setText("Unit 2 Story");
         setBuzzWordListeners(storyContent);
 
