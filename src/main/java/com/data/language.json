@@ -84,58 +84,79 @@
                         "lessonNumber": "1",
                         "wordList": [
                             {
-                                "wordID": "81185f0f-5270-4baa-9540-9f22ca320211",
-                                "wordText": "0",
-                                "wordTranslation": "0",
-                                "wordPartOfSpeech": "0",
-                                "wordExampleSentence": "_____, mi nombre es 0"
+                                "wordID": "1c34e890-5674-43d6-8e4f-9f23248707a2",
+                                "wordText": "mesa",
+                                "wordTranslation": "table",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "La comida está sobre la _____."
                             },
                             {
-                                "wordID": "3e552a92-afc6-48ec-90c7-e44504236eeb",
-                                "wordText": "1",
-                                "wordTranslation": "1",
-                                "wordPartOfSpeech": "1",
-                                "wordExampleSentence": "_____, mi nombre es 1"
+                                "wordID": "5e6d4f9a-b8bb-4a54-b1f7-a738345fbcd9",
+                                "wordText": "silla",
+                                "wordTranslation": "chair",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Me siento en la _____."
                             },
                             {
-                                "wordID": "616f8fb2-5ad9-4f97-b73d-52c07d73ddb2",
-                                "wordText": "2",
-                                "wordTranslation": "2",
-                                "wordPartOfSpeech": "2",
-                                "wordExampleSentence": "_____, mi nombre es 2"
+                                "wordID": "df4e8b32-788a-408c-89d1-60e3f5f21e9e",
+                                "wordText": "ventana",
+                                "wordTranslation": "window",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Abro la _____ para ver afuera."
                             },
                             {
-                                "wordID": "ff33509a-dcd5-4efc-9351-58452263e8e5",
-                                "wordText": "3",
-                                "wordTranslation": "3",
-                                "wordPartOfSpeech": "3",
-                                "wordExampleSentence": "_____, mi nombre es 3"
+                                "wordID": "c8b93e8c-c33e-4f5e-b12f-b99c4a9d8efb",
+                                "wordText": "puerta",
+                                "wordTranslation": "door",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Cierra la _____, por favor."
+                            },
+                            {
+                                "wordID": "bb3d9e5c-8a7e-4321-9d13-ef6f012a12ad",
+                                "wordText": "lámpara",
+                                "wordTranslation": "lamp",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Enciendo la _____ cuando está oscuro."
+                            },
+                            {
+                                "wordID": "a8b22f84-5f4a-4c6e-9e3a-7b9ef1bb19f4",
+                                "wordText": "libro",
+                                "wordTranslation": "book",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Leo un _____ antes de dormir."
+                            },
+                            {
+                                "wordID": "12b7a6b7-4a5e-4ea2-9d25-1e7d0f8e34d7",
+                                "wordText": "cama",
+                                "wordTranslation": "bed",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Voy a dormir en mi _____."
+                            },
+                            {
+                                "wordID": "24d6b5d2-fd62-4e6e-8997-bb8b54fd6214",
+                                "wordText": "cocina",
+                                "wordTranslation": "kitchen",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "La comida se prepara en la _____."
+                            },
+                            {
+                                "wordID": "0e3a8f8f-726e-467f-b65a-c013bbed95a7",
+                                "wordText": "plato",
+                                "wordTranslation": "plate",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Pongo la comida en el _____."
+                            },
+                            {
+                                "wordID": "b5d3e1e4-7f1e-4713-928c-7b281c975b89",
+                                "wordText": "reloj",
+                                "wordTranslation": "clock",
+                                "wordPartOfSpeech": "noun",
+                                "wordExampleSentence": "Miro el _____ para saber la hora."
                             }
                         ]
                     }
                 ]
-            },
-            {
-                "unitID": "958868db-e7df-4938-a389-3da43a0bea07",
-                "unitName": "Unit 2",
-                "unitNumber": "2",
-                "lessonList": [
-                    {
-                        "lessonID": "d9dbcda3-7409-4765-8513-c8e446b659a3",
-                        "lessonName": "Lesson 1",
-                        "lessonNumber": "1",
-                        "wordList": [
-                            {
-                                "wordID": "3fbd0626-a89a-4310-bf20-1bec8736958a",
-                                "wordText": "hola",
-                                "wordTranslation": "hello",
-                                "wordPartOfSpeech": "interjection",
-                                "wordExampleSentence": "_____, mi nombre es Lea"
-                            }
-                        ]
-                    }
-                ]
-            }
+            }            
         ]
     }
 ]
