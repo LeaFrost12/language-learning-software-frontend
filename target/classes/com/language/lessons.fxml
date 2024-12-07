@@ -42,7 +42,7 @@
             <Label fx:id="feedbackLabel" text="" styleClass="feedback-label"/>
 
             <!-- Whale moving -->
-            <HBox fx:id="whaleBox" alignment="CENTER" spacing="50" style="-fx-padding: 10;" visible="false">
+            <HBox fx:id="whaleBox" alignment="CENTER" spacing="50" visible="false">
                 <ImageView fx:id="whalePosition1" fitWidth="50" fitHeight="50" visible="false" />
                 <ImageView fx:id="whalePosition2" fitWidth="50" fitHeight="50" visible="false" />
                 <ImageView fx:id="whalePosition3" fitWidth="50" fitHeight="50" visible="false" />
