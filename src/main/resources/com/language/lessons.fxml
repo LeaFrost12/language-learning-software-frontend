@@ -50,7 +50,7 @@
                 <ImageView fx:id="whalePosition4" fitWidth="50" fitHeight="50" visible="false" />
             </HBox>
             <!-- Badge ImageView -->
-            <ImageView fx:id="badgeImageView" fitWidth="75" fitHeight="75" visible="false" />
+            <ImageView fx:id="badgeImageView" fitWidth="5" fitHeight="5" visible="false" />
 
             
         </VBox>

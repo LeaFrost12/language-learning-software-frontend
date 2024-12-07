@@ -94,9 +94,13 @@ public class LessonController {
         currentUser = userList.getCurrentUser();
         Image whaleImage = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
         whalePosition1.setImage(whaleImage);
+        whalePosition1.setScaleX(-1);
         whalePosition2.setImage(whaleImage);
+        whalePosition2.setScaleX(-1);
         whalePosition3.setImage(whaleImage);
+        whalePosition3.setScaleX(-1);
         whalePosition4.setImage(whaleImage);
+        whalePosition4.setScaleX(-1);
     
         // Hide the whale images initially
         whalePosition1.setVisible(false);
@@ -313,7 +317,7 @@ public class LessonController {
             if (correctAnswers.get(englishWord).equalsIgnoreCase(userAnswer)) {
                 inputField.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
                 correctAnswersCount++;  // Increment correct answers count
-                animateWhale();
+                updateWhalePosition();
             } else {
                 inputField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 allCorrect = false;
@@ -380,20 +384,6 @@ public class LessonController {
         } else {
             System.out.println("No question available to narrate.");
         }
-    }
-
-    private void animateWhale() {
-        if (!whaleImage.isVisible()) {
-            whaleImage.setVisible(true); // Show the whale if hidden
-        }
-    
-        double maxTranslation = 400; // Maximum translation distance
-        double newTranslationX = correctAnswersCount * 50; // Increment movement per correct answer
-        if (newTranslationX > maxTranslation) newTranslationX = maxTranslation; // Limit the translation
-    
-        TranslateTransition transition = new TranslateTransition(Duration.millis(500), whaleImage);
-        transition.setToX(newTranslationX); // Move to the new position
-        transition.play();
     }
 
     private void updateWhalePosition() {
