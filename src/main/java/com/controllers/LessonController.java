@@ -22,10 +22,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LessonController {
+    @FXML
+    private ImageView badgeImageView;
+
     @FXML
     private Button backButton;
     
@@ -63,6 +69,7 @@ public class LessonController {
     private int correctAnswersCount = 0;  // Counter for correct answers
 
     public void initialize() {
+        badgeImageView.setVisible(false); // Hide badge initially
         userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 
@@ -297,37 +304,26 @@ public class LessonController {
             feedbackLabel.setText("You have completed the lesson!");
             nextButton.setDisable(true);
 
-            // Check if the user qualifies to proceed to the next unit
-            double score = ((double) correctAnswersCount / questions.size()) * 100;
-            if (score >= 75) {
-                feedbackLabel.setText("Congratulations! You passed the lesson. You can proceed to the next unit.");
-                feedbackLabel.setStyle("-fx-text-fill: green;");
-
-                // Attempt to advance to the next lesson if available
-                if (currentUser.moveToNextLesson()) {
-                    feedbackLabel.setText("You have been advanced to the next lesson.");
-                } else {
-                    feedbackLabel.setText("You passed the lesson, but there are no more lessons available at the moment.");
-                }
-                
-                // Attempt to advance to the next unit if available
-                if (currentUser.moveToNextUnit()) {
-                    feedbackLabel.setText("You have been advanced to the next unit.");
-                } else {
-                    feedbackLabel.setText("You passed the lesson, but there are no more units available at the moment.");
-                }
+            // If it's Lesson 1, show the badge
+            if (currentLesson.getLessonName().equalsIgnoreCase("Lesson 1")) {
+                displayBadge();
             } else {
-                feedbackLabel.setText("You did not pass the lesson. Please try again.");
-                feedbackLabel.setStyle("-fx-text-fill: red;");
+                feedbackLabel.setText("You have completed the lesson, but no badge is awarded for this lesson.");
             }
-
-            App.setRoot("progress");
 
             // Save progress
             UserList.getInstance().saveUsers();
-            //UserList.getInstance().saveUserProgress(currentUser);
         }
     }
+
+
+    private void displayBadge() {
+        badgeImageView.setImage(new Image(App.class.getResourceAsStream("/com/language/images/badge1.png")));
+        badgeImageView.setVisible(true);
+        feedbackLabel.setText("Congratulations! You earned a badge for completing Lesson 1!");
+        feedbackLabel.setStyle("-fx-text-fill: green;");
+    }
+    
 
 
     @FXML
