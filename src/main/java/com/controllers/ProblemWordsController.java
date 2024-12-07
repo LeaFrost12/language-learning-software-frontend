@@ -10,6 +10,7 @@ import com.model.Word;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -22,29 +23,18 @@ public class ProblemWordsController {
     private ComboBox<String> unitComboBox;
 
     @FXML
-    private ImageView whaleImage;
-
-    @FXML
     private GridPane wordGrid;
 
     @FXML
     private Label wordDetailsLabel;
-
-    @FXML
-    private Button backHomeButton;
-
-    @FXML
-    private ImageView whaleImage;
 
     private User currentUser;
 
     /**
      * Initialize the controller.
      */
+    @FXML
     public void initialize() {
-        // Load the whale image
-        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
-        whaleImage.setImage(whale);
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 
@@ -58,6 +48,7 @@ public class ProblemWordsController {
     /**
      * Load problem words for the current user into the GridPane.
      */
+    @FXML
     private void loadProblemWords() {
         List<Word> problemWords = currentUser.getProblemWordList().getWords();
         wordGrid.getChildren().clear();
@@ -87,6 +78,7 @@ public class ProblemWordsController {
     /**
      * Display details for the selected word in the details label.
      */
+    @FXML
     private void displayWordDetails(Word word) {
         String details = String.format("Word: %s\nTranslation: %s\nPart of Speech: %s\nExample: %s",
                 word.getForeignWord(), word.getTranslatedWord(), word.getPartofSpeech(), word.getExampleSentence());
@@ -96,6 +88,7 @@ public class ProblemWordsController {
     /**
      * Show a message when no user is logged in.
      */
+    @FXML
     private void showNoUserLoggedInMessage() {
         Label message = new Label("No user logged in.");
         wordGrid.add(message, 0, 0);
@@ -113,7 +106,7 @@ public class ProblemWordsController {
      * Handle the Back to Home button click event.
      */
     @FXML
-    private void onBackHomeClicked(ActionEvent event) throws IOException {
+    private void back(ActionEvent event) throws IOException {
         App.setRoot("user_home");
     }
 }
