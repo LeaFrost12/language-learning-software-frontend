@@ -191,16 +191,14 @@
 
 /* Primary Button Styling */
 .primary-button {
-    -fx-background-color: #134349; /* Ocean blue */
+    -fx-background-color: #0288d1; /* Ocean blue */
     -fx-text-fill: #EFEFEF;
-    -fx-font-size: 30px;
-    -fx-font-family: 'Alegreya Sans SC';
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10px;
-    -fx-background-radius: 25;
-    -fx-border-color: #134349; /* Deep sea blue */
-    -fx-border-width: 2;
-    -fx-border-radius: 25;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.3, 0, 1);
+    -fx-border-radius: 10px;
 }
 
 /* Hover effect for Primary Button */
@@ -397,7 +395,7 @@
     -fx-text-fill: #d32f2f; /* Red for incorrect, change dynamically if needed */
 }
 
-.submit-button, .next-button {
+.submit-button {
     -fx-background-color: #0288d1;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
@@ -406,7 +404,7 @@
     -fx-border-radius: 5;
 }
 
-.submit-button:hover, .next-button:hover {
+.submit-button:hover {
     -fx-background-color: #03a9f4;
 }
 
@@ -494,10 +492,11 @@
 }
 
 .flashcard-container {
-    -fx-border-color: #ccc;
-    -fx-border-width: 2px;
-    -fx-border-radius: 10px;
-    -fx-padding: 20px;
+    -fx-border-color: #87C7D1;
+    -fx-border-width: 3px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
     -fx-background-color: #f9f9f9;
 }
 
@@ -512,24 +511,26 @@
 }
 
 .click-to-reveal {
-    -fx-font-size: 12px;
-    -fx-text-fill: #888;
+    -fx-font-size: 14px;
+    -fx-font-style: italic;
+    -fx-text-fill: #555555;
 }
 
 .unit-label {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #008000;
+    -fx-text-fill: #134349;
 }
 
 .word-label {
-    -fx-font-size: 32px;
+    -fx-font-size: 35px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
+    -fx-text-fill: #01579b;
+    -fx-wrap-text: true;
 }
 
 .subtitle {
-    -fx-font-size: 16px;
+    -fx-font-size: 13px;
     -fx-text-fill: #666666;
 }
 .story-container {
@@ -570,4 +571,18 @@
     -fx-font-size: 14px;
     -fx-border-radius: 20;
     -fx-background-radius: 20;
+}
+
+.next-button {
+    -fx-background-color: transparent; /* Ocean blue */
+    -fx-text-fill: #0288d1;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.next-button:hover {
+    -fx-text-fill: #044664;
 }
