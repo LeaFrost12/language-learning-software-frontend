@@ -381,6 +381,15 @@
 
 }
 
+.circle-button {
+    -fx-background-color: #B3F3FA;
+    -fx-text-fill: #038EAE;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;   
+}
+
 .rounded-button1 {
     -fx-background-color: #1DBADD; /* Light blue */
     -fx-text-fill: #EFEFEF; /* White text */
