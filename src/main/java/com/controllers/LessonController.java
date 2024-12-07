@@ -17,20 +17,37 @@ import com.model.Word;
 import com.model.WordBank;
 import com.narration.Narrator;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 public class LessonController {
     @FXML
     private ImageView badgeImageView;
+
+    @FXML
+    private HBox whaleBox;
+
+    @FXML
+    private ImageView whalePosition1;
+
+    @FXML
+    private ImageView whalePosition2;
+
+    @FXML
+    private ImageView whalePosition3;
+
+    @FXML
+    private ImageView whalePosition4;
 
     @FXML
     private Button backButton;
@@ -58,6 +75,9 @@ public class LessonController {
 
     @FXML
     private TextField answerField;
+    
+    @FXML
+    private ImageView whaleImage;
 
     private List<Question> questions;
     private UserList userList;
@@ -72,6 +92,20 @@ public class LessonController {
         badgeImageView.setVisible(false); // Hide badge initially
         userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
+        Image whaleImage = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whalePosition1.setImage(whaleImage);
+        whalePosition2.setImage(whaleImage);
+        whalePosition3.setImage(whaleImage);
+        whalePosition4.setImage(whaleImage);
+    
+        // Hide the whale images initially
+        whalePosition1.setVisible(false);
+        whalePosition2.setVisible(false);
+        whalePosition3.setVisible(false);
+        whalePosition4.setVisible(false);
+    
+        // Show the whaleBox only if it will be used
+        whaleBox.setVisible(true);
 
         if (currentUser != null) {
             currentLesson = currentUser.getCurrentLesson();
@@ -201,6 +235,7 @@ public class LessonController {
             feedbackLabel.setText("Correct!");
             feedbackLabel.setStyle("-fx-text-fill: green;");
             correctAnswersCount++;  // Increment correct answers count
+            updateWhalePosition();
         } else {
             feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
             feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -213,6 +248,7 @@ public class LessonController {
             feedbackLabel.setText("Correct!");
             feedbackLabel.setStyle("-fx-text-fill: green;");
             correctAnswersCount++;  // Increment correct answers count
+            updateWhalePosition();
         } else {
             feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
             feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -243,6 +279,7 @@ public class LessonController {
                 feedbackLabel.setText("Correct!");
                 feedbackLabel.setStyle("-fx-text-fill: green;");
                 correctAnswersCount++;  // Increment correct answers count
+                updateWhalePosition();
             } else {
                 feedbackLabel.setText("Incorrect. The correct answer is: " + question.getCorrectAnswer());
                 feedbackLabel.setStyle("-fx-text-fill: red;");
@@ -276,6 +313,7 @@ public class LessonController {
             if (correctAnswers.get(englishWord).equalsIgnoreCase(userAnswer)) {
                 inputField.setStyle("-fx-border-color: green; -fx-border-width: 2px;");
                 correctAnswersCount++;  // Increment correct answers count
+                animateWhale();
             } else {
                 inputField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 allCorrect = false;
@@ -341,6 +379,47 @@ public class LessonController {
             Narrator.playSound(questionText); // Narrates the question text
         } else {
             System.out.println("No question available to narrate.");
+        }
+    }
+
+    private void animateWhale() {
+        if (!whaleImage.isVisible()) {
+            whaleImage.setVisible(true); // Show the whale if hidden
+        }
+    
+        double maxTranslation = 400; // Maximum translation distance
+        double newTranslationX = correctAnswersCount * 50; // Increment movement per correct answer
+        if (newTranslationX > maxTranslation) newTranslationX = maxTranslation; // Limit the translation
+    
+        TranslateTransition transition = new TranslateTransition(Duration.millis(500), whaleImage);
+        transition.setToX(newTranslationX); // Move to the new position
+        transition.play();
+    }
+
+    private void updateWhalePosition() {
+        // Reset visibility of all whale positions
+        whalePosition1.setVisible(false);
+        whalePosition2.setVisible(false);
+        whalePosition3.setVisible(false);
+        whalePosition4.setVisible(false);
+    
+        // Show the whale at the current position
+        switch (correctAnswersCount) {
+            case 1:
+                whalePosition1.setVisible(true);
+                break;
+            case 2:
+                whalePosition2.setVisible(true);
+                break;
+            case 3:
+                whalePosition3.setVisible(true);
+                break;
+            case 4:
+                whalePosition4.setVisible(true);
+                break;
+            default:
+                // No action needed for other values
+                break;
         }
     }
 }
