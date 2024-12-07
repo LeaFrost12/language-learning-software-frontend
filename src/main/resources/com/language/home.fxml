@@ -16,8 +16,8 @@
 
             <!-- Buttons -->
             <VBox alignment="CENTER" spacing="15.0" prefWidth="300.0">
-                <Button fx:id="button" onAction="#onLoginClicked" styleClass="primary-button" text="Login" prefWidth="300.0" prefHeight="50.0" />
-                <Button fx:id="button1" onAction="#onSignupClicked" styleClass="secondary-button" text="Signup" prefWidth="300.0" prefHeight="50.0" />
+                <Button fx:id="button" onAction="#onLoginClicked" styleClass="login-button" text="Login" prefWidth="300.0" prefHeight="50.0" />
+                <Button fx:id="button1" onAction="#onSignupClicked" styleClass="signup-button" text="Signup" prefWidth="300.0" prefHeight="50.0" />
             </VBox>
         </VBox>
     </children>
