@@ -253,7 +253,7 @@ public class LessonController {
         currentUser.getProblemWordList().addWord(problemWord);
 
         // Save user progress after adding problem word
-        UserList.getInstance().saveUserProgress(currentUser);
+        userList.saveUsers();;
     }
 
     private void validateMatchingQuestion(Matching matchingQuestion) {
@@ -302,6 +302,13 @@ public class LessonController {
             if (score >= 75) {
                 feedbackLabel.setText("Congratulations! You passed the lesson. You can proceed to the next unit.");
                 feedbackLabel.setStyle("-fx-text-fill: green;");
+
+                // Attempt to advance to the next lesson if available
+                if (currentUser.moveToNextLesson()) {
+                    feedbackLabel.setText("You have been advanced to the next lesson.");
+                } else {
+                    feedbackLabel.setText("You passed the lesson, but there are no more lessons available at the moment.");
+                }
                 
                 // Attempt to advance to the next unit if available
                 if (currentUser.moveToNextUnit()) {
@@ -314,9 +321,11 @@ public class LessonController {
                 feedbackLabel.setStyle("-fx-text-fill: red;");
             }
 
+            App.setRoot("progress");
+
             // Save progress
             UserList.getInstance().saveUsers();
-            UserList.getInstance().saveUserProgress(currentUser);
+            //UserList.getInstance().saveUserProgress(currentUser);
         }
     }
 

@@ -11,16 +11,24 @@ import com.model.TempUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class LanguageController {
 
     @FXML
     private VBox languageButtonsContainer;
+    
+    @FXML
+    private ImageView whaleImage;
 
     private final LanguageSystemFacade facade = LanguageSystemFacade.getInstance();
 
     public void initialize() {
+        // Load the whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whaleImage.setImage(whale);
         // Dynamically create buttons for each language in LanguagesEnum
         for (LanguagesEnum languageEnum : LanguagesEnum.values()) {
             Button languageButton = new Button(languageEnum.name());

@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ProblemWordsController {
 
@@ -25,9 +27,15 @@ public class ProblemWordsController {
     @FXML
     private Button backHomeButton;
 
+    @FXML
+    private ImageView whaleImage;
+
     private User currentUser;
 
     public void initialize() {
+        // Load the whale image
+        Image whale = new Image(App.class.getResourceAsStream("/com/language/images/whale.png"));
+        whaleImage.setImage(whale);
         UserList userList = UserList.getInstance();
         currentUser = userList.getCurrentUser();
 

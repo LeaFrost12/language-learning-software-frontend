@@ -77,7 +77,7 @@ public class FlashcardsController {
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
-        App.setRoot("user_home");
+        App.setRoot("progress");
     }
 
     @FXML
