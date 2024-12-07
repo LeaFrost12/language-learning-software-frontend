@@ -41,7 +41,7 @@ public class WordBank implements Question {
             this.answer = answerWord.getForeignWord();
             this.question = answerWord.getExampleSentence();
             this.wordBank = new ArrayList<>(words);
-            this.wordBank.add(answerWord);
+
             Collections.shuffle(this.wordBank, rand);
         }
     }
@@ -66,7 +66,7 @@ public class WordBank implements Question {
             this.answer = answerWord.getForeignWord();
             this.question = answerWord.getExampleSentence();
             this.wordBank = new ArrayList<>(words);
-            this.wordBank.add(answerWord);
+
             Collections.shuffle(this.wordBank, rand);
         }
     }
@@ -78,10 +78,7 @@ public class WordBank implements Question {
      */
     @Override
     public String getQuestionText() {
-        StringBuilder questionText = new StringBuilder(question).append("\nWord choices:\n");
-        for (Word word : wordBank) {
-            questionText.append(word.getForeignWord()).append("\n");
-        }
+        StringBuilder questionText = new StringBuilder(question);
         return questionText.toString();
     }
 
