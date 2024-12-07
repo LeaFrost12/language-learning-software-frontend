@@ -10,6 +10,7 @@ import com.model.Word;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -32,9 +33,6 @@ public class ProblemWordsController {
 
     @FXML
     private Button backHomeButton;
-
-    @FXML
-    private ImageView whaleImage;
 
     private User currentUser;
 

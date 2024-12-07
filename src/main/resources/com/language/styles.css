@@ -206,11 +206,6 @@
     -fx-padding: 20;
 }
 
-.info-label {
-    -fx-font-size: 16px;
-    -fx-text-fill: #555;
-}
-
 .back-button {
     -fx-background-color: #0288d1;
     -fx-text-fill: white;
